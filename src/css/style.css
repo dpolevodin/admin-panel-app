@@ -481,17 +481,15 @@ body {
     border-radius: 0.25rem;
 }
 
+.filter__loader .svg-icon{
+    stroke: var(--background-admin-panel-medium);
+}
+
 .filter__loader-text {
     width: 100%;
     line-height: 1rem;
     font-size: 0.8125rem;
     color: var(--background-admin-panel-medium);
-}
-
-.filter__loader-icon {
-    height: 1rem;
-    margin-right: 0.5rem;
-    stroke: var(--background-admin-panel-medium);
 }
 
 .filter__input {

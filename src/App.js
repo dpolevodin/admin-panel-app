@@ -3,9 +3,11 @@ import '../src/css/style.css';
 // import SvgElement from './components/SvgElement';
 import SvgSprite from './components/SvgSprite';
 import PageHeader from './components/PageHeader';
-import Button from './components/Button';
+// import Button from './components/Button';
 // import Input from './components/Input';
-import Searchbar from './components/Searchbar';
+// import Searchbar from './components/Searchbar';
+// import Loader from './components/Loader';
+import FilterPrimary from './components/FilterPrimary'
 
 
 function App() {
@@ -14,26 +16,7 @@ function App() {
     <div className="main-wrapper">
         <PageHeader />
         <div className="filter">
-            <div className="filter__wrapper">
-                <div className="filter__group">
-                    <form className="filter__form">
-                        <Searchbar 
-                            labelClass="filter__searchbar-group" 
-                            wrapperClass="filter__searchbar-field filter__searchbar-field_empty"
-                            inputAreaClass="filter__searchbar-search-area"/>
-
-                        <Button className="filter-button" svgName="filter" buttonText="Фильтры" />
-                        <Button className="filter-button filter-button_hidden-icon" svgName="filter" buttonText="Сбросить фильтры" />
-                    </form>
-
-                    <div className="filter__loader">
-                        <svg className="filter__loader-icon">
-                            <use xlinkHref="#refresh"></use>
-                        </svg>
-                        <span className="filter__loader-text">Загрузка</span>
-                    </div>
-                </div>
-            </div>
+            <FilterPrimary />
             <div className="filter__wrapper">
                 <form className="filter__form">
                     <div className="filter__input">
