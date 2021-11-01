@@ -3,7 +3,7 @@ function SvgSprite () {
         <svg className="svg" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink">
 
             <symbol id="incorrect" viewBox="0 0 16 16">
-                <path fill="none" d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5"/>
+            <path d="M12.5 3.5L3.5 12.5M3.5 3.5L12.5 12.5"/>
             </symbol>
         
             <symbol id="search" viewBox="0 0 16 16">

@@ -1,8 +1,11 @@
 import '../src/css/reset.css';
 import '../src/css/style.css';
-import SvgElement from './components/Svg';
+// import SvgElement from './components/SvgElement';
 import SvgSprite from './components/SvgSprite';
 import PageHeader from './components/PageHeader';
+import Button from './components/Button';
+// import Input from './components/Input';
+import Searchbar from './components/Searchbar';
 
 
 function App() {
@@ -10,47 +13,17 @@ function App() {
     <body>
     <div className="main-wrapper">
         <PageHeader />
-        {/* <div className="page-header">
-            <h1 className="page-header__text">Список заказов</h1>
-            <button className="page-header__button page-header__button_transparent"> */}
-                {/* <svg className="page-header__icon">
-                    <use xlinkHref="#sun"></use>
-                </svg> */}
-                {/* <SvgElement svgName='sun' className="page-header__icon"/> */}
-                {/* <span className="page-header__button__text">Cветлая тема</span>
-            </button>
-        </div> */}
         <div className="filter">
             <div className="filter__wrapper">
                 <div className="filter__group">
                     <form className="filter__form">
-                        <label className="filter__searchbar-group">
-                            <div className="filter__searchbar-field filter__searchbar-field_empty">
-                                <div className="filter__searchbar-search-area">
-                                    {/* <svg className="filter__searchbar-icon filter__searchbar-icon_active">
-                                        <use xlinkHref="#search"></use>
-                                    </svg> */}
-                                    <SvgElement svgName='search' className="filter__searchbar-icon filter__searchbar-icon_active" />
-                                    <input className="filter__searchbar-area" placeholder="Номер заказа или ФИО" />  
-                                </div>
-                                <button className="filter__searchbar-button">
-                                    <svg className="filter__searchbar-icon">
-                                        <use xlinkHref="#incorrect"></use>
-                                    </svg>
-                                </button>
-                            </div>
-                        </label>
+                        <Searchbar 
+                            labelClass="filter__searchbar-group" 
+                            wrapperClass="filter__searchbar-field filter__searchbar-field_empty"
+                            inputAreaClass="filter__searchbar-search-area"/>
 
-                        <button className="filter-button">
-                            <svg className="filter-button__icon">
-                                <use xlinkHref="#filter"></use>
-                            </svg>
-                            <span className="filter-button__text">Фильтры</span>
-                        </button>
-
-                        <button className="filter-button filter-button_no-icon">
-                            <span className="filter-button__text">Сбросить фильтры</span>
-                        </button>
+                        <Button className="filter-button" svgName="filter" buttonText="Фильтры" />
+                        <Button className="filter-button filter-button_hidden-icon" svgName="filter" buttonText="Сбросить фильтры" />
                     </form>
 
                     <div className="filter__loader">

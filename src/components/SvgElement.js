@@ -1,8 +1,8 @@
-function SvgElement ({svgName, className}) {
+function SvgElement ({svgName}) {
     return (
-        <svg className={className}>
+        <svg className="svg-icon">
             <use xlinkHref={`#${svgName}`}></use>
-        </svg> 
+        </svg>
     )
 }
 
