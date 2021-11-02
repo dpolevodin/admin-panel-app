@@ -1,7 +1,7 @@
 import SvgElement from './SvgElement'
 
 
-function Button ({className, svgName, buttonText}) {
+function Button({className, svgName, buttonText}) {
     return (
         <button className={className}>
                 <SvgElement svgName={svgName} />

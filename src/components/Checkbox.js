@@ -1,10 +1,10 @@
 import SvgElement from "../components/SvgElement";
 
 
-function checkbox ({className, placeholder}) {
+function checkbox() {
     return (
-        <div className="filter__dropdown-checkbox-group">
-            <input type="checkbox" className="filter__dropdown-checkbox" />
+        <div className="checkbox-group">
+            <input type="checkbox" className="checkbox" />
             <SvgElement svgName="checkmark" />
         </div>
     )
