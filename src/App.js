@@ -8,7 +8,12 @@ import PageHeader from './components/PageHeader';
 // import Searchbar from './components/Searchbar';
 // import Loader from './components/Loader';
 import FilterPrimary from './components/FilterPrimary'
-import FilterDropdown from './components/FilterDropdown';
+// import FilterDropdown from './components/FilterDropdown';
+// import DateFilter from './components/DateFilter'
+// import StatusFilter from './components/StatusFilter'
+// import SumOrderFilter from './components/SumOrderFilter'
+// import Button from './components/Button';
+import FilterOptions from './components/FilterOptions'
 
 
 function App() {
@@ -16,83 +21,12 @@ function App() {
     <body>
         <div className="main-wrapper">
             <PageHeader />
+            
             <div className="filter">
                 <FilterPrimary />
-                <div className="filter__wrapper">
-                    <form className="filter__form">
-                        <div className="filter__input">
-                            <label className="filter__input-control">
-                                <span className="filter__input-title">Дата оформления</span>
-                                <div className="filter__input-field filter__input-field_empty">
-                                    <input className="filter__input-area" placeholder="dd.mm.dddd" value="20.01.2021" />
-                                    <button className="filter__input-button">
-                                        <svg className="filter__input-icon filter__input-icon_incorrect">
-                                            <use xlinkHref="#incorrect"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </label>  
-
-                            <label className="filter__input-control">
-                                <div className="filter__input-field filter__input-field_empty">
-                                    <input className="filter__input-area" placeholder="dd.mm.dddd" />
-                                    <button className="filter__input-button">
-                                        <svg className="filter__input-icon">
-                                            <use xlinkHref="#incorrect"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </label>
-                        </div>
-
-                        <div className="filter__input">
-                            <FilterDropdown />
-                            
-                            <label className="filter__input-control">
-                                <span className="filter__input-title">Статус заказа</span>
-                                <div className="filter__input-field filter__input-field_empty filter__input-field_long">
-                                    <input className="filter__input-area" placeholder="Выберите статус заказа" value="Любой" />
-                                    <button id="statusInput" className="filter__input-button">
-                                        <svg className="filter__input-icon filter__input-icon_drop">
-                                            <use xlinkHref="#v_arrow"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </label>
-                        </div>
-
-                        <div className="filter__input">
-                            <label className="filter__input-control">
-                                <span className="filter__input-title">Сумма заказа</span>
-                                <div className="filter__input-field filter__input-field_empty filter__input-field_short">
-                                    <input className="filter__input-area" placeholder="" value="5000" />
-                                    <button className="filter__input-button">
-                                        <svg className="filter__input-icon filter__input-icon_incorrect">
-                                            <use xlinkHref="#incorrect"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </label>  
-
-                            <label className="filter__input-control">
-                                <div className="filter__input-field filter__input-field_empty filter__input-field_short">
-                                    <input className="filter__input-area" placeholder="₽" />
-                                    <button className="filter__input-button">
-                                        <svg className="filter__input-icon">
-                                            <use xlinkHref="#incorrect"></use>
-                                        </svg>
-                                    </button>
-                                </div>
-                            </label>
-                        </div>
-
-                        <button className="filter-button filter-button_no-icon filter-button_short">
-                            <span className="filter-button__text">Применить</span>
-                        </button>
-
-                    </form>
-                </div>
+                <FilterOptions />
             </div>
+
             <div className="table">
                 <div className="table__header">
                     <ul className="table__header-list">

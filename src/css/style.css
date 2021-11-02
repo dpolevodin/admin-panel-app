@@ -577,8 +577,25 @@ body {
     border-color: var(--background-admin-panel-medium);
 }
 
+.filter__input-field_empty:focus-within .svg-icon {
+    display: block;
+}
+
 .filter__input-field_long {
     width: 12rem;
+}
+
+.filter__input-field_long .filter__input-button .svg-icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    margin: 0;
+    fill: var(--background-admin-panel-light);
+}
+
+.filter__input-button:hover .svg-icon {
+    stroke: var(--background-admin-panel-medium);
+    fill: var(--background-admin-panel-medium);
 }
 
 .filter__input-field_short {
@@ -616,11 +633,21 @@ body {
     cursor: pointer;
 }
 
-.filter__input-icon {
+.filter__input-button .svg-icon {
     display: none;
     width: 1rem;
     height: 1rem;
+    margin: 0;
     fill: inherit;
+    stroke: var(--background-admin-panel-light);
+}
+
+.filter__input-icon {
+    display: block;
+    width: 1rem;
+    height: 1rem;
+    fill: inherit;
+    stroke: var(--background-admin-panel-light);
 }
 
 .filter__input-icon_incorrect {
