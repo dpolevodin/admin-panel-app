@@ -8,6 +8,7 @@ import PageHeader from './components/PageHeader';
 // import Searchbar from './components/Searchbar';
 // import Loader from './components/Loader';
 import FilterPrimary from './components/FilterPrimary'
+import FilterDropdown from './components/FilterDropdown';
 
 
 function App() {
@@ -45,85 +46,13 @@ function App() {
                         </div>
 
                         <div className="filter__input">
-                            <ul className="filter__dropdown-list">
-        
-                                <li className="filter__dropdown-item">
-                                    <label className="filter__dropdown-control">
-                                        <div className="filter__dropdown-checkbox-group">
-                                            <input type="checkbox" className="filter__dropdown-checkbox" />
-                                            <svg className="filter__dropdown-icon">
-                                                <use xlinkHref="#checkmark"></use>
-                                            </svg>
-                                        </div>
-                                        <span className="filter__dropdown-item-title">Новый</span>      
-                                    </label>
-                                </li>
-
-                                <li className="filter__dropdown-item">
-                                    <label className="filter__dropdown-control">
-                                        <div className="filter__dropdown-checkbox-group">
-                                            <input type="checkbox" className="filter__dropdown-checkbox" />
-                                            <svg className="filter__dropdown-icon">
-                                                <use xlinkHref="#checkmark"></use>
-                                            </svg>
-                                        </div>
-                                        <span className="filter__dropdown-item-title">Расчет</span>      
-                                    </label>
-                                </li>
-
-                                <li className="filter__dropdown-item">
-                                    <label className="filter__dropdown-control">
-                                        <div className="filter__dropdown-checkbox-group">
-                                            <input type="checkbox" className="filter__dropdown-checkbox" />
-                                            <svg className="filter__dropdown-icon">
-                                                <use xlinkHref="#checkmark"></use>
-                                            </svg>
-                                        </div>
-                                        <span className="filter__dropdown-item-title">Подтвержден</span>      
-                                    </label>
-                                </li>
-
-                                <li className="filter__dropdown-item">
-                                    <label className="filter__dropdown-control">
-                                        <div className="filter__dropdown-checkbox-group">
-                                            <input type="checkbox" className="filter__dropdown-checkbox" />
-                                            <svg className="filter__dropdown-icon">
-                                                <use xlinkHref="#checkmark"></use>
-                                            </svg>
-                                        </div>
-                                        <span className="filter__dropdown-item-title">Отложен</span>      
-                                    </label>
-                                </li>
-
-                                <li className="filter__dropdown-item">
-                                    <label className="filter__dropdown-control">
-                                        <div className="filter__dropdown-checkbox-group">
-                                            <input type="checkbox" className="filter__dropdown-checkbox" />
-                                            <svg className="filter__dropdown-icon">
-                                                <use xlinkHref="#checkmark"></use>
-                                            </svg>
-                                        </div>
-                                        <span className="filter__dropdown-item-title">Выполнен</span>      
-                                    </label>
-                                </li>
-
-                                <li className="filter__dropdown-item">
-                                    <label className="filter__dropdown-control">
-                                        <div className="filter__dropdown-checkbox-group">
-                                            <input type="checkbox" className="filter__dropdown-checkbox" />
-                                            <svg className="filter__dropdown-icon">
-                                                <use xlinkHref="#checkmark"></use>
-                                            </svg>
-                                        </div>
-                                        <span className="filter__dropdown-item-title">Отменен</span>      
-                                    </label>
-                                </li>                             
-                            </ul>
+                            <FilterDropdown />
+                            
                             <label className="filter__input-control">
                                 <span className="filter__input-title">Статус заказа</span>
                                 <div className="filter__input-field filter__input-field_empty filter__input-field_long">
                                     <input className="filter__input-area" placeholder="Выберите статус заказа" value="Любой" />
-                                    <button className="filter__input-button">
+                                    <button id="statusInput" className="filter__input-button">
                                         <svg className="filter__input-icon filter__input-icon_drop">
                                             <use xlinkHref="#v_arrow"></use>
                                         </svg>

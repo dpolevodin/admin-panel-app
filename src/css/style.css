@@ -686,6 +686,15 @@ body {
     align-items: center;
 }
 
+.filter__dropdown-checkbox-group .svg-icon {
+    position: absolute;
+    width: 1rem;
+    margin: 0;
+    fill: var(--background-admin-panel-white);
+    opacity: 0;
+    transition: opacity 0.25s ease-in;
+}
+
 .filter__dropdown-checkbox {
     appearance: none;
     width: 1rem;
@@ -710,18 +719,18 @@ body {
     outline-color: var(--background-admin-panel-light);
 }
 
-.filter__dropdown-checkbox:checked + .filter__dropdown-icon {
+.filter__dropdown-checkbox:checked + .svg-icon {
     opacity: 1;
 }
 
-.filter__dropdown-icon {
+/* .filter__dropdown-icon {
     position: absolute;
     width: 1rem;
     height: 1rem;
     fill: var(--background-admin-panel-white);
     opacity: 0;
     transition: opacity 0.25s ease-in;
-}
+}  */
 
 .filter__dropdown-item-title {
     display: flex;

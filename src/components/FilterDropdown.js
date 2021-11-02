@@ -1,0 +1,24 @@
+import Checkbox from '../components/Checkbox'
+
+
+function FilterDropdown ({className, placeholder}) {
+    const FilterDropdownStatus = ['Новый', 'Расчет', 'Подтвержден', 'Отложен', 'Выполнен', 'Отменен']
+    
+    const FilterDropdownStatusRender = FilterDropdownStatus.map((element) => { return (
+            <label className="filter__dropdown-control">
+                <li className="filter__dropdown-item">
+                        <Checkbox />
+                        <span className="filter__dropdown-item-title">{element}</span>      
+                </li>
+            </label>
+        )
+        })
+
+    return (
+        <ul className="filter__dropdown-list">
+            {FilterDropdownStatusRender}
+        </ul>
+    )
+}
+
+export default FilterDropdown;
