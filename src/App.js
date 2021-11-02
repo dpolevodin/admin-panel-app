@@ -14,6 +14,8 @@ import FilterPrimary from './components/FilterPrimary'
 // import SumOrderFilter from './components/SumOrderFilter'
 // import Button from './components/Button';
 import FilterOptions from './components/FilterOptions'
+import TableHeader from './components/TableHeader'
+import FooterDropdown from './components/FooterDropdown';
 
 
 function App() {
@@ -21,57 +23,15 @@ function App() {
     <body>
         <div className="main-wrapper">
             <PageHeader />
-            
+
             <div className="filter">
                 <FilterPrimary />
                 <FilterOptions />
             </div>
 
             <div className="table">
-                <div className="table__header">
-                    <ul className="table__header-list">
-                        <li className="table__header-item">
-                            <label className="table__checkbox-control">
-                                <div className="table__checkbox-group">
-                                    <input type="checkbox" className="table__checkbox" />
-                                    <svg className="table__header-icon">
-                                        <use xlinkHref="#checkmark"></use>
-                                    </svg>
-                                </div>   
-                            </label>
-                        </li>
-                        <li className="table__header-item">
-                            <span className="table__header-item-text">#</span>
-                        </li>
-                        <li className="table__header-item">
-                            <span className="table__header-item-text">Дата</span>
-                            <svg className="table__header-icon table__header-icon_active">
-                                <use xlinkHref="#v_arrow"></use>
-                            </svg>
-                        </li>
-                        <li className="table__header-item">
-                            <span className="table__header-item-text">Статус</span>
-                            <svg className="table__header-icon table__header-icon_active">
-                                <use xlinkHref="#v_arrow"></use>
-                            </svg>
-                        </li>
-                        <li className="table__header-item">
-                            <span className="table__header-item-text">Позиций</span>
-                            <svg className="table__header-icon table__header-icon_active">
-                                <use xlinkHref="#v_arrow"></use>
-                            </svg>
-                        </li>
-                        <li className="table__header-item">
-                            <span className="table__header-item-text">Сумма</span>
-                            <svg className="table__header-icon table__header-icon_active">
-                                <use xlinkHref="#v_arrow"></use>
-                            </svg>
-                        </li>
-                        <li className="table__header-item">
-                            <span className="table__header-item-text">ФИО покупателя</span>
-                        </li>
-                    </ul>
-                </div>
+                <TableHeader />
+
                 <div className="table__body">
                     <ul className="table__body-list">
                         <li className="table__body-item">
@@ -470,15 +430,8 @@ function App() {
                             <span className="table__footer-button-text">Удалить</span>
                         </button>
                     </form>
-                    <form className="table__footer-dropdown">
-                        <span className="table__dropdown-title">Удалить n записей?</span>
-                        <button className="table__dropdown-button table__dropdown-button_transparent">
-                            <span className="table__dropdown-button-text">Удалить</span>
-                        </button>
-                        <button className="table__dropdown-button">
-                            <span className="table__dropdown-button-text">Отмена</span>
-                        </button>
-                    </form>
+
+                    <FooterDropdown />
 
                     <div className="table__footer-pagination">
                         <form className="table__footer-pagination-form">
