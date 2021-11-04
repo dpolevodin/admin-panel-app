@@ -4,6 +4,7 @@ import Checkbox from '../components/Checkbox'
 
 
 function TableOrdersList () {
+
     const statusIconMapping = {
         'Новый': 'dot',
         'Расчет': 'dot',
@@ -23,33 +24,33 @@ function TableOrdersList () {
     const ordersRender = JsonData.map(order => {
         return (
             <li className="table__body-item" key={order.id}>
-                            <label className="table__checkbox-control">
-                            <ul className="table__body-item-row">
-                                <li className="table__header-item">
-                                    <Checkbox />
-                                </li>
-                                <li className="table__header-item">
-                                    <span className="table__header-item-text">{order.id}</span>
-                                </li>
-                                <li className="table__header-item">
-                                    <span className="table__header-item-text">{order.creationDate}</span>
-                                </li>
-                                <li className={statusClassMapping[order.status]}>
-                                    <SvgElement svgName={statusIconMapping[order.status]} />
-                                    <span className="table__header-item-text">{order.status}</span>
-                                </li>
-                                <li className="table__header-item">
-                                    <span className="table__header-item-text">{order.positionsCount}</span>
-                                </li>
-                                <li className="table__header-item">
-                                    <span className="table__header-item-text">{order.sum}</span>
-                                </li>
-                                <li className="table__header-item">
-                                    <span className="table__header-item-text">{order.name}</span>
-                                </li>
-                            </ul>
-                            </label>
-                        </li>
+                <label className="table__checkbox-control">
+                <ul className="table__body-item-row">
+                    <li className="table__header-item">
+                        <Checkbox />
+                    </li>
+                    <li className="table__header-item">
+                        <span className="table__header-item-text">{order.id}</span>
+                    </li>
+                    <li className="table__header-item">
+                        <span className="table__header-item-text">{order.creationDate}</span>
+                    </li>
+                    <li className={statusClassMapping[order.status]}>
+                        <SvgElement svgName={statusIconMapping[order.status]} />
+                        <span className="table__header-item-text">{order.status}</span>
+                    </li>
+                    <li className="table__header-item">
+                        <span className="table__header-item-text">{order.positionsCount}</span>
+                    </li>
+                    <li className="table__header-item">
+                        <span className="table__header-item-text">{order.sum}</span>
+                    </li>
+                    <li className="table__header-item">
+                        <span className="table__header-item-text">{order.name}</span>
+                    </li>
+                </ul>
+                </label>
+            </li>
         )
     })
 

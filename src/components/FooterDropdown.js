@@ -1,7 +1,7 @@
 import Button from "../components/Button";
 
 
-function FooterDropdown ({className, placeholder, value}) {
+function FooterDropdown () {
     let ordersCount = 'n'
 
     return (
