@@ -9,7 +9,7 @@ function TableHeader () {
     const headerTitlesRender = headerTitles.map(item => {
         if (item === '') {
             return (
-                <li className={itemClassName}>
+                <li className={itemClassName} key={headerTitles.indexOf(item)}>
                     <label className="table__checkbox-control">
                         <Checkbox />
                     </label>
@@ -17,14 +17,14 @@ function TableHeader () {
             )
         } else if (item === 'Дата' || item === 'Статус' || item === 'Позиций'|| item === 'Сумма') {
             return (
-                <li className={itemClassName}>
+                <li className={itemClassName} key={headerTitles.indexOf(item)}>
                     <span className={itemTextClassName}>{item}</span>
                     <SvgElement svgName="v_arrow" />
                 </li>
             )
         } else {
             return (
-                <li className={itemClassName}>
+                <li className={itemClassName} key={headerTitles.indexOf(item)}>
                     <span className={itemTextClassName}>{item}</span>
                 </li>
             )

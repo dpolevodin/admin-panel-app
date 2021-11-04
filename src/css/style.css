@@ -680,7 +680,7 @@ body {
 
 .filter__dropdown-list {
     position: absolute;
-    display: flex;
+    display: none; /* Return to flex */
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -789,6 +789,45 @@ body {
     flex-basis: 3%;
 }
 
+.table__body-item .table__header-item .svg-icon:nth-child(1) {
+    position: relative;
+    opacity: 1;
+    margin-right: 0.5rem;
+    fill: var(--background-admin-panel-orange);
+}
+
+.table__body-item .table__header-item_blue .svg-icon:nth-child(1) {
+    position: relative;
+    opacity: 1;
+    margin-right: 0.5rem;
+    fill: var(--background-admin-panel-medium);
+}
+
+.table__body-item .table__header-item_green .svg-icon:nth-child(1) {
+    position: relative;
+    opacity: 1;
+    margin-right: 0.5rem;
+    fill: var(--background-admin-panel-green);
+}
+
+.table__body-item .table__header-item_half-transparent .svg-icon:nth-child(1) {
+    position: relative;
+    opacity: 1;
+    margin-right: 0.5rem;
+    stroke: var(--background-admin-panel-black)
+}
+
+.table__header-item_green .table__header-item-text {
+    color: var(--background-admin-panel-green);
+}
+
+.table__header-item_blue .svg-icon{
+    position: relative;
+    opacity: 1;
+    margin-right: 0.5rem;
+    fill: var(--background-admin-panel-medium);
+}
+
 .table__header-list .table__header-item:hover {
     background-color: var(--background-admin-panel-item-shade);
 }
@@ -875,6 +914,14 @@ body {
     fill: var(--background-admin-panel-white);
     opacity: 0;
     transition: opacity 0.25s ease-in;
+}
+
+.table__header-item_blue .svg-icon {
+    position: relative;
+    opacity: 1;
+    margin-right: 0.5rem;
+    fill: var(--background-admin-panel-medium);
+    stroke: var(--background-admin-panel-medium);
 }
 
 .table__header-icon_orange {

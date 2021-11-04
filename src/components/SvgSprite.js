@@ -58,7 +58,7 @@ function SvgSprite () {
             <symbol id="abort" viewBox="0 0 16 16">
                 <path d="M12.5 12.5L3.5 3.5" fill="none"/>
                 <circle cx="8" cy="8" r="6.5" fill="none"/>
-            </symbol>
+            </symbol>            
         </svg>
     )
 }
