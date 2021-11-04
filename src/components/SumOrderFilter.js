@@ -18,7 +18,7 @@ function SumOrderFilter () {
             <label className={labelClassName}>
                 <span className={filterTitleClass}>Сумма заказа</span>
                 <div className={inputWrapperClassName}>
-                    <Input className={inputClassName} placeholder={sumFilterPlaceholder} value="5000" />
+                    <Input className={inputClassName} placeholder={sumFilterPlaceholder} />
                     <Button className={buttonClassName} svgName={sumFilterSvgName} />
                 </div>
             </label>

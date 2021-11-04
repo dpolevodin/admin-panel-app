@@ -18,7 +18,7 @@ function DateFilter () {
             <label className={labelClassName}>
                 <span className={filterTitleClass}>Дата оформления</span>
                 <div className={inputWrapperClassName}>
-                    <Input className={inputClassName} placeholder={dateFilterPlaceholder} value="20.01.2021" />
+                    <Input className={inputClassName} placeholder={dateFilterPlaceholder} />
                     <Button className={buttonClassName} svgName={dateFilterSvgName} />
                 </div>
             </label>

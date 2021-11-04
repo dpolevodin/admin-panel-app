@@ -20,7 +20,7 @@ function StatusFilter () {
             <label className={labelClassName}>
                 <span className={statusTitleClass}>Статус заказа</span>
                 <div className={inputWrapperClassName}>
-                    <Input className={inputClassName} placeholder={statusFilterPlaceholder} value="Любой"/>
+                    <Input className={inputClassName} placeholder={statusFilterPlaceholder} />
                     <Button className={buttonClassName} svgName={statusFilterSvgName} />
                 </div>
             </label>
