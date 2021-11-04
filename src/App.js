@@ -33,7 +33,6 @@ function App() {
                     <FooterActions />
                     <FooterDropdown />
                     <FooterPagination />
-
                 </div>
             </div>
         </div>

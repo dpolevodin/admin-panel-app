@@ -374,23 +374,6 @@ body {
     display: none;
 }
 
-/* .filter__searchbar-icon {
-    display: none;
-    width: 1rem;
-    height: 1rem;   
-    fill: inherit;
-    stroke: var(--background-admin-panel-medium);
-} */
-
-/* .filter__searchbar-icon_incorrect {
-    stroke: var(--background-searchbar-light);
-    display: block;
-} */
-
-/* .filter__searchbar-icon_active {
-    display: block;
-} */
-
 .filter-button {
     display: flex;
     justify-content: center;
@@ -755,15 +738,6 @@ body {
 .checkbox:checked + .svg-icon {
     opacity: 1;
 }
-
-/* .filter__dropdown-icon {
-    position: absolute;
-    width: 1rem;
-    height: 1rem;
-    fill: var(--background-admin-panel-white);
-    opacity: 0;
-    transition: opacity 0.25s ease-in;
-}  */
 
 .filter__dropdown-item-title {
     display: flex;
