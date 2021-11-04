@@ -13,7 +13,7 @@ import FooterPagination from './components/FooterPagination'
 
 function App() {
   return (
-    <body>
+    <div>
         <div className="main-wrapper">
             <PageHeader />
 
@@ -38,7 +38,7 @@ function App() {
             </div>
         </div>
         <SvgSprite />
-    </body>
+    </div>
   );
 }
 
