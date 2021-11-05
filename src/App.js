@@ -5,10 +5,8 @@ import PageHeader from './components/PageHeader';
 import FilterPrimary from './components/FilterPrimary'
 import FilterOptions from './components/FilterOptions'
 import TableHeader from './components/TableHeader'
-import FooterDropdown from './components/FooterDropdown';
 import TableOrdersList from './components/TableOrdersList';
-import FooterActions from './components/FooterActions'
-import FooterPagination from './components/FooterPagination'
+import TableFooter from './components/TableFooter'
 
 
 function App() {
@@ -24,16 +22,8 @@ function App() {
 
             <div className="table">
                 <TableHeader />
-
-                <div className="table__body">
-                    <TableOrdersList />
-                </div>
-
-                <div className="table__footer">
-                    <FooterActions />
-                    <FooterDropdown />
-                    <FooterPagination />
-                </div>
+                <TableOrdersList />
+                <TableFooter />
             </div>
         </div>
         <SvgSprite />

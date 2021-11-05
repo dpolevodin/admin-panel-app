@@ -36,9 +36,11 @@ function TableOrdersList () {
     })
 
     return (
-        <ul className="table__body-list">
-            {ordersRender}
-        </ul>
+        <div className="table__body">
+            <ul className="table__body-list">
+                {ordersRender}
+            </ul>
+        </div>
     )
 }
 
