@@ -1,7 +1,5 @@
 import JsonData from '../Data/Orders.json'
-import SvgElement from '../components/SvgElement';
-import Checkbox from '../components/Checkbox'
-
+import OrderItem from '../components/OrderItem'
 
 function TableOrdersList () {
 
@@ -23,35 +21,18 @@ function TableOrdersList () {
 
     const ordersRender = JsonData.map(order => {
         return (
-            <li className="table__body-item" key={order.id}>
-                <label className="table__checkbox-control">
-                <ul className="table__body-item-row">
-                    <li className="table__header-item">
-                        <Checkbox />
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{order.id}</span>
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{order.creationDate}</span>
-                    </li>
-                    <li className={statusClassMapping[order.status]}>
-                        <SvgElement svgName={statusIconMapping[order.status]} />
-                        <span className="table__header-item-text">{order.status}</span>
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{order.positionsCount}</span>
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{order.sum}</span>
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{order.name}</span>
-                    </li>
-                </ul>
-                </label>
-            </li>
-        )
+            <OrderItem
+                id={order.id}
+                creationDate={order.creationDate}
+                statusClass={statusClassMapping[order.status]}
+                iconClass={statusIconMapping[order.status]}
+                status={order.status}
+                positionsCount={order.positionsCount}
+                sum={order.sum}
+                name={order.name}
+                key={order.id}
+            />
+        )        
     })
 
     return (
