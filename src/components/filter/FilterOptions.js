@@ -1,7 +1,7 @@
-import Button from '../components/Button';
-import DateFilter from '../components/DateFilter';
-import StatusFilter from '../components/StatusFilter';
-import SumOrderFilter from '../components/SumOrderFilter';
+import Button from '../global/Button';
+import DateFilter from '../filter/DateFilter';
+import StatusFilter from '../filter/StatusFilter';
+import SumOrderFilter from '../filter/SumOrderFilter';
 
 function FilterOptions() {
     return (

@@ -1,5 +1,5 @@
-import Button from "./Button";
-import Input from "./Input";
+import Button from "../global/Button";
+import Input from "../global/Input";
 
 
 function SumOrderFilter () {

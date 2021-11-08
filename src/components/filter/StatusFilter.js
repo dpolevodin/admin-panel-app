@@ -1,6 +1,6 @@
-import Button from "../components/Button";
-import Input from "../components/Input";
-import FilterDropdown from "../components/FilterDropdown";
+import Button from "../global/Button";
+import Input from "../global/Input";
+import FilterDropdown from "../filter/FilterDropdown";
 
 
 function StatusFilter () {

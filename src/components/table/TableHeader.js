@@ -1,5 +1,5 @@
-import SvgElement from "../components/SvgElement";
-import Checkbox from "../components/Checkbox";
+import SvgElement from "../icons/SvgElement";
+import Checkbox from "../global/Checkbox";
 
 function TableHeader () {
     const headerTitles = ['', '#', 'Дата', 'Статус', 'Позиций', 'Сумма', 'ФИО покупателя']

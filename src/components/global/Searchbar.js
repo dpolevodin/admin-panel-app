@@ -1,6 +1,6 @@
-import SvgElement from '../components/SvgElement';
-import Button from '../components/Button';
-import Input from '../components/Input';
+import SvgElement from '../icons/SvgElement';
+import Button from '../global/Button';
+import Input from '../global/Input';
 
 
 function Searchbar({labelClass, wrapperClass, inputAreaClass}) {

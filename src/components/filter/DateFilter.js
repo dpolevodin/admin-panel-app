@@ -1,5 +1,5 @@
-import Button from "../components/Button";
-import Input from "../components/Input";
+import Button from "../global/Button";
+import Input from "../global/Input";
 
 
 function DateFilter () {

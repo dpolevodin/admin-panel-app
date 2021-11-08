@@ -1,4 +1,4 @@
-import SvgElement from './SvgElement'
+import SvgElement from '../icons/SvgElement'
 
 
 function Button({className, svgName, buttonText}) {

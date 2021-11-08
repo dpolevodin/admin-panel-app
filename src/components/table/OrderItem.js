@@ -1,5 +1,5 @@
-import Checkbox from "./Checkbox"
-import SvgElement from "./SvgElement"
+import Checkbox from "../global/Checkbox"
+import SvgElement from "../icons/SvgElement"
 
 function OrderItem ({
     id, 

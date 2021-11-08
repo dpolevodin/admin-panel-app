@@ -1,5 +1,5 @@
-import JsonData from '../Data/Orders.json'
-import OrderItem from '../components/OrderItem'
+import JsonData from '../../Data/Orders.json'
+import OrderItem from '../table/OrderItem'
 
 function TableOrdersList () {
 
@@ -21,16 +21,11 @@ function TableOrdersList () {
 
     const ordersRender = JsonData.map(order => {
         return (
-            <OrderItem
-                id={order.id}
-                creationDate={order.creationDate}
+            <OrderItem 
+                {...order}
                 statusClass={statusClassMapping[order.status]}
                 iconClass={statusIconMapping[order.status]}
-                status={order.status}
-                positionsCount={order.positionsCount}
-                sum={order.sum}
-                name={order.name}
-                key={order.id}
+                key = {order.id}
             />
         )        
     })

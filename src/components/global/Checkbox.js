@@ -1,4 +1,4 @@
-import SvgElement from "../components/SvgElement";
+import SvgElement from "../icons/SvgElement";
 
 
 function checkbox() {
