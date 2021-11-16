@@ -2,10 +2,7 @@ import Button from "../Common/Button";
 import Input from "../Common/Input";
 import FilterDropdown from "../Filter/FilterDropdown";
 
-
-function StatusFilter () {
-
-    const mainComponentWrapperClass = "filter__input"
+const mainComponentWrapperClass = "filter__input"
     const statusFilterPlaceholder = "Выберите статус заказа"
     const statusFilterSvgName = "v_arrow"
     const labelClassName = "filter__input-control"
@@ -14,13 +11,15 @@ function StatusFilter () {
     const inputWrapperClassName = "filter__input-field filter__input-field_empty filter__input-field_long"
     const statusTitleClass = "filter__input-title"
 
+function StatusFilter () {
+
     return (
         <div className={mainComponentWrapperClass}>
-            <FilterDropdown />
+            <FilterDropdown isVisible/>
             <label className={labelClassName}>
                 <span className={statusTitleClass}>Статус заказа</span>
                 <div className={inputWrapperClassName}>
-                    <Input className={inputClassName} placeholder={statusFilterPlaceholder} />
+                    <Input className={inputClassName} placeholder={statusFilterPlaceholder} onFocus={()=>{}} />
                     <Button className={buttonClassName} svgName={statusFilterSvgName} />
                 </div>
             </label>

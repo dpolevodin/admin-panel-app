@@ -1,6 +1,10 @@
-function Input ({className, placeholder}) {
+function Input ({
+    className, 
+    placeholder,
+    onFocus
+    }) {
     return (
-        <input className={className} placeholder={placeholder} />  
+        <input className={className} placeholder={placeholder} onFocus={onFocus}/>  
     )
 }
 

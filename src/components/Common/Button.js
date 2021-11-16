@@ -1,11 +1,16 @@
 import SvgElement from '../Icons/SvgElement'
 
 
-function Button({className, svgName, buttonText}) {
+const Button = ({
+    className, 
+    svgName, 
+    buttonText,
+    textClassName = "button__text"
+}) => {
     return (
         <button className={className}>
                 <SvgElement svgName={svgName} />
-                <span className="button__text">{buttonText}</span>
+                <span className={textClassName}>{buttonText}</span>
         </button>
     )
 }

@@ -1,22 +1,28 @@
 import Checkbox from '../Common/Checkbox'
+import dropdown from './css/dropdown.module.css'
 
+const DropdownStatusesList = ['Новый', 'Расчет', 'Подтвержден', 'Отложен', 'Выполнен', 'Отменен']
 
-function FilterDropdown ({className, placeholder}) {
-    const FilterDropdownStatus = ['Новый', 'Расчет', 'Подтвержден', 'Отложен', 'Выполнен', 'Отменен']
-    
-    const FilterDropdownStatusRender = FilterDropdownStatus.map((element) => { return (
-            <label className="filter__dropdown-control" key={FilterDropdownStatus.indexOf(element)}>
-                <li className="filter__dropdown-item">
+const FilterDropdown = ({
+    className = dropdown._,
+    isVisible,
+    DropdownStatuses = DropdownStatusesList
+}) => {
+    const dropdownClass = isVisible ?  className : [className, dropdown.hidden].join(' ')
+
+    const dropdownStatusRender = DropdownStatuses.map((element) => { return (
+            <label className={dropdown.control} key={element}>
+                <li className={dropdown.item}>
                         <Checkbox />
-                        <span className="filter__dropdown-item-title">{element}</span>      
+                        <span className={dropdown.title}>{element}</span>      
                 </li>
             </label>
         )
         })
 
     return (
-        <ul className="filter__dropdown-list">
-            {FilterDropdownStatusRender}
+        <ul className={dropdownClass}>
+            {dropdownStatusRender}
         </ul>
     )
 }
