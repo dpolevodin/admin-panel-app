@@ -1,10 +1,11 @@
 function Input ({
+    type = "text",
     className, 
     placeholder,
     onFocus
     }) {
     return (
-        <input className={className} placeholder={placeholder} onFocus={onFocus}/>  
+        <input type={type} className={className} placeholder={placeholder} onFocus={onFocus}/>  
     )
 }
 

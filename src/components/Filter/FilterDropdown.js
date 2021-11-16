@@ -1,7 +1,11 @@
 import Checkbox from '../Common/Checkbox'
-import dropdown from './css/dropdown.module.css'
+import dropdown from './css/filter-dropdown.module.css'
 
-const DropdownStatusesList = ['Новый', 'Расчет', 'Подтвержден', 'Отложен', 'Выполнен', 'Отменен']
+const DropdownStatusesList = ['новый', 'расчет', 'подтвержден', 'отложен', 'выполнен', 'отменен']
+
+const capitalizeFirstLetter = (string) => {
+    return string[0].toUpperCase() + string.slice(1)
+}
 
 const FilterDropdown = ({
     className = dropdown._,
@@ -14,7 +18,7 @@ const FilterDropdown = ({
             <label className={dropdown.control} key={element}>
                 <li className={dropdown.item}>
                         <Checkbox />
-                        <span className={dropdown.title}>{element}</span>      
+                        <span className={dropdown.title}>{capitalizeFirstLetter(element)}</span>      
                 </li>
             </label>
         )

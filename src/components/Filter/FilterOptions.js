@@ -1,19 +1,23 @@
-import Button from '../Common/Button';
-import DateFilter from '../Filter/DateFilter';
-import StatusFilter from '../Filter/StatusFilter';
-import SumOrderFilter from '../Filter/SumOrderFilter';
+import Button from "../Common/Button";
+import RangeFilter from "./RangeFilter";
+import StatusFilter from "../Filter/StatusFilter";
 
-function FilterOptions() {
-    return (
-        <div className="filter__wrapper">
-                    <form className="filter__form">
-                        <DateFilter />
-                        <StatusFilter />
-                        <SumOrderFilter />
-                        <Button className="filter-button filter-button_hidden-icon filter-button_short" buttonText="Применить" />
-                    </form>
-                </div>
-    )
-}
+
+const wrapperClassName = "filter__form";
+const formClassName = "filter__form";
+const buttonClassName = "filter-button filter-button_hidden-icon filter-button_short";
+
+const FilterOptions = () => {
+  return (
+    <div className={wrapperClassName}>
+      <form className={formClassName}>
+        <RangeFilter filterTitle="Дата оформления" />
+        <StatusFilter />
+        <RangeFilter filterPlaceholder="₽" filterTitle="Сумма заказа" isShort/>
+        <Button className={buttonClassName} buttonText="Применить" />
+      </form>
+    </div>
+  );
+};
 
 export default FilterOptions;
