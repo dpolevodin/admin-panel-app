@@ -3,18 +3,27 @@ import RangeFilter from "./RangeFilter";
 import StatusFilter from "../Filter/StatusFilter";
 
 
-const wrapperClassName = "filter__form";
+const wrapperMainClass = "filter__wrapper";
 const formClassName = "filter__form";
 const buttonClassName = "filter-button filter-button_hidden-icon filter-button_short";
 
-const FilterOptions = () => {
+const FilterOptions = ({
+  isVisible
+}) => {
+  const wrapperClassName = isVisible ? wrapperMainClass : [wrapperMainClass, (wrapperMainClass + "_hidden")].join(' ')
+  
+  const eventClick = (event) => {
+    event.preventDefault();
+    console.log("filter's button click")
+  }
+
   return (
     <div className={wrapperClassName}>
       <form className={formClassName}>
         <RangeFilter filterTitle="Дата оформления" />
         <StatusFilter />
         <RangeFilter filterPlaceholder="₽" filterTitle="Сумма заказа" isShort/>
-        <Button className={buttonClassName} buttonText="Применить" />
+        <Button className={buttonClassName} buttonText="Применить" onClick={eventClick}/>
       </form>
     </div>
   );

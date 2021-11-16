@@ -2,11 +2,10 @@ import '../src/css/reset.css';
 import '../src/css/style.css';
 import SvgSprite from '../src/components/Icons/SvgSprite';
 import PageHeader from './components/Header/PageHeader';
-import FilterPrimary from './components/Filter/FilterPrimary'
-import FilterOptions from './components/Filter/FilterOptions'
 import TableHeader from './components/Table/TableHeader'
 import TableOrdersList from './components/Table/TableOrdersList';
 import TableFooter from './components/Table/TableFooter'
+import Filter from './components/Filter/Filter'
 
 
 function App() {
@@ -14,11 +13,7 @@ function App() {
     <div>
         <div className="main-wrapper">
             <PageHeader />
-
-            <div className="filter">
-                <FilterPrimary />
-                <FilterOptions />
-            </div>
+            <Filter />
 
             <div className="table">
                 <TableHeader />

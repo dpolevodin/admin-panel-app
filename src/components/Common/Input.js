@@ -1,9 +1,10 @@
-function Input ({
+const Input = ({
     type = "text",
     className, 
     placeholder,
     onFocus
-    }) {
+    }) => {
+        
     return (
         <input type={type} className={className} placeholder={placeholder} onFocus={onFocus}/>  
     )

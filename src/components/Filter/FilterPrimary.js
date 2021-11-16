@@ -16,7 +16,7 @@ function FilterPrimary() {
                     <Button className="filter-button" svgName="filter" buttonText="Фильтры" />
                     <Button className="filter-button filter-button_hidden-icon" svgName="filter" buttonText="Сбросить фильтры" />
                 </form>
-                <Loader />
+                <Loader isVisible />
             </div>
         </div>
     )
