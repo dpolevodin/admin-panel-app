@@ -1,6 +1,10 @@
-function SvgElement ({svgName}) {
+const SvgElement = ({
+    svgName, 
+    className = 'svg-icon'
+}) => {
+
     return (
-        <svg className="svg-icon">
+        <svg className={className}>
             <use xlinkHref={`#${svgName}`}></use>
         </svg>
     )

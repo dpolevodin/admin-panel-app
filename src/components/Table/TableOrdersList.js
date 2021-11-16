@@ -1,25 +1,27 @@
-import JsonData from '../../data/Orders.json'
+import MockList from '../../data/Orders.json'
 import OrderItem from '../Table/OrderItem'
 
-function TableOrdersList () {
+const statusIconMapping = {
+    'Новый': 'dot',
+    'Расчет': 'dot',
+    'Выполнен': 'checkmark',
+    'Отменен': 'abort',
+    'Отложен': 'dot',
+}
 
-    const statusIconMapping = {
-        'Новый': 'dot',
-        'Расчет': 'dot',
-        'Выполнен': 'checkmark',
-        'Отменен': 'abort',
-        'Отложен': 'dot',
-    }
+const statusClassMapping = {
+    'Новый': 'table__header-item',
+    'Расчет': 'table__header-item table__header-item_blue',
+    'Выполнен': 'table__header-item table__header-item_green',
+    'Отменен': 'table__header-item table__header-item_half-transparent',
+    'Отложен': 'table__header-item',
+}
 
-    const statusClassMapping = {
-        'Новый': 'table__header-item',
-        'Расчет': 'table__header-item table__header-item_blue',
-        'Выполнен': 'table__header-item table__header-item_green',
-        'Отменен': 'table__header-item table__header-item_half-transparent',
-        'Отложен': 'table__header-item',
-    }
+function TableOrdersList ({
+    orders = MockList
+}) {
 
-    const ordersRender = JsonData.map(order => {
+    const ordersRender = orders.map(order => {
         return (
             <OrderItem 
                 {...order}
