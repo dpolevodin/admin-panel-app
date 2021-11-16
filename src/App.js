@@ -1,12 +1,12 @@
 import '../src/css/reset.css';
 import '../src/css/style.css';
-import SvgSprite from '../src/components/icons/SvgSprite';
-import PageHeader from './components/header/PageHeader';
-import FilterPrimary from './components/filter/FilterPrimary'
-import FilterOptions from './components/filter/FilterOptions'
-import TableHeader from './components/table/TableHeader'
-import TableOrdersList from './components/table/TableOrdersList';
-import TableFooter from './components/table/TableFooter'
+import SvgSprite from '../src/components/Icons/SvgSprite';
+import PageHeader from './components/Header/PageHeader';
+import FilterPrimary from './components/Filter/FilterPrimary'
+import FilterOptions from './components/Filter/FilterOptions'
+import TableHeader from './components/Table/TableHeader'
+import TableOrdersList from './components/Table/TableOrdersList';
+import TableFooter from './components/Table/TableFooter'
 
 
 function App() {

@@ -1,4 +1,4 @@
-import Checkbox from '../global/Checkbox'
+import Checkbox from '../Common/Checkbox'
 
 
 function FilterDropdown ({className, placeholder}) {

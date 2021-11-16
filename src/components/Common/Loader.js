@@ -1,4 +1,4 @@
-import SvgElement from "../icons/SvgElement";
+import SvgElement from "../Icons/SvgElement";
 
 
 function Loader () {

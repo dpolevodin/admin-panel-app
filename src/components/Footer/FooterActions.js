@@ -1,5 +1,5 @@
-import FooterOrdersSelected from '../footer/FooterOrdersSelected'
-import Button from '../global/Button';
+import FooterOrdersSelected from '../Footer/FooterOrdersSelected'
+import Button from '../Common/Button';
 
 
 function FooterActions () {

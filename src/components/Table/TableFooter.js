@@ -1,6 +1,6 @@
-import FooterActions from '../footer/FooterActions'
-import FooterPagination from '../footer/FooterPagination'
-import FooterDropdown from '../footer/FooterDropdown'
+import FooterActions from '../Footer/FooterActions'
+import FooterPagination from '../Footer/FooterPagination'
+import FooterDropdown from '../Footer/FooterDropdown'
 
 
 function TableFooter() {

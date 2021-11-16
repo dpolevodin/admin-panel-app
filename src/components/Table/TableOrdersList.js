@@ -1,5 +1,5 @@
-import JsonData from '../../Data/Orders.json'
-import OrderItem from '../table/OrderItem'
+import JsonData from '../../data/Orders.json'
+import OrderItem from '../Table/OrderItem'
 
 function TableOrdersList () {
 

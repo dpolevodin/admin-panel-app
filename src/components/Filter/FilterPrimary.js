@@ -1,6 +1,6 @@
-import Button from '../global/Button';
-import Searchbar from '../global/Searchbar';
-import Loader from '../global/Loader';
+import Button from '../Common/Button';
+import Searchbar from '../Common/Searchbar';
+import Loader from '../Common/Loader';
 
 
 function FilterPrimary() {
