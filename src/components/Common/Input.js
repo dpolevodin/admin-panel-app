@@ -1,14 +1,23 @@
 const Input = ({
-    type = "text",
-    className, 
-    placeholder,
-    onFocus,
-    id
-    }) => {
-        
-    return (
-        <input type={type} className={className} placeholder={placeholder} onFocus={onFocus} id={id}/>  
-    )
-}
+  type = "text",
+  className,
+  placeholder,
+  onChange,
+  id,
+  onBlur,
+  defaultValue
+}) => {
+  return (
+    <input
+      type={type}
+      className={className}
+      placeholder={placeholder}
+      onChange={onChange}
+      id={id}
+      onBlur={onBlur}
+      defaultValue={defaultValue}
+    />
+  );
+};
 
 export default Input;

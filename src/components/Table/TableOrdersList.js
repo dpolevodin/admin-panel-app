@@ -17,9 +17,9 @@ const statusClassMapping = {
     'Отложен': 'table__header-item',
 }
 
-function TableOrdersList ({
+const TableOrdersList = ({
     orders = MockList
-}) {
+}) => {
 
     const ordersRender = orders.map(order => {
         return (

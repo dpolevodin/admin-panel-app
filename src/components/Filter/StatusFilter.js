@@ -30,7 +30,7 @@ const StatusFilter = () => {
           <Input
             className={inputClassName}
             placeholder={statusFilterPlaceholder}
-            onFocus={() => {}}
+            defaultValue="Любой"
           />
           <Button
             className={buttonClassName}

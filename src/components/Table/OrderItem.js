@@ -1,7 +1,7 @@
 import Checkbox from "../Common/Checkbox"
 import SvgElement from "../Icons/SvgElement"
 
-function OrderItem ({
+const OrderItem = ({
     id, 
     creationDate, 
     statusClass,
@@ -10,7 +10,7 @@ function OrderItem ({
     positionsCount,
     sum,
     name
-}) {
+}) => {
     return (
         <li className="table__body-item">
                 <label className="table__checkbox-control">

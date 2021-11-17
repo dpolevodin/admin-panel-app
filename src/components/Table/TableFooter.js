@@ -2,7 +2,7 @@ import FooterActions from '../Footer/FooterActions'
 import FooterPagination from '../Footer/FooterPagination'
 
 
-function TableFooter() {
+const TableFooter = () => {
     return (
         <div className="table__footer">
             <FooterActions />

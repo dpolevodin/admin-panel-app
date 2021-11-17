@@ -5,7 +5,8 @@ const mainComponentWrapperClass = "filter__input";
 const labelClassName = "filter__input-control";
 const buttonClassName = "filter__input-button";
 const filterTitleClass = "filter__input-title";
-const inputWrapperClassDefault = "filter__input-field filter__input-field_empty";
+const inputWrapperClassDefault =
+  "filter__input-field filter__input-field_empty";
 const inputShortClass = "filter__input-field_short";
 
 const DateFilter = ({
@@ -15,7 +16,11 @@ const DateFilter = ({
   isShort = false,
   InputClass = "filter__input-area",
   inputStartId,
-  InputEndId
+  InputEndId,
+  buttonHandlerStart,
+  buttonHandlerEnd,
+  onBlurInputStart,
+  onBlurInputEnd
 }) => {
   return (
     <div className={mainComponentWrapperClass}>
@@ -28,9 +33,18 @@ const DateFilter = ({
               : inputWrapperClassDefault
           }
         >
-          <Input className={InputClass} placeholder={filterPlaceholder} id={inputStartId}/>
-  
-          <Button className={buttonClassName} svgName={inputIconName} />
+          <Input
+            className={InputClass}
+            placeholder={filterPlaceholder}
+            id={inputStartId}
+            onBlur={onBlurInputStart}
+          />
+
+          <Button
+            className={buttonClassName}
+            svgName={inputIconName}
+            onClick={buttonHandlerStart}
+          />
         </div>
       </label>
 
@@ -42,8 +56,17 @@ const DateFilter = ({
               : inputWrapperClassDefault
           }
         >
-          <Input className={InputClass} placeholder={filterPlaceholder} id={InputEndId}/>
-          <Button className={buttonClassName} svgName={inputIconName} />
+          <Input
+            className={InputClass}
+            placeholder={filterPlaceholder}
+            id={InputEndId}
+            onBlur={onBlurInputEnd}
+          />
+          <Button
+            className={buttonClassName}
+            svgName={inputIconName}
+            onClick={buttonHandlerEnd}
+          />
         </div>
       </label>
     </div>
