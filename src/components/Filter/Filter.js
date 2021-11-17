@@ -9,7 +9,7 @@ const Filter = ({ className = "filter" }) => {
   const handleOptionsVisible = (event) => {
     event.preventDefault();
     optionsVision ? setOptionsVision(false) : setOptionsVision(true)
-  }
+  } 
 
   return (
     <div className={className}>

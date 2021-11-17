@@ -2,11 +2,12 @@ const Input = ({
     type = "text",
     className, 
     placeholder,
-    onFocus
+    onFocus,
+    id
     }) => {
         
     return (
-        <input type={type} className={className} placeholder={placeholder} onFocus={onFocus}/>  
+        <input type={type} className={className} placeholder={placeholder} onFocus={onFocus} id={id}/>  
     )
 }
 

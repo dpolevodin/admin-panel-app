@@ -4,7 +4,6 @@ import Input from "../Common/Input";
 const mainComponentWrapperClass = "filter__input";
 const labelClassName = "filter__input-control";
 const buttonClassName = "filter__input-button";
-const inputClassName = "filter__input-area";
 const filterTitleClass = "filter__input-title";
 const inputWrapperClassDefault = "filter__input-field filter__input-field_empty";
 const inputShortClass = "filter__input-field_short";
@@ -14,6 +13,9 @@ const DateFilter = ({
   inputIconName = "incorrect",
   filterTitle,
   isShort = false,
+  InputClass = "filter__input-area",
+  inputStartId,
+  InputEndId
 }) => {
   return (
     <div className={mainComponentWrapperClass}>
@@ -26,7 +28,8 @@ const DateFilter = ({
               : inputWrapperClassDefault
           }
         >
-          <Input className={inputClassName} placeholder={filterPlaceholder} />
+          <Input className={InputClass} placeholder={filterPlaceholder} id={inputStartId}/>
+  
           <Button className={buttonClassName} svgName={inputIconName} />
         </div>
       </label>
@@ -39,7 +42,7 @@ const DateFilter = ({
               : inputWrapperClassDefault
           }
         >
-          <Input className={inputClassName} placeholder={filterPlaceholder} />
+          <Input className={InputClass} placeholder={filterPlaceholder} id={InputEndId}/>
           <Button className={buttonClassName} svgName={inputIconName} />
         </div>
       </label>
