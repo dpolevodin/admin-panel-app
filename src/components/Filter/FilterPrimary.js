@@ -2,7 +2,10 @@ import Button from "../Common/Button";
 import Searchbar from "../Common/Searchbar";
 import Loader from "../Common/Loader";
 
-function FilterPrimary() {
+const FilterPrimary = ({
+  buttonFiltersHandler,
+  buttonResetFiltersHandler
+}) => {
   return (
     <div className="filter__wrapper">
       <div className="filter__group">
@@ -16,11 +19,13 @@ function FilterPrimary() {
             className="filter-button"
             svgName="filter"
             buttonText="Фильтры"
+            onClick={buttonFiltersHandler}
           />
           <Button
             className="filter-button filter-button_hidden-icon"
             svgName="filter"
             buttonText="Сбросить фильтры"
+            onClick={buttonResetFiltersHandler}
           />
         </form>
         <Loader isVisible />

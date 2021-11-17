@@ -1,8 +1,7 @@
 function FooterOrdersSelected ({count}) {
-    const ordersSelectedCount = count
 
     return (
-        <span className="table__footer-text">Выбрано записей: {ordersSelectedCount}</span>
+        <span className="table__footer-text">Выбрано записей: {count}</span>
     )
 }
 

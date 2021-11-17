@@ -1045,6 +1045,10 @@ body {
     box-shadow: 0 0.5rem 2rem var(--background-admin-panel-shadow), 0 0.25rem 0.5rem var(--background-admin-panel-shadow), 0 0.125rem 0.125rem var(--background-admin-panel-shadow);
 }
 
+.table__footer-dropdown_hidden {
+    display: none;
+}
+
 .table__dropdown-title {
     display: flex;
     line-height: 1rem;

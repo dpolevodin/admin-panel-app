@@ -10,19 +10,18 @@ import Filter from './components/Filter/Filter'
 
 function App() {
   return (
-    <div>
-        <div className="main-wrapper">
-            <PageHeader />
-            <Filter />
+      <div className="main-wrapper">
+          <PageHeader />
+          <Filter />
 
-            <div className="table">
-                <TableHeader />
-                <TableOrdersList />
-                <TableFooter />
-            </div>
-        </div>
-        <SvgSprite />
-    </div>
+          <div className="table">
+              <TableHeader />
+              <TableOrdersList />
+              <TableFooter />
+          </div>
+          
+          <SvgSprite />
+      </div>
   );
 }
 
