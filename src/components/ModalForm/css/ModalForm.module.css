@@ -3,6 +3,8 @@
   --form-shadow-medium: rgba(0, 0, 0, 0.15);
   --form-shadow-light: rgba(0, 0, 0, 0.1);
   --form-white: #fff;
+  --form-dark: #3375b6;
+  --form-footer-text: #F53152;
 }
 
 ._ {
@@ -119,3 +121,54 @@
 .button:active .header__icon {
   stroke: var(--background-admin-panel-item-shade)
 }
+
+.footer__text {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  width: 100%;
+  height: 1rem;
+  margin-right: 1rem;
+  color: var(--form-footer-text);
+  font-size: 0.8125rem;
+  line-height: 1rem;
+}
+
+.footer__button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 7.5rem;
+    height: 2rem;
+    padding: 0.5rem 1rem;
+    margin: 0;
+    border: none;
+    border-radius: 0.25rem;
+    color: var(--background-admin-panel-white);
+    background-color: var(--background-admin-panel-medium);
+    cursor: pointer;
+    transition-duration: 0.4s;
+}
+
+.footer__button:hover {
+  box-shadow: 0 0 0.25rem var(--background-admin-panel-medium);
+}
+
+.footer__button:focus,
+.footer__button:active {
+    outline: none;
+    box-shadow: 0 0 0.25rem var(--background-admin-panel-medium);
+}
+
+.footer__button:active {
+  background-color: var( --form-dark);
+}
+
+.footer__icon {
+    display: block;
+    margin-right: 0.5rem;
+    fill: var(--background-admin-panel-white);
+}
+
+
+
