@@ -1,46 +1,59 @@
-import Checkbox from "../Common/Checkbox"
-import SvgElement from "../Icons/SvgElement"
+import Checkbox from "../Common/Checkbox";
+import SvgElement from "../Icons/SvgElement";
+
+const orderWrapperClass = "table__body-item";
+const orderLabelClass = "table__checkbox-control";
+const orderRowClass = "table__body-item-row";
+const itemClass = "table__header-item";
+const itemTextClass = "table__header-item-text";
 
 const OrderItem = ({
-    id, 
-    creationDate, 
-    statusClass,
-    iconClass,
+  id,
+  creationDate,
+  statusClass,
+  iconClass,
+  status,
+  positionsCount,
+  sum,
+  name,
+}) => {
+  const renderedItems = [
+    <Checkbox />,
+    id,
+    creationDate,
     status,
     positionsCount,
     sum,
-    name
-}) => {
+    name,
+  ].map((item) => {
+    if (item === <Checkbox />) {
+      return (
+        <li className={itemClass}>
+          <Checkbox />
+        </li>
+      );
+    } else if (item === status) {
+      return (
+        <li className={statusClass}>
+          <SvgElement svgName={iconClass} />
+          <span className={itemTextClass}>{item}</span>
+        </li>
+      );
+    }
     return (
-        <li className="table__body-item">
-                <label className="table__checkbox-control">
-                <ul className="table__body-item-row">
-                    <li className="table__header-item">
-                        <Checkbox />
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{id}</span>
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{creationDate}</span>
-                    </li>
-                    <li className={statusClass}>
-                        <SvgElement svgName={iconClass} />
-                        <span className="table__header-item-text">{status}</span>
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{positionsCount}</span>
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{sum}</span>
-                    </li>
-                    <li className="table__header-item">
-                        <span className="table__header-item-text">{name}</span>
-                    </li>
-                </ul>
-                </label>
-            </li>
-    )
-}
+      <li className={itemClass}>
+        <span className={itemTextClass}>{item}</span>
+      </li>
+    );
+  });
 
-export default OrderItem
+  return (
+    <li className={orderWrapperClass}>
+      <label className={orderLabelClass}>
+        <ul className={orderRowClass}>{renderedItems}</ul>
+      </label>
+    </li>
+  );
+};
+
+export default OrderItem;

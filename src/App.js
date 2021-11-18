@@ -6,22 +6,26 @@ import TableHeader from './components/Table/TableHeader'
 import TableOrdersList from './components/Table/TableOrdersList';
 import TableFooter from './components/Table/TableFooter'
 import Filter from './components/Filter/Filter'
+import ModalForm from './components/ModalForm/ModalForm';
 
 
 function App() {
   return (
-      <div className="main-wrapper">
-          <PageHeader />
-          <Filter />
+      <>
+        <ModalForm />
+        <div className="main-wrapper">
+            <PageHeader />
+            <Filter />
 
-          <div className="table">
-              <TableHeader />
-              <TableOrdersList />
-              <TableFooter />
-          </div>
-          
-          <SvgSprite />
-      </div>
+            <div className="table">
+                <TableHeader />
+                <TableOrdersList />
+                <TableFooter />
+            </div>
+            
+            <SvgSprite />
+        </div>
+      </>
   );
 }
 
