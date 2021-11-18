@@ -12,7 +12,8 @@ const ModalForm = () => {
                     <div className={modalForm.header__title}>Заявка #2353474</div>
                     <Button className={modalForm.button} svgName={inputIconName} iconClassName={modalForm.header__icon}/>
                 </header>
-                <div className={modalForm.table}>test</div>
+                <div className={modalForm.table}>
+                </div>
                 <footer className={modalForm.footer}></footer>
             </div>
         </div>

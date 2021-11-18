@@ -65,10 +65,11 @@
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    flex: 1 0 auto;
+    flex: 1 2;
     width: 100%;
     overflow: hidden;
     overflow-y: scroll;
+    font-size: 5rem;
 }
 
 .footer {
