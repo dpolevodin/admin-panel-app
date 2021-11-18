@@ -17,6 +17,6 @@ const Filter = ({ className = "filter" }) => {
       <FilterOptions isVisible={optionsVision} />
     </div>
   );
-};
+}
 
 export default Filter;

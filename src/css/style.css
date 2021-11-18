@@ -1177,3 +1177,19 @@ body {
     color: var(--background-admin-panel-black);
 }
 
+.filter__group .svg-icon {
+    animation: loader 1s linear infinite;
+}
+
+.filter__form .svg-icon {
+    animation: none;
+}
+
+@keyframes loader {
+    0% {
+        transform: rotate(-180deg);
+    }
+    100% {
+        transform: rotate(180deg);
+    }
+}
