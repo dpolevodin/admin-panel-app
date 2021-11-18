@@ -1,6 +1,11 @@
 import SvgElement from "../Icons/SvgElement";
 import Checkbox from "../Common/Checkbox";
 
+const itemClassName = "table__header-item";
+const itemTextClassName = "table__header-item-text";
+const checkboxLabelClass = "table__checkbox-control";
+const listClass = "table__header-list";
+
 const headerTitles = [
   "",
   "#",
@@ -10,29 +15,28 @@ const headerTitles = [
   "Сумма",
   "ФИО покупателя",
 ];
-const itemClassName = "table__header-item";
-const itemTextClassName = "table__header-item-text";
 
-const TableHeader = () => {
-  const headerTitlesRender = headerTitles.map((item) => {
+const statusWithFilterList = ["Дата", "Статус", "Позиций", "Сумма"];
+
+const TableHeader = ({
+  className = "table__header",
+  headerList = headerTitles,
+  headerFiltersIcon = "v_arrow",
+}) => {
+  const headerTitlesRender = headerList.map((item) => {
     if (item === "") {
       return (
         <li className={itemClassName} key={item}>
-          <label className="table__checkbox-control">
+          <label className={checkboxLabelClass}>
             <Checkbox />
           </label>
         </li>
       );
-    } else if (
-      item === "Дата" ||
-      item === "Статус" ||
-      item === "Позиций" ||
-      item === "Сумма"
-    ) {
+    } else if (statusWithFilterList.includes(item)) {
       return (
         <li className={itemClassName} key={item}>
           <span className={itemTextClassName}>{item}</span>
-          <SvgElement svgName="v_arrow" />
+          <SvgElement svgName={headerFiltersIcon} />
         </li>
       );
     } else {
@@ -45,8 +49,8 @@ const TableHeader = () => {
   });
 
   return (
-    <div className="table__header">
-      <ul className="table__header-list">{headerTitlesRender}</ul>
+    <div className={className}>
+      <ul className={listClass}>{headerTitlesRender}</ul>
     </div>
   );
 };

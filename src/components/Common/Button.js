@@ -6,7 +6,7 @@ const Button = ({
   buttonText,
   textClassName = "button__text",
   onClick,
-  iconClassName
+  iconClassName,
 }) => {
   return (
     <button className={className} onClick={onClick}>

@@ -18,27 +18,26 @@ const statusClassMapping = {
 }
 
 const TableOrdersList = ({
-    orders = MockList
+  className = "table__body",
+  listClass = "table__body-list",
+  orders = MockList,
 }) => {
-
-    const ordersRender = orders.map(order => {
-        return (
-            <OrderItem 
-                {...order}
-                statusClass={statusClassMapping[order.status]}
-                iconClass={statusIconMapping[order.status]}
-                key = {order.id}
-            />
-        )        
-    })
-
+  const ordersRender = orders.map((order) => {
     return (
-        <div className="table__body">
-            <ul className="table__body-list">
-                {ordersRender}
-            </ul>
-        </div>
-    )
-}
+      <OrderItem
+        {...order}
+        statusClass={statusClassMapping[order.status]}
+        iconClass={statusIconMapping[order.status]}
+        key={order.id}
+      />
+    );
+  });
+
+  return (
+    <div className={className}>
+      <ul className={listClass}>{ordersRender}</ul>
+    </div>
+  );
+};
 
 export default TableOrdersList;

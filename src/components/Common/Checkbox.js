@@ -1,10 +1,16 @@
 import SvgElement from "../Icons/SvgElement";
 
-const checkbox = () => {
+const wrapperClassname = "checkbox-group";
+const inputType = "checkbox";
+
+const checkbox = ({
+  className = "checkbox",
+  checkboxIconName = "checkmark",
+}) => {
   return (
-    <div className="checkbox-group">
-      <input type="checkbox" className="checkbox" />
-      <SvgElement svgName="checkmark" />
+    <div className={wrapperClassname}>
+      <input type={inputType} className={className} />
+      <SvgElement svgName={checkboxIconName} />
     </div>
   );
 };

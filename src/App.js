@@ -8,7 +8,6 @@ import TableFooter from './components/Table/TableFooter'
 import Filter from './components/Filter/Filter'
 import ModalForm from './components/ModalForm/ModalForm';
 
-
 function App() {
   return (
       <>

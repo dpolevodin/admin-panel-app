@@ -5,7 +5,7 @@ const Input = ({
   onChange,
   id,
   onBlur,
-  defaultValue
+  defaultValue,
 }) => {
   return (
     <input

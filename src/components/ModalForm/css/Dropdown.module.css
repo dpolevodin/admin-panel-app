@@ -1,0 +1,27 @@
+._ {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  right: 1rem;
+  top: 2.5rem;
+  width: 10rem;
+  height: 7rem;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: var(--background-admin-panel-white);
+  box-shadow: 0 0.5rem 2rem var(--background-admin-panel-shadow), 0 0.25rem 0.5rem var(--background-admin-panel-shadow), 0 0.125rem 0.125rem var(--background-admin-panel-shadow);
+}
+
+.hidden {
+  display: none;
+}
+
+.title {
+  display: flex;
+  line-height: 1rem;
+  font-size: 0.8125rem;
+  margin-bottom: 0.5rem;
+  font-weight: normal;
+  color: initial;
+}
+

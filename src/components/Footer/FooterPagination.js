@@ -15,7 +15,9 @@ const FooterPagination = ({ elementsToPagination = paginationElements }) => {
     } else if (Number(item)) {
       return (
         <Button
-          className={"table__footer-button table__footer-button_small table__footer-button_transparent"}
+          className={
+            "table__footer-button table__footer-button_small table__footer-button_transparent"
+          }
           buttonText={item}
           key={paginationElements.indexOf(item)}
         />
@@ -36,7 +38,9 @@ const FooterPagination = ({ elementsToPagination = paginationElements }) => {
     <div className="table__footer-pagination">
       <form className="table__footer-pagination-form">{paginatioRender}</form>
       <Button
-        className={"table__footer-button table__footer-button_small table__footer-button_transparent"}
+        className={
+          "table__footer-button table__footer-button_small table__footer-button_transparent"
+        }
         buttonText={"#"}
       />
     </div>

@@ -1,5 +1,6 @@
 import modalForm from "./css/ModalForm.module.css";
 import Button from "../Common/Button";
+import FormDropdown from './FormDropdown';
 
 const headerIconName = "incorrect";
 const footerIconName = "checkmark";
@@ -16,6 +17,7 @@ const ModalForm = () => {
             svgName={headerIconName}
             iconClassName={modalForm.header__icon}
           />
+          <FormDropdown />
         </header>
         <div className={modalForm.table}></div>
         <footer className={modalForm.footer}>
