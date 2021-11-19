@@ -1,12 +1,20 @@
 import modalForm from "./css/ModalForm.module.css";
 import Button from "../Common/Button";
 import FormDropdown from './FormDropdown';
+import { useState } from "react";
 
 const headerIconName = "incorrect";
 const footerIconName = "checkmark";
 const buttonText = 'Сохранить'
 
 const ModalForm = () => {
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+
+  const handleDropdownOpen = (event) => {
+    event.preventDefault();
+    setIsDropdownOpen(!isDropdownOpen)
+  }
+
   return (
     <div className={modalForm._}>
       <div className={modalForm.form}>
@@ -16,8 +24,9 @@ const ModalForm = () => {
             className={modalForm.button}
             svgName={headerIconName}
             iconClassName={modalForm.header__icon}
+            onClick={handleDropdownOpen}
           />
-          <FormDropdown />
+          <FormDropdown isOpen={isDropdownOpen}/>
         </header>
         <div className={modalForm.table}></div>
         <footer className={modalForm.footer}>
