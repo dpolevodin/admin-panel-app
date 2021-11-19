@@ -28,7 +28,7 @@ const ModalForm = () => {
         />
 
         <div className={modalForm.table}>
-          <FormInput isDisabled defaultValue="06.12.2021" icon="locked" />
+          <FormInput isDisabled title="Дата и время заказа" defaultValue="06.12.2021" icon="locked" />
           <FormInput title="ФИО покупателя" placeholder="Введите ФИО" defaultValue="Степан" />       
           <FormInput isDisabled title="Уровень лояльности" placeholder="Введите ФИО" defaultValue="Новичок" icon="locked" />   
           <FormInput title="Статус заказа" placeholder="Введите ФИО" defaultValue="Новый" icon="v_arrow"/>

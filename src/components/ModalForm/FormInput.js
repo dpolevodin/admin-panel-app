@@ -6,7 +6,7 @@ const FormInput = ({
   icon = "incorrect",
   placeholder = "dd.mm.dddd",
   isDisabled = false,
-  title = "Статус заказа",
+  title,
   defaultValue,
   isIncorrect = false,
 }) => {
