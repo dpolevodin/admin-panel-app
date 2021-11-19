@@ -4,7 +4,9 @@
   --form-shadow-light: rgba(0, 0, 0, 0.1);
   --form-white: #fff;
   --form-dark: #3375b6;
-  --form-footer-text: #F53152;
+  --form-red: #F53152;
+  --form-input-light: #BAD8F5;
+
 }
 
 ._ {
@@ -69,6 +71,7 @@
     align-items: flex-start;
     flex: 1 2;
     width: 100%;
+    padding: 1.875rem 1rem 0 1rem;
     overflow: hidden;
     overflow-y: scroll;
     font-size: 5rem;
@@ -114,7 +117,7 @@
     transition-duration: 0.4s;
 }
 
-.icon:hover {
+.header__icon:hover {
     stroke: var(--background-admin-panel-light);
 }
 
@@ -129,7 +132,7 @@
   width: 100%;
   height: 1rem;
   margin-right: 1rem;
-  color: var(--form-footer-text);
+  color: var(--form-red);
   font-size: 0.8125rem;
   line-height: 1rem;
 }
@@ -170,5 +173,104 @@
     fill: var(--background-admin-panel-white);
 }
 
+.input_field {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  background-color: var(--background-admin-panel-white);
+  border: 0.0625rem solid;
+  border-radius: 0.25rem;
+  border-color: var(--background-admin-panel-medium);
+  padding: 0.25rem 0.25rem 0.25rem 0.5rem;
+  cursor: pointer;
+}
 
+.input_field .icon {
+  width: 1rem;
+  height: 1rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  stroke: var(--form-white);
+  transition-duration: 0.4s;
+}
+
+.input_field .button {
+  width: 1.5rem;
+  height: 1.5rem;
+}
+
+.input_disabled {
+  background-color: var(--form-input-light);
+  pointer-events: none;
+}
+.input_disabled .input_icon {
+  display: block;
+}
+
+.input_incorrect {
+  border-color: var(--form-red);
+}
+
+.input_incorrect .input_icon {
+  display: block;
+}
+
+.input_title {
+  display: flex;
+  margin-bottom: 0.5rem;
+  line-height: 1rem;
+  font-size: 0.8125rem;
+  color: var(--background-admin-panel-black);
+}
+
+.input_wrapper {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+.input_label {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.button:active .input_icon {
+  stroke: var(--form-dark);
+}
+
+.input_area {
+  display: flex;
+  width: 100%;
+  border: 0;
+  padding: 0;
+  line-height: 1rem;
+  font-size: 0.8125rem;
+  background-color: inherit;
+  outline: 0;
+  color: inherit;
+}
+
+.input_area::placeholder {
+  color: var(--background-admin-panel-light);
+}
+
+.input_icon {
+  display: none;
+  width: 1rem;
+  height: 1rem;
+  stroke: var(--form-input-light);
+}
+
+.input_icon:hover {
+  stroke: var(--background-admin-panel-medium)
+}
+
+.input_field:hover .input_icon {
+  display: block;
+}
 

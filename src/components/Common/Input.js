@@ -6,6 +6,7 @@ const Input = ({
   id,
   onBlur,
   defaultValue,
+  isDisabled = false
 }) => {
   return (
     <input
@@ -16,6 +17,7 @@ const Input = ({
       id={id}
       onBlur={onBlur}
       defaultValue={defaultValue}
+      disabled={isDisabled}
     />
   );
 };

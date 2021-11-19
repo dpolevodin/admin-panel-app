@@ -4,17 +4,24 @@ import Button from "../Common/Button";
 const submitButtonText = "Сбросить";
 const cancelButtonText = "Остаться";
 
-const submitButtonClass = Dropdown.button + ' ' + Dropdown.transparent
-const cancelButtonClass = Dropdown.button
+const submitButtonClass = Dropdown.button + " " + Dropdown.transparent;
+const cancelButtonClass = Dropdown.button;
 
-const FooterDropdown = ({ isOpen = true }) => {
+const FooterDropdown = ({
+  isOpen = true,
+  alertText = "Есть несохраненные изменения",
+}) => {
   const blockClass = isOpen
     ? Dropdown._
     : Dropdown._ + [Dropdown._, Dropdown.hidden].join(" ");
 
+  const handleButton = (event) => {
+    event.preventDefault();
+  };
+
   return (
     <form className={blockClass}>
-      <span className={Dropdown.title}>Есть несохраненные изменения</span>
+      <span className={Dropdown.title}>{alertText}</span>
       <Button
         className={submitButtonClass}
         buttonText={submitButtonText}
@@ -26,6 +33,7 @@ const FooterDropdown = ({ isOpen = true }) => {
         buttonText={cancelButtonText}
         textClassName={Dropdown.text}
         iconClassName={Dropdown.icon}
+        onClick={handleButton}
       />
     </form>
   );

@@ -7,6 +7,8 @@ const orderRowClass = "table__body-item-row";
 const itemClass = "table__header-item";
 const itemTextClass = "table__header-item-text";
 
+const randomKey = () => Math.random()
+
 const OrderItem = ({
   id,
   creationDate,
@@ -28,20 +30,20 @@ const OrderItem = ({
   ].map((item) => {
     if (item === <Checkbox />) {
       return (
-        <li className={itemClass}>
+        <li className={itemClass} key={'Checkbox'}>
           <Checkbox />
         </li>
       );
     } else if (item === status) {
       return (
-        <li className={statusClass}>
+        <li className={statusClass} key={item}>
           <SvgElement svgName={iconClass} />
           <span className={itemTextClass}>{item}</span>
         </li>
       );
     }
     return (
-      <li className={itemClass}>
+      <li className={itemClass} key={item + randomKey()}>
         <span className={itemTextClass}>{item}</span>
       </li>
     );

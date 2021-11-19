@@ -12,6 +12,7 @@
   border-radius: 0.5rem;
   background-color: var(--background-admin-panel-white);
   box-shadow: 0 0.5rem 2rem var(--background-admin-panel-shadow), 0 0.25rem 0.5rem var(--background-admin-panel-shadow), 0 0.125rem 0.125rem var(--background-admin-panel-shadow);
+  z-index: 60;
 }
 
 .button {
@@ -63,20 +64,6 @@
 .button .icon {
   display: none;
 }
-/* .button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 8rem;
-  height: 2rem;
-  margin-bottom: 0.5rem;
-  padding: 0.25rem 0.5rem;
-  border: none;
-  border-radius: 0.25rem;
-  color: var(--background-admin-panel-white);
-  background-color: var(--background-admin-panel-medium);
-  cursor: pointer;
-} */
 
 .hidden {
   display: none;

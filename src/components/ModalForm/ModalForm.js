@@ -1,45 +1,41 @@
 import modalForm from "./css/ModalForm.module.css";
-import Button from "../Common/Button";
-import FormDropdown from './FormDropdown';
 import { useState } from "react";
+import FormFooter from "./FormFooter";
+import FormHeader from "./FormHeader";
+import Loader from "../Common/Loader";
+import FormInput from "./FormInput";
 
-const headerIconName = "incorrect";
-const footerIconName = "checkmark";
-const buttonText = 'Сохранить'
+const exampleOrderNumber = "2353474";
 
 const ModalForm = () => {
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false)
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const footerContent = () => {
+    return <Loader />;
+  };
 
   const handleDropdownOpen = (event) => {
     event.preventDefault();
-    setIsDropdownOpen(!isDropdownOpen)
-  }
+    setIsDropdownOpen(!isDropdownOpen);
+  };
 
   return (
     <div className={modalForm._}>
       <div className={modalForm.form}>
-        <header className={modalForm.header}>
-          <div className={modalForm.header__title}>Заявка #2353474</div>
-          <Button
-            className={modalForm.button}
-            svgName={headerIconName}
-            iconClassName={modalForm.header__icon}
-            onClick={handleDropdownOpen}
-          />
-          <FormDropdown isOpen={isDropdownOpen}/>
-        </header>
-        <div className={modalForm.table}></div>
-        <footer className={modalForm.footer}>
-          <div className={modalForm.footer__text}>
-            Ошибка или индикатор загрузки
-          </div>
-          <Button
-            className={modalForm.footer__button}
-            svgName={footerIconName}
-            buttonText={buttonText}
-            iconClassName={modalForm.footer__icon}
-          />
-        </footer>
+        <FormHeader
+          orderNumber={exampleOrderNumber}
+          buttonHandler={handleDropdownOpen}
+          isDropdownOpen={isDropdownOpen}
+        />
+
+        <div className={modalForm.table}>
+          <FormInput isDisabled defaultValue="06.12.2021" icon="locked" />
+          <FormInput title="ФИО покупателя" placeholder="Введите ФИО" defaultValue="Степан" />       
+          <FormInput isDisabled title="Уровень лояльности" placeholder="Введите ФИО" defaultValue="Новичок" icon="locked" />   
+          <FormInput title="Статус заказа" placeholder="Введите ФИО" defaultValue="Новый" icon="v_arrow"/>
+          <FormInput isIncorrect title="Код подтверждения" placeholder="Введите ФИО" defaultValue="000" />          
+        </div>
+
+        <FormFooter />
       </div>
     </div>
   );
