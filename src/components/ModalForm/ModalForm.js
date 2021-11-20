@@ -4,14 +4,12 @@ import FormFooter from "./FormFooter";
 import FormHeader from "./FormHeader";
 import Loader from "../Common/Loader";
 import FormInput from "./FormInput";
+import OrderTable from './OrderTable'
 
 const exampleOrderNumber = "2353474";
 
 const ModalForm = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const footerContent = () => {
-    return <Loader />;
-  };
 
   const handleDropdownOpen = (event) => {
     event.preventDefault();
@@ -29,7 +27,10 @@ const ModalForm = () => {
 
         <div className={modalForm.table}>
           <FormInput isDisabled title="Дата и время заказа" defaultValue="06.12.2021" icon="locked" />
-          <FormInput title="ФИО покупателя" placeholder="Введите ФИО" defaultValue="Степан" />       
+          <FormInput title="ФИО покупателя" placeholder="Введите ФИО" defaultValue="Степан" />     
+
+          <OrderTable />
+
           <FormInput isDisabled title="Уровень лояльности" placeholder="Введите ФИО" defaultValue="Новичок" icon="locked" />   
           <FormInput title="Статус заказа" placeholder="Введите ФИО" defaultValue="Новый" icon="v_arrow"/>
           <FormInput isIncorrect title="Код подтверждения" placeholder="Введите ФИО" defaultValue="000" />          

@@ -9,6 +9,7 @@ const FormInput = ({
   title,
   defaultValue,
   isIncorrect = false,
+  value,
 }) => {
   let areaClass
 
@@ -30,6 +31,7 @@ const FormInput = ({
             placeholder={placeholder}
             defaultValue={defaultValue}
             isDisabled={isDisabled}
+            value={value}
           />
           <Button
             className={modalForm.button}

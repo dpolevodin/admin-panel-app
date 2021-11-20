@@ -2,9 +2,7 @@ import '../src/css/reset.css';
 import '../src/css/style.css';
 import SvgSprite from '../src/components/Icons/SvgSprite';
 import PageHeader from './components/Header/PageHeader';
-import TableHeader from './components/Table/TableHeader'
-import TableOrdersList from './components/Table/TableOrdersList';
-import TableFooter from './components/Table/TableFooter'
+import Table from './components/Table/Table'
 import Filter from './components/Filter/Filter'
 import ModalForm from './components/ModalForm/ModalForm';
 
@@ -15,13 +13,7 @@ function App() {
         <div className="main-wrapper">
             <PageHeader />
             <Filter />
-
-            <div className="table">
-                <TableHeader />
-                <TableOrdersList />
-                <TableFooter />
-            </div>
-            
+            <Table />
             <SvgSprite />
         </div>
       </>

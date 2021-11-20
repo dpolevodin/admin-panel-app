@@ -274,3 +274,72 @@
   display: block;
 }
 
+.OrderTable {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  line-height: 1rem;
+  font-size: 0.8125rem;
+  margin-bottom: 1.5rem;
+}
+
+.OrdersList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.ListHeader {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem 1rem;
+  background-color: var(--background-admin-panel-medium);
+}
+
+.ListItemRow {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  min-height: 2rem;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid #EBF0F5;
+}
+
+.ListItemRow:last-child {
+  border: 0;
+}
+
+.ListItemRow .ListItem {
+  color: inherit;
+}
+
+.ListFooter {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end;
+  background-color: var(--background-admin-panel-day-light);
+  width: 100%;
+  height: 2rem;
+  padding: 0.5rem 1rem;
+}
+
+.ListItem {
+  display: flex;
+  margin-right: 1rem;
+  width: 5rem;
+  color: var(--background-admin-panel-day-light);
+}
+
+.ListItem:nth-child(2) {
+  width: 13.5rem;
+}
+
+.ListItem:last-child {
+  margin:0;
+}

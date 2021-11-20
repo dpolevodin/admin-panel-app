@@ -1177,7 +1177,7 @@ body {
     color: var(--background-admin-panel-black);
 }
 
-.filter__group .svg-icon {
+.filter__loader .svg-icon {
     animation: loader 1s linear infinite;
 }
 
