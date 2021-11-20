@@ -11,14 +11,14 @@ const FormInput = ({
   isIncorrect = false,
   value,
 }) => {
-  let areaClass
+  let areaClass;
 
   if (isDisabled) {
-    areaClass = modalForm.input_field + " " + modalForm.input_disabled
+    areaClass = modalForm.input_field + " " + modalForm.input_disabled;
   } else if (isIncorrect) {
-    areaClass = modalForm.input_field + " " + modalForm.input_incorrect
+    areaClass = modalForm.input_field + " " + modalForm.input_incorrect;
   } else {
-    areaClass = modalForm.input_field
+    areaClass = modalForm.input_field;
   }
 
   return (

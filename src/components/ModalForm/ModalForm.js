@@ -3,7 +3,7 @@ import { useState } from "react";
 import FormFooter from "./FormFooter";
 import FormHeader from "./FormHeader";
 import FormInput from "./FormInput";
-import OrderTable from './OrderTable'
+import OrderTable from "./OrderTable";
 
 const exampleOrderNumber = "2353474";
 const exampleOrdersList = [
@@ -19,18 +19,18 @@ const exampleOrdersList = [
   },
 ];
 
-const ModalForm = ({
-  isVisible = false
-}) => {
+const ModalForm = ({ isVisible = false }) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isFormOpen, setIsFormOpen] = useState(isVisible);
-  
+
   const handleDropdownOpen = (event) => {
     event.preventDefault();
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const formMainClass = isFormOpen ? modalForm._ : modalForm._ + ' ' + modalForm.hidden
+  const formMainClass = isFormOpen
+    ? modalForm._
+    : modalForm._ + " " + modalForm.hidden;
 
   return (
     <div className={formMainClass}>
@@ -42,21 +42,48 @@ const ModalForm = ({
         />
 
         <div className={modalForm.table}>
-          <FormInput isDisabled title="Дата и время заказа" defaultValue="06.12.2021" icon="locked" />
-          <FormInput title="ФИО покупателя" placeholder="Введите ФИО" defaultValue="Степан" />     
+          <FormInput
+            isDisabled
+            title="Дата и время заказа"
+            defaultValue="06.12.2021"
+            icon="locked"
+          />
+          <FormInput
+            title="ФИО покупателя"
+            placeholder="Введите ФИО"
+            defaultValue="Степан"
+          />
 
           <OrderTable orders={exampleOrdersList} />
 
-          <FormInput isDisabled title="Уровень лояльности" placeholder="Введите ФИО" defaultValue="Новичок" icon="locked" />   
-          <FormInput title="Статус заказа" placeholder="Введите ФИО" defaultValue="Новый" icon="v_arrow"/>
-          <FormInput isIncorrect title="Код подтверждения" placeholder="Введите ФИО" defaultValue="000" />          
+          <FormInput
+            isDisabled
+            title="Уровень лояльности"
+            placeholder="Введите ФИО"
+            defaultValue="Новичок"
+            icon="locked"
+          />
+          <FormInput
+            title="Статус заказа"
+            placeholder="Введите ФИО"
+            defaultValue="Новый"
+            icon="v_arrow"
+          />
+          <FormInput
+            isIncorrect
+            title="Код подтверждения"
+            placeholder="Введите ФИО"
+            defaultValue="000"
+          />
         </div>
 
-        <FormFooter buttonHandler={(e) => {
-          console.log(isFormOpen)
-          e.preventDefault()
-          setIsFormOpen(!isFormOpen)
-        }}/>
+        <FormFooter
+          buttonHandler={(e) => {
+            console.log(isFormOpen);
+            e.preventDefault();
+            setIsFormOpen(!isFormOpen);
+          }}
+        />
       </div>
     </div>
   );

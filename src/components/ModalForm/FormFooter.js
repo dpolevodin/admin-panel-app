@@ -3,25 +3,23 @@ import Button from "../Common/Button";
 import Loader from "../Common/Loader";
 import { useState } from "react";
 
-
 const FormFooter = ({
   errorText = "Ошибка или индикатор загрузки",
   buttonIconName = "checkmark",
   buttonText = "Сохранить",
   buttonHandler,
 }) => {
-  
-  const [whatIsShow, setWhatIsShow] = useState(true)
+  const [whatIsShow, setWhatIsShow] = useState(true);
   const changeFooterContent = () => {
-    setTimeout(() => setWhatIsShow(false), 3000)
-  }
+    setTimeout(() => setWhatIsShow(false), 3000);
+  };
 
-  changeFooterContent()
+  changeFooterContent();
 
   return (
     <footer className={modalForm.footer}>
       <div className={modalForm.footer__text}>
-        {whatIsShow && <Loader isVisible/>}
+        {whatIsShow && <Loader isVisible />}
         {!whatIsShow && errorText}
       </div>
 

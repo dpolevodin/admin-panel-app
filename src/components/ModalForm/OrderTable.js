@@ -6,7 +6,9 @@ const OrderTable = ({ orders }) => {
     return <OrderFormItem {...item} key={item.article} />;
   });
 
-  const finalSum = (orders.reduce((accum, item) => accum + item.price, 0)).toLocaleString();
+  const finalSum = orders
+    .reduce((accum, item) => accum + item.price, 0)
+    .toLocaleString();
 
   return (
     <div className={modalForm.OrderTable}>
