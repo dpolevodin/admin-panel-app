@@ -266,6 +266,14 @@
   stroke: var(--form-input-light);
 }
 
+.input_wrapper:nth-child(5) .input_icon {
+  fill: var(--form-input-light);
+}
+
+.input_wrapper:nth-child(5) .button:active .input_icon {
+  fill: var(--background-admin-panel-medium)
+}
+
 .input_icon:hover {
   stroke: var(--background-admin-panel-medium)
 }

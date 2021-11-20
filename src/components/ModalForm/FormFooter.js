@@ -5,7 +5,7 @@ import { useState } from "react";
 
 
 const FormFooter = ({
-  content = "Ошибка или индикатор загрузки",
+  errorText = "Ошибка или индикатор загрузки",
   buttonIconName = "checkmark",
   buttonText = "Сохранить",
 }) => {
@@ -21,7 +21,7 @@ const FormFooter = ({
     <footer className={modalForm.footer}>
       <div className={modalForm.footer__text}>
         {whatIsShow && <Loader isVisible/>}
-        {!whatIsShow && content}
+        {!whatIsShow && errorText}
       </div>
 
       <Button

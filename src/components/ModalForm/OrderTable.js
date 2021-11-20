@@ -1,25 +1,12 @@
 import modalForm from "./css/ModalForm.module.css";
 import OrderFormItem from "./orderFormItem";
 
-const ordersList = [
-  {
-    article: "rt.12024",
-    orderName: "Стил блейдс фо грасс",
-    price: 15339,
-  },
-  {
-    article: "al.24600",
-    orderName: "Газонокосилка Apple Magic Grass Remover",
-    price: 82664,
-  },
-];
-
-const OrderTable = () => {
-  const ordersRender = ordersList.map((item) => {
+const OrderTable = ({ orders }) => {
+  const ordersRender = orders.map((item) => {
     return <OrderFormItem {...item} key={item.article} />;
   });
 
-  const finalSum = ordersList.reduce((accum, item) => accum + item.price, 0);
+  const finalSum = (orders.reduce((accum, item) => accum + item.price, 0)).toLocaleString();
 
   return (
     <div className={modalForm.OrderTable}>
@@ -33,7 +20,7 @@ const OrderTable = () => {
         {ordersRender}
 
         <li className={modalForm.ListFooter}>
-          {`Итоговая сумма: ${finalSum.toLocaleString()} ₽`}
+          {`Итоговая сумма: ${finalSum} ₽`}
         </li>
       </ul>
     </div>
