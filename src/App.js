@@ -9,7 +9,7 @@ import ModalForm from './components/ModalForm/ModalForm';
 function App() {
   return (
       <>
-        <ModalForm />
+        <ModalForm isVisible/>
         <div className="main-wrapper">
             <PageHeader />
             <Filter />

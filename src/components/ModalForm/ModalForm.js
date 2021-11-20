@@ -19,16 +19,21 @@ const exampleOrdersList = [
   },
 ];
 
-const ModalForm = () => {
+const ModalForm = ({
+  isVisible = false
+}) => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const [isFormOpen, setIsFormOpen] = useState(isVisible);
+  
   const handleDropdownOpen = (event) => {
     event.preventDefault();
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const formMainClass = isFormOpen ? modalForm._ : modalForm._ + ' ' + modalForm.hidden
+
   return (
-    <div className={modalForm._}>
+    <div className={formMainClass}>
       <div className={modalForm.form}>
         <FormHeader
           orderNumber={exampleOrderNumber}
@@ -47,7 +52,11 @@ const ModalForm = () => {
           <FormInput isIncorrect title="Код подтверждения" placeholder="Введите ФИО" defaultValue="000" />          
         </div>
 
-        <FormFooter />
+        <FormFooter buttonHandler={(e) => {
+          console.log(isFormOpen)
+          e.preventDefault()
+          setIsFormOpen(!isFormOpen)
+        }}/>
       </div>
     </div>
   );

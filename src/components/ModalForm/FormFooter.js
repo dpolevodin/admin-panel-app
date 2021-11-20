@@ -8,6 +8,7 @@ const FormFooter = ({
   errorText = "Ошибка или индикатор загрузки",
   buttonIconName = "checkmark",
   buttonText = "Сохранить",
+  buttonHandler,
 }) => {
   
   const [whatIsShow, setWhatIsShow] = useState(true)
@@ -29,6 +30,7 @@ const FormFooter = ({
         svgName={buttonIconName}
         buttonText={buttonText}
         iconClassName={modalForm.footer__icon}
+        onClick={buttonHandler}
       />
     </footer>
   );

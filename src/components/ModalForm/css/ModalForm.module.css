@@ -19,6 +19,10 @@
   animation: modalWrapper 0.4s linear 1;
 }
 
+.hidden {
+  display: none;
+}
+
 @keyframes modalWrapper {
   0% {
     opacity: 0;
