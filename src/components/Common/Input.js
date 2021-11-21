@@ -6,7 +6,8 @@ const Input = ({
   id,
   onBlur,
   defaultValue,
-  isDisabled = false
+  isDisabled = false,
+  autocomplete = "off",
 }) => {
   return (
     <input
@@ -18,6 +19,7 @@ const Input = ({
       onBlur={onBlur}
       defaultValue={defaultValue}
       disabled={isDisabled}
+      autocomplete={autocomplete}
     />
   );
 };
