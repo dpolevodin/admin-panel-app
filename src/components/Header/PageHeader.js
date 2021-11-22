@@ -1,3 +1,4 @@
+import { useSelector } from "react-redux";
 import Button from "../Common/Button";
 
 const PageHeader = ({
@@ -8,6 +9,8 @@ const PageHeader = ({
   buttonText = "Cветлая тема",
   buttonIcon = "sun",
 }) => {
+  const { orders } = useSelector(state => state.orders)
+
   return (
     <div className={wrapperClass}>
       <h1 className={headerClass}>{headerText}</h1>
@@ -16,6 +19,7 @@ const PageHeader = ({
         buttonText={buttonText}
         svgName={buttonIcon}
       />
+      {orders}
     </div>
   );
 };
