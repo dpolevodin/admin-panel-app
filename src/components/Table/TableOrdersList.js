@@ -1,5 +1,5 @@
-import MockList from '../../data/Orders.json'
 import OrderItem from '../Table/OrderItem'
+
 
 const statusIconMapping = {
     'Новый': 'dot',
@@ -20,8 +20,9 @@ const statusClassMapping = {
 const TableOrdersList = ({
   className = "table__body",
   listClass = "table__body-list",
-  orders = MockList,
+  orders,
 }) => {
+
   const ordersRender = orders.map((order) => {
     return (
       <OrderItem

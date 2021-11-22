@@ -1,8 +1,7 @@
 import { ordersActionTypes } from './actions'
-import MockList from '../../data/Orders.json'
 
 const initialState = {
-    orders: 'Хранилище заказов пустое',
+    orders: null
 }
 
 export const ordersReducer = (
@@ -11,7 +10,7 @@ export const ordersReducer = (
 ) => {
     switch(action.type) {
         case ordersActionTypes.SET_ORDERS:
-            return {...state, profile: action.payload}
+            return {...state, orders: action.payload}
         default: 
             return state
     }

@@ -1,5 +1,5 @@
-import { useSelector } from "react-redux";
 import Button from "../Common/Button";
+
 
 const PageHeader = ({
   wrapperClass = "page-header",
@@ -9,7 +9,7 @@ const PageHeader = ({
   buttonText = "Cветлая тема",
   buttonIcon = "sun",
 }) => {
-  const { orders } = useSelector(state => state.orders)
+
 
   return (
     <div className={wrapperClass}>
@@ -19,7 +19,6 @@ const PageHeader = ({
         buttonText={buttonText}
         svgName={buttonIcon}
       />
-      {orders}
     </div>
   );
 };
