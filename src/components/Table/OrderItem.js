@@ -7,7 +7,15 @@ const orderRowClass = "table__body-item-row";
 const itemClass = "table__header-item";
 const itemTextClass = "table__header-item-text";
 
-const randomKey = () => Math.random()
+const randomKey = () => Math.random();
+
+ const formatDate = (dateString) => new Date(dateString).toLocaleString([], {
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+    hour: '2-digit',
+    minute:'2-digit'
+})
 
 const OrderItem = ({
   id,
@@ -19,7 +27,7 @@ const OrderItem = ({
   sum,
   name,
 }) => {
-  const renderedItems = [
+    const renderedItems = [
     <Checkbox />,
     id,
     creationDate,
@@ -30,7 +38,7 @@ const OrderItem = ({
   ].map((item) => {
     if (item === <Checkbox />) {
       return (
-        <li className={itemClass} key={'Checkbox'}>
+        <li className={itemClass} key={"Checkbox"}>
           <Checkbox />
         </li>
       );
@@ -39,6 +47,22 @@ const OrderItem = ({
         <li className={statusClass} key={item}>
           <SvgElement svgName={iconClass} />
           <span className={itemTextClass}>{item}</span>
+        </li>
+      );
+    } else if (item === sum) {
+      return (
+        <li className={itemClass} key={item}>
+          <span className={itemTextClass}>
+            {item === 0 ? "-" : `${item.toLocaleString()} ₽`}
+          </span>
+        </li>
+      );
+    } else if (item === creationDate) {
+      return (
+        <li className={itemClass} key={item}>
+          <span className={itemTextClass}>
+            {formatDate(item)}
+          </span>
         </li>
       );
     }
@@ -52,7 +76,9 @@ const OrderItem = ({
   return (
     <li className={orderWrapperClass}>
       <label className={orderLabelClass}>
-        <ul className={orderRowClass}>{renderedItems}</ul>
+        <ul className={orderRowClass}>
+          {renderedItems}
+        </ul>
       </label>
     </li>
   );

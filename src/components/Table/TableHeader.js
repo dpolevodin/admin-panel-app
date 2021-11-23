@@ -22,6 +22,8 @@ const TableHeader = ({
   className = "table__header",
   headerList = headerTitles,
   headerFiltersIcon = "v_arrow",
+  onClick,
+  svgRotate
 }) => {
   const headerTitlesRender = headerList.map((item) => {
     if (item === "") {
@@ -34,9 +36,9 @@ const TableHeader = ({
       );
     } else if (statusWithFilterList.includes(item)) {
       return (
-        <li className={itemClassName} key={item}>
+        <li className={itemClassName} key={item} onClick={onClick}>
           <span className={itemTextClassName}>{item}</span>
-          <SvgElement svgName={headerFiltersIcon} />
+          <SvgElement svgName={headerFiltersIcon} isRotate={svgRotate} />
         </li>
       );
     } else {

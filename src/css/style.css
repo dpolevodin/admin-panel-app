@@ -264,6 +264,10 @@ body {
     transition-duration: 0.4s;
 }
 
+.svg-icon_rotate {
+    transform: rotate(180deg);
+}
+
 .button__text {
     display: flex;
     align-items: center;

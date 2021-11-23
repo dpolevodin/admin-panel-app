@@ -1,82 +1,98 @@
 [
     {
         "id": 1270989,
-        "creationDate": "15.02.2021, 18:00",
+        "creationDate": "2021-02-15T13:00:00.000Z",
         "status": "Новый",
         "positionsCount": 6,
-        "sum": "101 907 ₽",
+        "sum": 101907,
         "name": "Чернышев Филипп Семенович"
     },
     {
         "id": 2353474,
-        "creationDate": "12.03.2021, 05:15",
+        "creationDate": "2021-03-12T00:15:00.000Z",
         "status": "Новый",
         "positionsCount": 2,
-        "sum": "98 003 ₽",
+        "sum": 98003,
         "name": "Филиппов Степан Васильевич"
     },
     {
         "id": 1103397,
-        "creationDate": "03.02.2021, 08:04",
+        "creationDate": "2021-02-03T03:04:00.000Z",
         "status": "Расчет",
         "positionsCount": 5,
-        "sum": "3 800 ₽",
+        "sum": 3800,
         "name": "Тихонова Алина Давидовна"
     },
     {
         "id": 6924662,
-        "creationDate": "21.01.2021, 13:32",
+        "creationDate": "2021-01-21T08:32:00.000Z",
         "status": "Выполнен",
         "positionsCount": 1,
-        "sum": "5 700 ₽",
+        "sum": 5700,
         "name": "Александрова Юлия Никитична"
     },
     {
         "id": 2200086,
-        "creationDate": "19.01.2021, 10:28",
+        "creationDate": "2021-01-19T05:28:00.000Z",
         "status": "Отменен",
         "positionsCount": "-",
-        "sum": "-",
+        "sum": 0,
         "name": "Андрей"
     },
     {
         "id": 2842064,
-        "creationDate": "04.01.2021, 12:12",
+        "creationDate": "2021-01-04T07:12:00.000Z",
         "status": "Отложен",
         "positionsCount": 1,
-        "sum": "20 500 ₽",
+        "sum": 20500,
         "name": "Судакова Анастасия Ильинична"
     },
     {
         "id": 1730071,
-        "creationDate": "17.12.2020, 22:45",
+        "creationDate": "2020-12-17T17:45:00.000Z",
         "status": "Выполнен",
         "positionsCount": 1,
-        "sum": "1 399 ₽",
+        "sum": 1399,
         "name": "Зверева Арина Николаевна"
     },
     {
         "id": 7987376,
-        "creationDate": "07.12.2020, 08:57",
+        "creationDate": "2020-12-07T03:57:00.000Z",
         "status": "Выполнен",
         "positionsCount": 3,
-        "sum": "117 810 ₽",
+        "sum": 117810,
         "name": "Карташов Максим Кириллович"
     },
     {
         "id": 1373265,
-        "creationDate": "15.11.2020, 14:26",
+        "creationDate": "2020-11-15T09:26:00.000Z",
         "status": "Выполнен",
         "positionsCount": 1,
-        "sum": "17 008 ₽",
+        "sum": 17008,
         "name": "Васильев Вадим Даниилович"
     },
     {
         "id": 1311100,
-        "creationDate": "07.11.2020, 18:52",
+        "creationDate": "2020-11-07T13:52:00.000Z",
         "status": "Отменен",
         "positionsCount": "-",
-        "sum": "-",
+        "sum": 0,
         "name": "София"
+    },
+    {
+        "id": 1354265,
+        "creationDate": "2018-11-13T09:26:00.000Z",
+        "status": "Выполнен",
+        "positionsCount": 2,
+        "sum": 19008,
+        "name": "Козлов Вадим Даниилович"
+    },
+    {
+        "id": 1004265,
+        "creationDate": "1999-11-13T09:26:00.000Z",
+        "status": "Выполнен",
+        "positionsCount": 4,
+        "sum": 32500,
+        "name": "Васильева Диана Игоревна"
     }
 ]
