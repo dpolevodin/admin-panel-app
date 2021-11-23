@@ -7,17 +7,19 @@ import Mocks from "../../data/Orders.json";
 
 const OrdersFilter = ({ className = "filter" }) => {
   const [optionsVision, setOptionsVision] = useState(false);
-
+ 
   const dispatch = useDispatch();
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(ordersActions.setOrders(Mocks))
-    const value = String(document.querySelector(".filter__searchbar-area").value).toLowerCase()
+    dispatch(ordersActions.setOrders(Mocks));
+    const value = String(
+      document.querySelector(".filter__searchbar-area").value
+    ).toLowerCase();
     if (value === "") {
-      dispatch(ordersActions.setOrders(Mocks))
+      dispatch(ordersActions.setOrders(Mocks));
     } else {
-      dispatch(ordersActions.searchOrders(value))
+      dispatch(ordersActions.searchOrders(value));
     }
   };
 
