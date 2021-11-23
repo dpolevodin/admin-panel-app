@@ -11,7 +11,7 @@ const Searchbar = ({
   placeholder = "Номер заказа или ФИО",
   searchIconName = "search",
   buttonClass = "filter__searchbar-button",
-  buttonIcon = "incorrect"
+  buttonIcon = "incorrect",
 }) => {
   return (
     <label className={labelClass}>

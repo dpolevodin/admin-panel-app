@@ -4,19 +4,20 @@ import { Provider } from 'react-redux'
 import { store } from './store'
 import SvgSprite from '../src/components/Icons/SvgSprite';
 import PageHeader from './components/Header/PageHeader';
-import Table from './components/Table/Table'
-import Filter from './components/Filter/Filter'
+import OrdersTable from './components/Table/OrdersTable'
+import OrdersFilter from './components/Filter/OrdersFilter'
 import ModalForm from './components/ModalForm/ModalForm';
 
+const isModalFormVisible = false
 
 function App() {
   return (
       <Provider store={store}>
-        <ModalForm isVisible/>
+        <ModalForm isVisible={isModalFormVisible} />
         <div className="main-wrapper">
             <PageHeader />
-            <Filter />
-            <Table />
+            <OrdersFilter />
+            <OrdersTable />
             <SvgSprite />
         </div>
       </Provider>

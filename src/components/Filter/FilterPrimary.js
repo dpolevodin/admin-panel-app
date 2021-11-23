@@ -5,22 +5,23 @@ import { useState } from "react";
 
 const FilterPrimary = ({
   buttonFiltersHandler,
-  buttonResetFiltersHandler
+  resetFiltersHandler,
+  onSubmit,
 }) => {
-  const [loaderVisible, setLoaderVisible] = useState(true)
+  const [loaderVisible, setLoaderVisible] = useState(true);
 
   const showLoader = () => {
     return setTimeout(() => {
-      setLoaderVisible(false)
-    }, 2000)
-  }
+      setLoaderVisible(false);
+    }, 3000);
+  };
 
-  showLoader()
+  showLoader();
 
   return (
     <div className="filter__wrapper">
       <div className="filter__group">
-        <form className="filter__form">
+        <form className="filter__form" onSubmit={onSubmit}>
           <Searchbar
             labelClass="filter__searchbar-group"
             wrapperClass="filter__searchbar-field filter__searchbar-field_empty"
@@ -36,13 +37,13 @@ const FilterPrimary = ({
             className="filter-button filter-button_hidden-icon"
             svgName="filter"
             buttonText="Сбросить фильтры"
-            onClick={buttonResetFiltersHandler}
+            onClick={resetFiltersHandler}
           />
         </form>
-        {loaderVisible && (<Loader isVisible />)}
+        {loaderVisible && <Loader isVisible />}
       </div>
     </div>
   );
-}
+};
 
 export default FilterPrimary;
