@@ -9,13 +9,14 @@ const itemTextClass = "table__header-item-text";
 
 const randomKey = () => Math.random();
 
- const formatDate = (dateString) => new Date(dateString).toLocaleString([], {
-    year: 'numeric',
-    month: '2-digit',
-    day: '2-digit',
-    hour: '2-digit',
-    minute:'2-digit'
-})
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleString([], {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
 
 const OrderItem = ({
   id,
@@ -26,9 +27,15 @@ const OrderItem = ({
   positionsCount,
   sum,
   name,
+  onOrderClick,
 }) => {
-    const renderedItems = [
-    <Checkbox />,
+  const checkboxItem = (
+    <label className={orderLabelClass}>
+      <Checkbox />
+    </label>
+  );
+  const renderedItems = [
+    checkboxItem,
     id,
     creationDate,
     status,
@@ -60,26 +67,22 @@ const OrderItem = ({
     } else if (item === creationDate) {
       return (
         <li className={itemClass} key={item}>
-          <span className={itemTextClass}>
-            {formatDate(item)}
-          </span>
+          <span className={itemTextClass}>{formatDate(item)}</span>
         </li>
       );
     }
     return (
-      <li className={itemClass} key={item + randomKey()}>
+      <li className={itemClass} key={item + randomKey()} >
         <span className={itemTextClass}>{item}</span>
       </li>
     );
   });
 
   return (
-    <li className={orderWrapperClass}>
-      <label className={orderLabelClass}>
-        <ul className={orderRowClass}>
-          {renderedItems}
-        </ul>
-      </label>
+    <li className={orderWrapperClass} >
+      <ul className={orderRowClass} onClick={onOrderClick}>
+        {renderedItems}
+      </ul>
     </li>
   );
 };

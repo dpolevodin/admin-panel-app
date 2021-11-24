@@ -8,6 +8,7 @@ const Input = ({
   defaultValue,
   isDisabled = false,
   autoComplete = "off",
+  value
 }) => {
   return (
     <input
@@ -20,6 +21,7 @@ const Input = ({
       defaultValue={defaultValue}
       disabled={isDisabled}
       autoComplete={autoComplete}
+      value={value}
     />
   );
 };

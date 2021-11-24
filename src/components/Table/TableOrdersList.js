@@ -21,6 +21,7 @@ const TableOrdersList = ({
   className = "table__body",
   listClass = "table__body-list",
   orders,
+  onOrderClick,
 }) => {
 
   const ordersRender = orders.map((order) => {
@@ -30,6 +31,7 @@ const TableOrdersList = ({
         statusClass={statusClassMapping[order.status]}
         iconClass={statusIconMapping[order.status]}
         key={order.id}
+        onOrderClick={onOrderClick}
       />
     );
   });

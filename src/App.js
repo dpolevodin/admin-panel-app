@@ -8,12 +8,12 @@ import OrdersTable from './components/Table/OrdersTable'
 import OrdersFilter from './components/Filter/OrdersFilter'
 import ModalForm from './components/ModalForm/ModalForm';
 
-const isModalFormVisible = false
+
 
 function App() {
   return (
       <Provider store={store}>
-        <ModalForm isVisible={isModalFormVisible} />
+        <ModalForm />
         <div className="main-wrapper">
             <PageHeader />
             <OrdersFilter />

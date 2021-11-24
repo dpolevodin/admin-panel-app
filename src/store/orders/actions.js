@@ -1,7 +1,7 @@
 export const ordersActionTypes = {
     SET_ORDERS: "ORDERS.SET_ORDERS",
     SEARCH_ORDERS: "ORDERS.SEARCH_ORDERS",
-    SORT_ORDERS_BY_COUNT: "ORDERS.SORT_ORDERS_BY_COUNT",
+    SORT_ORDERS: "ORDERS.SORT_ORDERS",
   };
   
   export const ordersActions = {
@@ -13,8 +13,8 @@ export const ordersActionTypes = {
       type: ordersActionTypes.SEARCH_ORDERS,
       payload
     }),
-    sortOrdersByCount: (payload) => ({
-      type: ordersActionTypes.SORT_ORDERS_BY_COUNT,
+    sortOrders: (payload) => ({
+      type: ordersActionTypes.SORT_ORDERS,
       payload
     }),
   };

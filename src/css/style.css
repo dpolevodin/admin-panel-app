@@ -786,6 +786,7 @@ body {
     margin: 0;
 }
 
+
 .table__header-item .svg-icon {
     width: 1rem;
     fill: var(--background-admin-panel-white);
@@ -836,6 +837,7 @@ body {
 }
 
 .table__checkbox-control {
+    position: relative;
     display: flex;
     cursor: pointer;
     width: 100%;

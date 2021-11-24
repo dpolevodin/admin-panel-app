@@ -4,8 +4,9 @@ import FormFooter from "./FormFooter";
 import FormHeader from "./FormHeader";
 import FormInput from "./FormInput";
 import OrderTable from "./OrderTable";
+import { useDispatch, useSelector } from "react-redux";
+import { formActions } from "../../store/modalForm";
 
-const exampleOrderNumber = "2353474";
 const exampleOrdersList = [
   {
     article: "rt.12024",
@@ -19,16 +20,40 @@ const exampleOrdersList = [
   },
 ];
 
-const ModalForm = ({ isVisible = false }) => {
+const formatDate = (dateString) =>
+  new Date(dateString).toLocaleString([], {
+    year: "numeric",
+    month: "2-digit",
+    day: "2-digit",
+    hour: "2-digit",
+    minute: "2-digit",
+  });
+
+const ModalForm = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isFormOpen, setIsFormOpen] = useState(isVisible);
+  const dispatch = useDispatch()
+  const isFormVisible = useSelector(state => state.form.isVisible)
+  const formData = useSelector(state => state.form.order)
+  
+  const order = {...formData}
+  console.log(order.name)
 
   const handleDropdownOpen = (event) => {
     event.preventDefault();
     setIsDropdownOpen(!isDropdownOpen);
   };
 
-  const formMainClass = isFormOpen
+  const handleSaveButton = (event) => {
+    event.preventDefault()
+    dispatch(formActions.setVisible())
+  }
+
+  const handleInput = (event) => {
+    event.preventDefault()
+    console.log(event.target.value)
+  }
+
+  const formMainClass = isFormVisible
     ? modalForm._
     : modalForm._ + " " + modalForm.hidden;
 
@@ -36,7 +61,7 @@ const ModalForm = ({ isVisible = false }) => {
     <div className={formMainClass}>
       <div className={modalForm.form}>
         <FormHeader
-          orderNumber={exampleOrderNumber}
+          orderNumber={order.id}
           buttonHandler={handleDropdownOpen}
           isDropdownOpen={isDropdownOpen}
         />
@@ -45,13 +70,14 @@ const ModalForm = ({ isVisible = false }) => {
           <FormInput
             isDisabled
             title="Дата и время заказа"
-            defaultValue="06.12.2021"
+            value={formatDate(order.creationDate)}
             icon="locked"
           />
           <FormInput
             title="ФИО покупателя"
             placeholder="Введите ФИО"
-            defaultValue="Степан"
+            value={order.name}
+            onChange={handleInput}
           />
 
           <OrderTable orders={exampleOrdersList} />
@@ -60,29 +86,25 @@ const ModalForm = ({ isVisible = false }) => {
             isDisabled
             title="Уровень лояльности"
             placeholder="Введите ФИО"
-            defaultValue="Новичок"
+            value={order.loyalty}
             icon="locked"
           />
           <FormInput
             title="Статус заказа"
-            placeholder="Введите ФИО"
-            defaultValue="Новый"
+            placeholder="Выберите статус заказа"
+            value={order.status}
             icon="v_arrow"
           />
           <FormInput
             isIncorrect
             title="Код подтверждения"
             placeholder="Введите ФИО"
-            defaultValue="000"
+            value={order.confirmCode}
           />
         </div>
 
         <FormFooter
-          buttonHandler={(e) => {
-            console.log(isFormOpen);
-            e.preventDefault();
-            setIsFormOpen(!isFormOpen);
-          }}
+          buttonHandler={handleSaveButton}
         />
       </div>
     </div>

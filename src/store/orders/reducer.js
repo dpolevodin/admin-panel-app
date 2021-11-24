@@ -19,7 +19,7 @@ export const ordersReducer = (state = initialState, action) => {
           String(order.id).includes(action.payload) ||
           String(order.name).toLowerCase().includes(action.payload)
       );
-    case ordersActionTypes.SORT_ORDERS_BY_COUNT:
+    case ordersActionTypes.SORT_ORDERS:
       return state
         .slice()
         .sort(sortByKey(action.payload.value, action.payload.SortUp))
