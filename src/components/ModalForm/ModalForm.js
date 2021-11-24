@@ -6,6 +6,7 @@ import FormInput from "./FormInput";
 import OrderTable from "./OrderTable";
 import { useDispatch, useSelector } from "react-redux";
 import { formActions } from "../../store/modalForm";
+import FormDropdown from "./FormDropdown";
 
 const exampleOrdersList = [
   {
@@ -31,12 +32,11 @@ const formatDate = (dateString) =>
 
 const ModalForm = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const dispatch = useDispatch()
-  const isFormVisible = useSelector(state => state.form.isVisible)
-  const formData = useSelector(state => state.form.order)
-  
-  const order = {...formData}
-  console.log(order.name)
+  const dispatch = useDispatch();
+  const isFormVisible = useSelector((state) => state.form.isVisible);
+  const formData = useSelector((state) => state.form.order);
+
+  const order = { ...formData };
 
   const handleDropdownOpen = (event) => {
     event.preventDefault();
@@ -44,14 +44,14 @@ const ModalForm = () => {
   };
 
   const handleSaveButton = (event) => {
-    event.preventDefault()
-    dispatch(formActions.setVisible())
-  }
+    event.preventDefault();
+    dispatch(formActions.setVisible());
+  };
 
   const handleInput = (event) => {
-    event.preventDefault()
-    console.log(event.target.value)
-  }
+    event.preventDefault();
+    console.log(event.target.value);
+  };
 
   const formMainClass = isFormVisible
     ? modalForm._
@@ -64,6 +64,10 @@ const ModalForm = () => {
           orderNumber={order.id}
           buttonHandler={handleDropdownOpen}
           isDropdownOpen={isDropdownOpen}
+        />
+        <FormDropdown
+          isOpen={isDropdownOpen}
+          handleButton={handleDropdownOpen}
         />
 
         <div className={modalForm.table}>
@@ -103,9 +107,7 @@ const ModalForm = () => {
           />
         </div>
 
-        <FormFooter
-          buttonHandler={handleSaveButton}
-        />
+        <FormFooter buttonHandler={handleSaveButton} />
       </div>
     </div>
   );

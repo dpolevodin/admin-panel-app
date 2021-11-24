@@ -22,17 +22,22 @@ const TableOrdersList = ({
   listClass = "table__body-list",
   orders,
   onOrderClick,
+  onChangeCheckbox,
+  orderClick
 }) => {
 
   const ordersRender = orders.map((order) => {
     return (
-      <OrderItem
-        {...order}
-        statusClass={statusClassMapping[order.status]}
-        iconClass={statusIconMapping[order.status]}
-        key={order.id}
-        onOrderClick={onOrderClick}
-      />
+
+        <OrderItem
+          {...order}
+          statusClass={statusClassMapping[order.status]}
+          iconClass={statusIconMapping[order.status]}
+          key={order.id}
+          onOrderClick={onOrderClick}
+          // onChangeCheckbox={onChangeCheckbox}
+
+        />     
     );
   });
 

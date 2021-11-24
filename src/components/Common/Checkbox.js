@@ -6,10 +6,11 @@ const inputType = "checkbox";
 const checkbox = ({
   className = "checkbox",
   checkboxIconName = "checkmark",
+  onChange
 }) => {
   return (
     <div className={wrapperClassname}>
-      <input type={inputType} className={className} />
+      <input type={inputType} className={className} onChange={onChange}/>
       <SvgElement svgName={checkboxIconName} />
     </div>
   );

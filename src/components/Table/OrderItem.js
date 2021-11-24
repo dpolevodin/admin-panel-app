@@ -28,10 +28,11 @@ const OrderItem = ({
   sum,
   name,
   onOrderClick,
+  onChangeCheckbox
 }) => {
   const checkboxItem = (
     <label className={orderLabelClass}>
-      <Checkbox />
+      <Checkbox onChange={onChangeCheckbox}/>
     </label>
   );
   const renderedItems = [
@@ -79,8 +80,8 @@ const OrderItem = ({
   });
 
   return (
-    <li className={orderWrapperClass} >
-      <ul className={orderRowClass} onClick={onOrderClick}>
+    <li className={orderWrapperClass} onClick={onOrderClick}>
+      <ul className={orderRowClass} >
         {renderedItems}
       </ul>
     </li>

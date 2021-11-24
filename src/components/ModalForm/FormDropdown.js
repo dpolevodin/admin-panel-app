@@ -10,14 +10,12 @@ const cancelButtonClass = Dropdown.button;
 const FooterDropdown = ({
   isOpen = true,
   alertText = "Есть несохраненные изменения",
+  handleResetButton,
+  handleButton
 }) => {
   const blockClass = isOpen
     ? Dropdown._
     : Dropdown._ + [Dropdown._, Dropdown.hidden].join(" ");
-
-  const handleButton = (event) => {
-    event.preventDefault();
-  };
 
   return (
     <form className={blockClass}>
@@ -27,6 +25,7 @@ const FooterDropdown = ({
         buttonText={submitButtonText}
         textClassName={Dropdown.text}
         iconClassName={Dropdown.icon}
+        onClick={handleResetButton}
       />
       <Button
         className={cancelButtonClass}
