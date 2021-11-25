@@ -3,7 +3,7 @@ import OrderFormItem from "./orderFormItem";
 
 const OrderTable = ({ orders, sum }) => {
   const ordersRender = orders ? orders.map((item) => {
-    return <OrderFormItem {...item} key={item.article} />;
+    return <OrderFormItem {...item} key={item.article + Math.random()} />;
   }) : [];
 
   const finalSum = sum ? `${sum.toLocaleString()} ₽` : ' - '

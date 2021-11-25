@@ -34,6 +34,7 @@ const TableOrdersList = ({
           iconClass={statusIconMapping[order.status]}
           key={order.id}
           onOrderClick={onOrderClick}
+          onChangeCheckbox={onChangeCheckbox}
         />     
     );
   });

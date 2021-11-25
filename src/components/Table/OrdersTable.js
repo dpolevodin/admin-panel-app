@@ -33,12 +33,20 @@ const OrdersTable = () => {
   };
 
   const handleCheckbox = (event) => {
-    console.log('checkbox clicked')
-  }
+    const checkedId = Number(
+      event.target.parentNode.parentNode.parentNode.innerText.slice(0, 7)
+    );
+    const CheckboxIsChecked = event.target.checked;
+    CheckboxIsChecked
+      ? console.log(`add id ${checkedId} to state`)
+      : console.log(`delete id ${checkedId} from state`);
+  };
 
   const handleRowClick = (event) => {
-    const orderId = Number((event.target.parentNode).parentNode.innerText.slice(0, 7))
-    const orderToSetFormData = orders.find(item => item.id === orderId)
+    const orderId = Number(
+      event.target.parentNode.parentNode.innerText.slice(0, 7)
+    );
+    const orderToSetFormData = orders.find((item) => item.id === orderId);
     dispatch(formActions.setOrder(orderToSetFormData));
     dispatch(formActions.setVisible());
   };

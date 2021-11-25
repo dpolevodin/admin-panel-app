@@ -70,11 +70,9 @@ const OrderItem = ({
   return (
     <li className={orderWrapperClass} onClick={onOrderClick}>
       <ul className={orderRowClass} >
-        <li className={itemClass} key={"Checkbox"}>
             <label className={orderLabelClass}>
               <Checkbox onChange={onChangeCheckbox}/>
             </label>
-        </li>
         {renderedItems}
       </ul>
     </li>

@@ -840,7 +840,6 @@ body {
     position: relative;
     display: flex;
     cursor: pointer;
-    width: 100%;
 }
 
 .table__checkbox-group {
