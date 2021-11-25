@@ -16,10 +16,11 @@ const FooterActions = () => {
     event.preventDefault();
     setDropdownVisible(!dropdownVisible);
   };
+  console.log('111', countsSelected)
 
   const handleButtonDelete = event => {
     event.preventDefault()
-    dispatch(ordersActions.deleteCheckedOrders(countsSelected))
+    dispatch(ordersActions.deleteCheckedOrders([...countsSelected]))
     dispatch(checkedOrdersActions.clearCheckedOrders())
     setDropdownVisible(!dropdownVisible);
   }

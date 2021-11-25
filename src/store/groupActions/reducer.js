@@ -5,7 +5,7 @@ const initialState = [];
 export const checkedOrdersReducer = (state = initialState, action) => {
   switch (action.type) {
     case checkedOrdersActionTypes.SET_CHECKED_ORDERS:
-      return [...state, action.id]
+      return [...state, ...action.id]
     case checkedOrdersActionTypes.DELETE_CHECKED_ORDERS:
       return state.filter(item => item !== action.id)
     case checkedOrdersActionTypes.CLEAR_CHECKED_ORDERS:
