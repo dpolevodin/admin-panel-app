@@ -109,7 +109,7 @@ const ModalForm = () => {
           <FormInput
             isIncorrect
             title="Код подтверждения"
-            placeholder="Введите ФИО"
+            placeholder="Введите код подтверждения"
             value={order.confirmCode}
           />
         </div>

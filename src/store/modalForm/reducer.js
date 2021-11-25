@@ -8,7 +8,9 @@ const initialState = {
 export const formReducer = (state = initialState, action) => {
   switch (action.type) {
     case formActionTypes.SET_VISIBLE:
-      return {...state, isVisible: !state.isVisible, order: action.payload};
+      return {...state, isVisible: !state.isVisible};
+    case formActionTypes.SET_ORDER:
+      return {...state, order: action.payload};
     default:
       return state;
   }

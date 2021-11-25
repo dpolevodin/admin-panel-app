@@ -50,7 +50,8 @@ const OrdersTable = () => {
   const handleRowClick = (event) => {
     const orderId = (event.target.parentNode).parentNode.innerText.slice(0, 7)
     console.log(orderId)
-    dispatch(formActions.setVisible(mockOrder));
+    dispatch(formActions.setOrder(mockOrder));
+    dispatch(formActions.setVisible());
   };
 
   return (

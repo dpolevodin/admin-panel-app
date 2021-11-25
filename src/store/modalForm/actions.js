@@ -1,10 +1,14 @@
 export const formActionTypes = {
-    SET_VISIBLE: "FORM.SET_ORDERS",
+    SET_VISIBLE: "FORM.SET_VISIBLE",
+    SET_ORDER: "FORM.SET_ORDER",
   };
   
   export const formActions = {
-    setVisible: (payload) => ({
-      type: formActionTypes.SET_VISIBLE,
+    setVisible: () => ({
+      type: formActionTypes.SET_VISIBLE
+    }),
+    setOrder: (payload) => ({
+      type: formActionTypes.SET_ORDER,
       payload
     }),
   };
