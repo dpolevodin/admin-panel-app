@@ -43,6 +43,12 @@ const ModalForm = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleFormClose = (event) => {
+    event.preventDefault();
+    setIsDropdownOpen(!isDropdownOpen);
+    dispatch(formActions.setVisible());
+  }
+
   const handleSaveButton = (event) => {
     event.preventDefault();
     dispatch(formActions.setVisible());
@@ -68,6 +74,7 @@ const ModalForm = () => {
         <FormDropdown
           isOpen={isDropdownOpen}
           handleButton={handleDropdownOpen}
+          handleResetButton={handleFormClose}
         />
 
         <div className={modalForm.table}>
