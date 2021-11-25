@@ -7,6 +7,7 @@ const FilterPrimary = ({
   buttonFiltersHandler,
   resetFiltersHandler,
   onSubmit,
+  onChange
 }) => {
   const [loaderVisible, setLoaderVisible] = useState(true);
 
@@ -21,7 +22,7 @@ const FilterPrimary = ({
   return (
     <div className="filter__wrapper">
       <div className="filter__group">
-        <form className="filter__form" onSubmit={onSubmit}>
+        <form className="filter__form" onSubmit={onSubmit} onChange={onChange}>
           <Searchbar
             labelClass="filter__searchbar-group"
             wrapperClass="filter__searchbar-field filter__searchbar-field_empty"

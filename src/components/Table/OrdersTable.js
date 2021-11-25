@@ -14,7 +14,7 @@ const filtersMapping = {
 };
 
 const OrdersTable = () => {
-  const [isSortedBySum, setIsSortedBySum] = useState(false);
+  const [isSorted, setIsSorted] = useState(false);
 
   const { orders } = useSelector((state) => state);
   const ordersList = !!orders ? orders : [];
@@ -26,10 +26,10 @@ const OrdersTable = () => {
     dispatch(
       ordersActions.sortOrders({
         value: filtersMapping[valueToSort],
-        SortUp: isSortedBySum,
+        SortUp: isSorted,
       })
     );
-    setIsSortedBySum(!isSortedBySum);
+    setIsSorted(!isSorted);
   };
 
   const handleCheckbox = (event) => {

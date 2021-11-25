@@ -10,7 +10,7 @@ const OrdersFilter = ({ className = "filter" }) => {
  
   const dispatch = useDispatch();
 
-  const handleSubmit = (event) => {
+  const handleChange = (event) => {
     event.preventDefault();
     dispatch(ordersActions.setOrders(Mocks));
     const value = String(
@@ -22,6 +22,10 @@ const OrdersFilter = ({ className = "filter" }) => {
       dispatch(ordersActions.searchOrders(value));
     }
   };
+
+  const handleSubmit = (event) => {
+    event.preventDefault()
+  }
 
   const handleOptionsVisible = (event) => {
     event.preventDefault();
@@ -36,6 +40,7 @@ const OrdersFilter = ({ className = "filter" }) => {
   return (
     <div className={className}>
       <FilterPrimary
+        onChange={handleChange}
         onSubmit={handleSubmit}
         buttonFiltersHandler={handleOptionsVisible}
         resetFiltersHandler={resetFiltersHandler}
