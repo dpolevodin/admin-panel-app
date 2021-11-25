@@ -30,13 +30,7 @@ const OrderItem = ({
   onOrderClick,
   onChangeCheckbox
 }) => {
-  const checkboxItem = (
-    <label className={orderLabelClass}>
-      <Checkbox onChange={onChangeCheckbox}/>
-    </label>
-  );
   const renderedItems = [
-    checkboxItem,
     id,
     creationDate,
     status,
@@ -44,13 +38,7 @@ const OrderItem = ({
     sum,
     name,
   ].map((item) => {
-    if (item === <Checkbox />) {
-      return (
-        <li className={itemClass} key={"Checkbox"}>
-          <Checkbox />
-        </li>
-      );
-    } else if (item === status) {
+    if (item === status) {
       return (
         <li className={statusClass} key={item}>
           <SvgElement svgName={iconClass} />
@@ -82,6 +70,11 @@ const OrderItem = ({
   return (
     <li className={orderWrapperClass} onClick={onOrderClick}>
       <ul className={orderRowClass} >
+        <li className={itemClass} key={"Checkbox"}>
+            <label className={orderLabelClass}>
+              <Checkbox onChange={onChangeCheckbox}/>
+            </label>
+        </li>
         {renderedItems}
       </ul>
     </li>
