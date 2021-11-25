@@ -8,19 +8,6 @@ import { useDispatch, useSelector } from "react-redux";
 import { formActions } from "../../store/modalForm";
 import FormDropdown from "./FormDropdown";
 
-const exampleOrdersList = [
-  {
-    article: "rt.12024",
-    orderName: "Стил блейдс фо грасс",
-    price: 15339,
-  },
-  {
-    article: "al.24600",
-    orderName: "Газонокосилка Apple Magic Grass Remover",
-    price: 82664,
-  },
-];
-
 const formatDate = (dateString) =>
   new Date(dateString).toLocaleString([], {
     year: "numeric",
@@ -47,11 +34,12 @@ const ModalForm = () => {
     event.preventDefault();
     setIsDropdownOpen(!isDropdownOpen);
     dispatch(formActions.setVisible());
-  }
+  };
 
   const handleSaveButton = (event) => {
     event.preventDefault();
     dispatch(formActions.setVisible());
+    dispatch(formActions.clearOrder())
   };
 
   const handleInput = (event) => {
@@ -62,6 +50,12 @@ const ModalForm = () => {
   const formMainClass = isFormVisible
     ? modalForm._
     : modalForm._ + " " + modalForm.hidden;
+
+  const goodsTable = order.goods ? (
+    <OrderTable orders={order.goods} sum={order.sum} />
+  ) : (
+    null
+  );
 
   return (
     <div className={formMainClass}>
@@ -91,7 +85,7 @@ const ModalForm = () => {
             onChange={handleInput}
           />
 
-          <OrderTable orders={exampleOrdersList} />
+          {goodsTable}
 
           <FormInput
             isDisabled

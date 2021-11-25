@@ -6,17 +6,6 @@ import { ordersActions } from "../../store/orders";
 import { formActions } from "../../store/modalForm";
 import { useState } from "react";
 
-const mockOrder = {
-  id: 1373265,
-  creationDate: "2020-11-15T09:26:00.000Z",
-  status: "Выполнен",
-  positionsCount: 1,
-  sum: 17008,
-  name: "Иванов Иван Иванович",
-  loyalty: "Мастер",
-  confirmCode: "001",
-};
-
 const filtersMapping = {
   Дата: "creationDate",
   Статус: "status",
@@ -48,9 +37,9 @@ const OrdersTable = () => {
   }
 
   const handleRowClick = (event) => {
-    const orderId = (event.target.parentNode).parentNode.innerText.slice(0, 7)
-    console.log(orderId)
-    dispatch(formActions.setOrder(mockOrder));
+    const orderId = Number((event.target.parentNode).parentNode.innerText.slice(0, 7))
+    const orderToSetFormData = orders.find(item => item.id === orderId)
+    dispatch(formActions.setOrder(orderToSetFormData));
     dispatch(formActions.setVisible());
   };
 
