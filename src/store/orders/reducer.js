@@ -23,6 +23,8 @@ export const ordersReducer = (state = initialState, action) => {
       return state
         .slice()
         .sort(sortByKey(action.payload.value, action.payload.SortUp))
+      case ordersActionTypes.DELETE_CHECKED_ORDERS:
+        return state.filter(order => !action.payload.includes(order.id))
     default:
       return state;
   }

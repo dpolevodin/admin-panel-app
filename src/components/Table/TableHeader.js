@@ -3,7 +3,8 @@ import Checkbox from "../Common/Checkbox";
 
 const itemClassName = "table__header-item";
 const itemTextClassName = "table__header-item-text";
-const checkboxLabelClass = "table__checkbox-control";
+const checkboxLabelClass =
+  "table__checkbox-control table__checkbox-control_primary";
 const listClass = "table__header-list";
 
 const headerTitles = [
@@ -23,14 +24,15 @@ const TableHeader = ({
   headerList = headerTitles,
   headerFiltersIcon = "v_arrow",
   onClick,
-  svgRotate
+  svgRotate,
+  onChangeCheckbox
 }) => {
   const headerTitlesRender = headerList.map((item) => {
     if (item === "") {
       return (
         <li className={itemClassName} key={item}>
           <label className={checkboxLabelClass}>
-            <Checkbox />
+            <Checkbox onChange={onChangeCheckbox}/>
           </label>
         </li>
       );

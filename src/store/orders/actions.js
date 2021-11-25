@@ -2,6 +2,7 @@ export const ordersActionTypes = {
     SET_ORDERS: "ORDERS.SET_ORDERS",
     SEARCH_ORDERS: "ORDERS.SEARCH_ORDERS",
     SORT_ORDERS: "ORDERS.SORT_ORDERS",
+    DELETE_CHECKED_ORDERS: "ORDERS.DELETE_CHECKED_ORDERS",
   };
   
   export const ordersActions = {
@@ -15,6 +16,10 @@ export const ordersActionTypes = {
     }),
     sortOrders: (payload) => ({
       type: ordersActionTypes.SORT_ORDERS,
+      payload
+    }),
+    deleteCheckedOrders: (payload) => ({
+      type: ordersActionTypes.DELETE_CHECKED_ORDERS,
       payload
     }),
   };

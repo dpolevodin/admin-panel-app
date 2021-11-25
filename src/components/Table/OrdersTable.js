@@ -4,6 +4,7 @@ import TableFooter from "./TableFooter";
 import { useSelector, useDispatch } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import { formActions } from "../../store/modalForm";
+import { checkedOrdersActions } from "../../store/groupActions";
 import { useState } from "react";
 
 const filtersMapping = {
@@ -34,12 +35,12 @@ const OrdersTable = () => {
 
   const handleCheckbox = (event) => {
     const checkedId = Number(
-      event.target.parentNode.parentNode.parentNode.innerText.slice(0, 7)
+      event.target.parentNode.parentNode.parentNode.parentNode.innerText.slice(0,7)
     );
     const CheckboxIsChecked = event.target.checked;
     CheckboxIsChecked
-      ? console.log(`add id ${checkedId} to state`)
-      : console.log(`delete id ${checkedId} from state`);
+      ? dispatch(checkedOrdersActions.setCheckedOrders([checkedId]))
+      : dispatch(checkedOrdersActions.deleteCheckedOrders([checkedId]));
   };
 
   const handleRowClick = (event) => {
@@ -51,9 +52,20 @@ const OrdersTable = () => {
     dispatch(formActions.setVisible());
   };
 
+  const handleCheckboxHeader = (event) => {
+    const isCheckboxChecked = event.target.checked
+    const allId = orders.map((order) => order.id);
+    isCheckboxChecked ?
+    dispatch(checkedOrdersActions.setAllCheckedOrders(allId)) :
+    dispatch(checkedOrdersActions.clearCheckedOrders())
+  };
+
   return (
     <div className="table">
-      <TableHeader onClick={handleFilterSort} />
+      <TableHeader
+        onClick={handleFilterSort}
+        onChangeCheckbox={handleCheckboxHeader}
+      />
       <TableOrdersList
         orders={ordersList}
         onOrderClick={handleRowClick}

@@ -840,6 +840,11 @@ body {
     position: relative;
     display: flex;
     cursor: pointer;
+    padding: 0.5rem;
+}
+
+.table__checkbox-control_primary {
+    padding: 0 0.5rem;
 }
 
 .table__checkbox-group {
