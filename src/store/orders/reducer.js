@@ -27,8 +27,10 @@ export const ordersReducer = (state = initialState, action) => {
       return state.filter(order => !action.payload.includes(order.id))
     case ordersActionTypes.FILTER_ORDERS_BY_DATE: 
       return state.filter(order => 
-        new Date(order.creationDate) > action.minDate && 
-        new Date(order.creationDate) < action.maxDate)      
+        new Date(order.creationDate) >= action.minDate && 
+        new Date(order.creationDate) <= action.maxDate)      
+    case ordersActionTypes.FILTER_ORDERS_BY_SUM: 
+      return state.filter(order => order.sum >= action.minSum && order.sum <= action.maxSum)
     default:
       return state;
   }

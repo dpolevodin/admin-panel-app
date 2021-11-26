@@ -20,7 +20,9 @@ const DateFilter = ({
   buttonHandlerStart,
   buttonHandlerEnd,
   onBlurInputStart,
-  onBlurInputEnd
+  onBlurInputEnd,
+  onChangeStart,
+  onChangeEnd
 }) => {
   return (
     <div className={mainComponentWrapperClass}>
@@ -38,6 +40,7 @@ const DateFilter = ({
             placeholder={filterPlaceholder}
             id={inputStartId}
             onBlur={onBlurInputStart}
+            onChange={onChangeStart}
           />
 
           <Button
@@ -61,6 +64,7 @@ const DateFilter = ({
             placeholder={filterPlaceholder}
             id={InputEndId}
             onBlur={onBlurInputEnd}
+            onChange={onChangeEnd}
           />
           <Button
             className={buttonClassName}

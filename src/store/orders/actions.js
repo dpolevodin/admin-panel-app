@@ -4,6 +4,7 @@ export const ordersActionTypes = {
     SORT_ORDERS: "ORDERS.SORT_ORDERS",
     DELETE_CHECKED_ORDERS: "ORDERS.DELETE_CHECKED_ORDERS",
     FILTER_ORDERS_BY_DATE: "ORDERS.FILTER_ORDERS_BY_DATE",
+    FILTER_ORDERS_BY_SUM: "ORDERS.FILTER_ORDERS_BY_SUM",
   };
   
   export const ordersActions = {
@@ -27,5 +28,10 @@ export const ordersActionTypes = {
       type: ordersActionTypes.FILTER_ORDERS_BY_DATE,
       minDate,
       maxDate
+    }),
+    filterOrdersBySum: (minSum, maxSum) => ({
+      type: ordersActionTypes.FILTER_ORDERS_BY_SUM,
+      minSum,
+      maxSum
     }),
   };

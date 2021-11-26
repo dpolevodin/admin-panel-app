@@ -16,16 +16,15 @@ const FilterOptions = ({ isVisible }) => {
   const [dateStart, setDateStart] = useState("");
   const [dateEnd, setDateEnd] = useState("");
 
-  const dispatch = useDispatch()
-  
+  const [sumStart, setSumStart] = useState(0);
+  const [sumEnd, setSumEnd] = useState(1000000);
+
+  const dispatch = useDispatch();
+
   const formattingDate = (string) => {
-    const formatString = string.split('.')
-    return new Date(
-      formatString[2],
-      formatString[1] - 1,
-      formatString[0]
-    )
-  }
+    const formatString = string.split(".");
+    return new Date(formatString[2], formatString[1] - 1, formatString[0]);
+  };
 
   new AirDatepicker("#dateStart", {
     maxDate: Date.now(),
@@ -44,26 +43,34 @@ const FilterOptions = ({ isVisible }) => {
     event.preventDefault();
     const cuurenInputValue = document.getElementById(id);
     cuurenInputValue.value = "";
-    isStart ? setDateStart("") : setDateEnd("")
+    isStart ? setDateStart("") : setDateEnd("");
   };
 
-  const handleInputValue = (event, isStart) => {
+  const handleInputDateValue = (event, isStart) => {
     isStart ? setDateStart(event.target.value) : setDateEnd(event.target.value);
   };
 
+  const handleInputSumValue = (event, isStart) => {
+    isStart ? setSumStart(event.target.value) : setSumEnd(event.target.value);
+  };
+
   const setDateFilterOptions = (dateStart, dateEnd) => {
-    const minDate = dateStart ? formattingDate(dateStart) : Date.now()
-    const maxDate = dateEnd ? formattingDate(dateEnd) : Date.now()
-    dispatch(ordersActions.filterOrdersByDate(minDate, maxDate))
-  }
+    const minDate = dateStart ? formattingDate(dateStart) : Date.now();
+    const maxDate = dateEnd ? formattingDate(dateEnd) : Date.now();
+    dispatch(ordersActions.filterOrdersByDate(minDate, maxDate));
+  };
+
+  const setSumFilterOptions = (sumStart, sumEnd) => {
+    const minSum = sumStart ? sumStart : 0;
+    const maxSum = sumEnd ? sumEnd : 1000000;
+    dispatch(ordersActions.filterOrdersBySum(minSum, maxSum));
+  };
 
   const handleButtonSubmit = (event) => {
-    event.preventDefault()
-    setDateFilterOptions(dateStart, dateEnd)
-  }
-
-    
-    
+    event.preventDefault();
+    setDateFilterOptions(dateStart, dateEnd);
+    setSumFilterOptions(sumStart, sumEnd);
+  };
 
   return (
     <div className={wrapperClassName}>
@@ -78,20 +85,27 @@ const FilterOptions = ({ isVisible }) => {
           buttonHandlerEnd={(e) => {
             handleInputClear("dateEnd", e);
           }}
-          onBlurInputStart={(e) => handleInputValue(e, true)}
-          onBlurInputEnd={(e) => handleInputValue(e)}
+          onBlurInputStart={(e) => handleInputDateValue(e, true)}
+          onBlurInputEnd={(e) => handleInputDateValue(e)}
         />
 
-        <StatusFilter  />
+        <StatusFilter />
 
-        <RangeFilter filterPlaceholder="₽" filterTitle="Сумма заказа" isShort />
+        <RangeFilter
+          inputStartId="sumStart"
+          InputEndId="sumEnd"
+          filterPlaceholder="₽"
+          filterTitle="Сумма заказа"
+          isShort
+          onChangeStart={(e) => handleInputSumValue(e, true)}
+          onChangeEnd={(e) => handleInputSumValue(e)}
+        />
 
         <Button
           className={buttonClassName}
           buttonText="Применить"
           onClick={handleButtonSubmit}
         />
-
       </form>
     </div>
   );
