@@ -10,9 +10,9 @@ export const checkedOrdersActionTypes = {
       type: checkedOrdersActionTypes.SET_CHECKED_ORDERS,
       id,
     }),
-    deleteCheckedOrders: (id) => ({
+    deleteCheckedOrders: (payload) => ({
       type: checkedOrdersActionTypes.DELETE_CHECKED_ORDERS,
-      id
+      payload
     }),
     clearCheckedOrders: () => ({
       type: checkedOrdersActionTypes.CLEAR_CHECKED_ORDERS,

@@ -41,9 +41,11 @@ const OrdersTable = () => {
       )
     );
     const CheckboxIsChecked = event.target.checked;
-    CheckboxIsChecked
-      ? dispatch(checkedOrdersActions.setCheckedOrders([checkedId]))
-      : dispatch(checkedOrdersActions.deleteCheckedOrders([checkedId]));
+    if (CheckboxIsChecked) {
+      dispatch(checkedOrdersActions.setCheckedOrders([checkedId]));
+    } else {
+      dispatch(checkedOrdersActions.deleteCheckedOrders([checkedId]));
+    }
   };
 
   const handleRowClick = (event) => {
@@ -61,9 +63,10 @@ const OrdersTable = () => {
     const checkboxList = document.querySelectorAll(
       ".table__header-item .checkbox"
     );
+    dispatch(checkedOrdersActions.clearCheckedOrders());
     for (let i = 1; i < checkboxList.length; i++) {
       isCheckboxChecked
-        ? (checkboxList[i].checked = !checkboxList[i].checked)
+        ? (checkboxList[i].checked = checkboxList[i].checked = true)
         : (checkboxList[i].checked = false);
     }
     isCheckboxChecked
