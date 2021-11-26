@@ -16,7 +16,6 @@ const FooterActions = () => {
     event.preventDefault();
     setDropdownVisible(!dropdownVisible);
   };
-  console.log('111', countsSelected)
 
   const handleButtonDelete = event => {
     event.preventDefault()

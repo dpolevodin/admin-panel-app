@@ -35,7 +35,10 @@ const OrdersTable = () => {
 
   const handleCheckbox = (event) => {
     const checkedId = Number(
-      event.target.parentNode.parentNode.parentNode.parentNode.innerText.slice(0,7)
+      event.target.parentNode.parentNode.parentNode.parentNode.innerText.slice(
+        0,
+        7
+      )
     );
     const CheckboxIsChecked = event.target.checked;
     CheckboxIsChecked
@@ -53,11 +56,19 @@ const OrdersTable = () => {
   };
 
   const handleCheckboxHeader = (event) => {
-    const isCheckboxChecked = event.target.checked
+    const isCheckboxChecked = event.target.checked;
     const allId = orders.map((order) => order.id);
-    isCheckboxChecked ?
-    dispatch(checkedOrdersActions.setAllCheckedOrders(allId)) :
-    dispatch(checkedOrdersActions.clearCheckedOrders())
+    const checkboxList = document.querySelectorAll(
+      ".table__header-item .checkbox"
+    );
+    for (let i = 1; i < checkboxList.length; i++) {
+      isCheckboxChecked
+        ? (checkboxList[i].checked = !checkboxList[i].checked)
+        : (checkboxList[i].checked = false);
+    }
+    isCheckboxChecked
+      ? dispatch(checkedOrdersActions.setAllCheckedOrders(allId))
+      : dispatch(checkedOrdersActions.clearCheckedOrders());
   };
 
   return (
