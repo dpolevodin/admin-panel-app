@@ -47,20 +47,3 @@ const FormInput = ({
 };
 
 export default FormInput;
-
-// <div class="input__group">
-//     <label class="input__control">
-//         <div class="input__field-name">Дата и время заказа</div>
-//         <div class="input__field input__field_empty">
-//             <input class="input__area" placeholder="Введите">
-//             <button class="input__button">
-//                 <svg class="input__icon">
-//                     <use xlink:href="#incorrect"></use>
-//                 </svg>
-//                 <svg class="input__icon">
-//                     <use xlink:href="#disabled"></use>
-//                 </svg>
-//             </button>
-//         </div>
-//     </label>
-// </div>

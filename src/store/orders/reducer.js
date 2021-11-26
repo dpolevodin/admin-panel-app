@@ -23,8 +23,12 @@ export const ordersReducer = (state = initialState, action) => {
       return state
         .slice()
         .sort(sortByKey(action.payload.value, action.payload.SortUp))
-      case ordersActionTypes.DELETE_CHECKED_ORDERS:
-        return state.filter(order => !action.payload.includes(order.id))
+    case ordersActionTypes.DELETE_CHECKED_ORDERS:
+      return state.filter(order => !action.payload.includes(order.id))
+    case ordersActionTypes.FILTER_ORDERS_BY_DATE: 
+      return state.filter(order => 
+        new Date(order.creationDate) > action.minDate && 
+        new Date(order.creationDate) < action.maxDate)      
     default:
       return state;
   }

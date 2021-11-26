@@ -19,6 +19,8 @@ const formatDate = (dateString) =>
 
 const ModalForm = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  
+
   const dispatch = useDispatch();
   const isFormVisible = useSelector((state) => state.form.isVisible);
   const formData = useSelector((state) => state.form.order);
@@ -44,7 +46,6 @@ const ModalForm = () => {
 
   const handleInput = (event) => {
     event.preventDefault();
-    console.log(event.target.value);
   };
 
   const formMainClass = isFormVisible

@@ -13,9 +13,8 @@ const inputWrapperClassName =
   "filter__input-field filter__input-field_empty filter__input-field_long";
 const statusTitleClass = "filter__input-title";
 
-const StatusFilter = () => {
+const StatusFilter = ({statusValue}) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
-
   const handleDropdownVisible = (event) => {
     event.preventDefault();
     dropdownVisible ? setDropdownVisible(false) : setDropdownVisible(true);
@@ -30,7 +29,7 @@ const StatusFilter = () => {
           <Input
             className={inputClassName}
             placeholder={statusFilterPlaceholder}
-            defaultValue="Любой"
+            value={statusValue}
           />
           <Button
             className={buttonClassName}

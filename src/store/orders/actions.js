@@ -3,6 +3,7 @@ export const ordersActionTypes = {
     SEARCH_ORDERS: "ORDERS.SEARCH_ORDERS",
     SORT_ORDERS: "ORDERS.SORT_ORDERS",
     DELETE_CHECKED_ORDERS: "ORDERS.DELETE_CHECKED_ORDERS",
+    FILTER_ORDERS_BY_DATE: "ORDERS.FILTER_ORDERS_BY_DATE",
   };
   
   export const ordersActions = {
@@ -21,5 +22,10 @@ export const ordersActionTypes = {
     deleteCheckedOrders: (payload) => ({
       type: ordersActionTypes.DELETE_CHECKED_ORDERS,
       payload
+    }),
+    filterOrdersByDate: (minDate, maxDate) => ({
+      type: ordersActionTypes.FILTER_ORDERS_BY_DATE,
+      minDate,
+      maxDate
     }),
   };
