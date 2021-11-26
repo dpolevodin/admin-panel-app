@@ -39,7 +39,7 @@ const FooterActions = () => {
         onClick={handleDropdownVisible}
       />
       {dropdownVisible && (
-        <FooterDropdown deleteHandler={handleButtonDelete} cancelHandler={handleDropdownVisible} />
+        <FooterDropdown deleteHandler={handleButtonDelete} cancelHandler={handleDropdownVisible} ordersCount={countsSelected.length}/>
       )}
     </form>
   );

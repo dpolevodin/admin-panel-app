@@ -55,7 +55,7 @@ const FilterOptions = ({ isVisible }) => {
   };
 
   const setDateFilterOptions = (dateStart, dateEnd) => {
-    const minDate = dateStart ? formattingDate(dateStart) : Date.now();
+    const minDate = dateStart ? formattingDate(dateStart) : new Date(1900);
     const maxDate = dateEnd ? formattingDate(dateEnd) : Date.now();
     dispatch(ordersActions.filterOrdersByDate(minDate, maxDate));
   };
