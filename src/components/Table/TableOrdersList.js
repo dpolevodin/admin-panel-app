@@ -35,7 +35,7 @@ const TableOrdersList = ({
           key={order.id}
           onOrderClick={onOrderClick}
           onChangeCheckbox={onChangeCheckbox}
-        />     
+        />
     );
   });
 
