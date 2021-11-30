@@ -10,36 +10,43 @@ const FooterActions = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const countsSelected = useSelector((state) => state.checkedOrders);
-  const dispatch = useDispatch()
+  const dispatch = useDispatch();
 
   const handleDropdownVisible = (event) => {
     event.preventDefault();
     setDropdownVisible(!dropdownVisible);
   };
 
-  const handleButtonDelete = event => {
-    event.preventDefault()
-    dispatch(ordersActions.deleteCheckedOrders([...countsSelected]))
-    dispatch(checkedOrdersActions.clearCheckedOrders())
+  const handleButtonDelete = (event) => {
+    event.preventDefault();
+    dispatch(ordersActions.deleteCheckedOrders([...countsSelected]));
+    dispatch(checkedOrdersActions.clearCheckedOrders());
     setDropdownVisible(!dropdownVisible);
-  }
+  };
 
   return (
     <form className="table__footer-action">
       <FooterOrdersSelected count={countsSelected.length} />
       <Button
-        className={"table__footer-button table__footer-button_blue"}
-        buttonText={"Изменить статус"}
-        svgName={"pencil"}
-      />
+        className="table__footer-button table__footer-button_blue"
+        svgName="pencil"
+        onClick={(e)=> e.preventDefault()}
+      >
+        Изменить статус
+      </Button>
       <Button
-        className={"table__footer-button table__footer-button_red"}
-        buttonText={"Удалить"}
-        svgName={"bin"}
+        className="table__footer-button table__footer-button_red"
+        svgName="bin"
         onClick={handleDropdownVisible}
-      />
+      >
+        Удалить
+      </Button>
       {dropdownVisible && (
-        <FooterDropdown deleteHandler={handleButtonDelete} cancelHandler={handleDropdownVisible} ordersCount={countsSelected.length}/>
+        <FooterDropdown
+          deleteHandler={handleButtonDelete}
+          cancelHandler={handleDropdownVisible}
+          ordersCount={countsSelected.length}
+        />
       )}
     </form>
   );

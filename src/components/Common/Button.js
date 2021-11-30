@@ -3,15 +3,17 @@ import SvgElement from "../Icons/SvgElement";
 const Button = ({
   className,
   svgName,
-  buttonText,
   textClassName = "button__text",
   onClick,
   iconClassName,
+  children
 }) => {
   return (
     <button className={className} onClick={onClick}>
       <SvgElement svgName={svgName} className={iconClassName} />
-      <span className={textClassName}>{buttonText}</span>
+      <span className={textClassName}>
+        {children}
+      </span>
     </button>
   );
 };

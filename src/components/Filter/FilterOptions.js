@@ -101,11 +101,9 @@ const FilterOptions = ({ isVisible }) => {
           onChangeEnd={(e) => handleInputSumValue(e)}
         />
 
-        <Button
-          className={buttonClassName}
-          buttonText="Применить"
-          onClick={handleButtonSubmit}
-        />
+        <Button className={buttonClassName} onClick={handleButtonSubmit}>
+          Применить
+        </Button>
       </form>
     </div>
   );

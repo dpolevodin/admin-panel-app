@@ -8,9 +8,8 @@ const FooterPagination = ({ elementsToPagination = paginationElements }) => {
       return (
         <Button
           className={"table__footer-button table__footer-button_small"}
-          buttonText={item}
           key={paginationElements.indexOf(item)}
-        />
+        >{item}</Button>
       );
     } else if (Number(item)) {
       return (
@@ -18,9 +17,8 @@ const FooterPagination = ({ elementsToPagination = paginationElements }) => {
           className={
             "table__footer-button table__footer-button_small table__footer-button_transparent"
           }
-          buttonText={item}
           key={paginationElements.indexOf(item)}
-        />
+        >{item}</Button>
       );
     } else {
       return (
@@ -38,11 +36,8 @@ const FooterPagination = ({ elementsToPagination = paginationElements }) => {
     <div className="table__footer-pagination">
       <form className="table__footer-pagination-form">{paginatioRender}</form>
       <Button
-        className={
-          "table__footer-button table__footer-button_small table__footer-button_transparent"
-        }
-        buttonText={"#"}
-      />
+        className="table__footer-button table__footer-button_small table__footer-button_transparent"
+      >#</Button>
     </div>
   );
 };

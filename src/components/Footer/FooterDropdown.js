@@ -10,16 +10,12 @@ const FooterDropdown = ({ ordersCount, deleteHandler, cancelHandler }) => {
   return (
     <form className={formClassname}>
       <span className={textClassName}>Удалить {ordersCount} записей?</span>
-      <Button
-        className={deleteButtonClass}
-        buttonText="Удалить"
-        onClick={deleteHandler}
-      />
-      <Button
-        className={cancelButtonClass}
-        buttonText="Отмена"
-        onClick={cancelHandler}
-      />
+      <Button className={deleteButtonClass} onClick={deleteHandler}>
+        Удалить
+      </Button>
+      <Button className={cancelButtonClass} onClick={cancelHandler}>
+        Отмена
+      </Button>
     </form>
   );
 };

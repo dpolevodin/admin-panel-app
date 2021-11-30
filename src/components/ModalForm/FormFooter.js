@@ -4,9 +4,6 @@ import Loader from "../Common/Loader";
 import { useState } from "react";
 
 const FormFooter = ({
-  errorText = "Ошибка или индикатор загрузки",
-  buttonIconName = "checkmark",
-  buttonText = "Сохранить",
   buttonHandler,
 }) => {
   const [whatIsShow, setWhatIsShow] = useState(true);
@@ -20,16 +17,17 @@ const FormFooter = ({
     <footer className={modalForm.footer}>
       <div className={modalForm.footer__text}>
         {whatIsShow && <Loader isVisible />}
-        {!whatIsShow && errorText}
+        {!whatIsShow && 'Ошибка или индикатор загрузки'}
       </div>
 
       <Button
         className={modalForm.footer__button}
-        svgName={buttonIconName}
-        buttonText={buttonText}
+        svgName="checkmark"
         iconClassName={modalForm.footer__icon}
         onClick={buttonHandler}
-      />
+      >
+        Сохранить
+      </Button>
     </footer>
   );
 };

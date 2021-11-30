@@ -7,7 +7,7 @@ const FilterPrimary = ({
   buttonFiltersHandler,
   resetFiltersHandler,
   onSubmit,
-  onChange
+  onChange,
 }) => {
   const [loaderVisible, setLoaderVisible] = useState(true);
 
@@ -31,15 +31,18 @@ const FilterPrimary = ({
           <Button
             className="filter-button"
             svgName="filter"
-            buttonText="Фильтры"
             onClick={buttonFiltersHandler}
-          />
+          >
+            Фильтры
+          </Button>
           <Button
             className="filter-button filter-button_hidden-icon"
             svgName="filter"
             buttonText="Сбросить фильтры"
             onClick={resetFiltersHandler}
-          />
+          >
+            Сбросить фильтры
+          </Button>
         </form>
         {loaderVisible && <Loader isVisible />}
       </div>
