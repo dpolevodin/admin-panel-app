@@ -1,5 +1,6 @@
 export const ordersActionTypes = {
     SET_ORDERS: "ORDERS.SET_ORDERS",
+    CHANGE_ORDER_STATUS: "ORDERS.CHANGE_ORDER_STATUS",
     SEARCH_ORDERS: "ORDERS.SEARCH_ORDERS",
     SORT_ORDERS: "ORDERS.SORT_ORDERS",
     DELETE_CHECKED_ORDERS: "ORDERS.DELETE_CHECKED_ORDERS",
@@ -14,6 +15,10 @@ export const ordersActionTypes = {
     }),
     searchOrders: (payload) => ({
       type: ordersActionTypes.SEARCH_ORDERS,
+      payload
+    }),
+    changeOrderStatus: (payload) => ({
+      type: ordersActionTypes.CHANGE_ORDER_STATUS,
       payload
     }),
     sortOrders: (payload) => ({

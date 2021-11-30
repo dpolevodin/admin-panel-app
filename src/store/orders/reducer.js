@@ -31,6 +31,11 @@ export const ordersReducer = (state = initialState, action) => {
         new Date(order.creationDate) <= action.maxDate)      
     case ordersActionTypes.FILTER_ORDERS_BY_SUM: 
       return state.filter(order => order.sum >= action.minSum && order.sum <= action.maxSum)
+    case ordersActionTypes.CHANGE_ORDER_STATUS:
+      return state.map(order => 
+        order.id === action.payload.id ? 
+        {...order, status: action.payload.status}
+        : order)
     default:
       return state;
   }

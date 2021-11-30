@@ -35,10 +35,7 @@ const OrdersTable = () => {
 
   const handleCheckbox = (event) => {
     const checkedId = Number(
-      event.target.parentNode.parentNode.parentNode.parentNode.innerText.slice(
-        0,
-        7
-      )
+      event.target.parentNode.parentNode.parentNode.parentNode.innerText.slice(0,7)
     );
     const CheckboxIsChecked = event.target.checked;
     if (CheckboxIsChecked) {

@@ -6,6 +6,7 @@ import FormInput from "./FormInput";
 import OrderTable from "./OrderTable";
 import { useDispatch, useSelector } from "react-redux";
 import { formActions } from "../../store/modalForm";
+import { ordersActions } from "../../store/orders";
 import FormDropdown from "./FormDropdown";
 
 const formatDate = (dateString) =>
@@ -18,14 +19,19 @@ const formatDate = (dateString) =>
   });
 
 const ModalForm = () => {
+
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  
 
   const dispatch = useDispatch();
   const isFormVisible = useSelector((state) => state.form.isVisible);
   const formData = useSelector((state) => state.form.order);
 
   const order = { ...formData };
+  
+  const handleInputStatus = (event) => {
+    const value = event.target.value
+    dispatch(formActions.setOrder({...order, status: value}))
+  }
 
   const handleDropdownOpen = (event) => {
     event.preventDefault();
@@ -41,12 +47,15 @@ const ModalForm = () => {
   const handleSaveButton = (event) => {
     event.preventDefault();
     dispatch(formActions.setVisible());
+    dispatch(ordersActions.changeOrderStatus(order))
     dispatch(formActions.clearOrder())
   };
 
   const handleInput = (event) => {
     event.preventDefault();
   };
+
+  console.log(order.status)
 
   const formMainClass = isFormVisible
     ? modalForm._
@@ -99,6 +108,7 @@ const ModalForm = () => {
             title="Статус заказа"
             placeholder="Выберите статус заказа"
             value={order.status}
+            onChange={handleInputStatus}
             icon="v_arrow"
           />
           <FormInput
