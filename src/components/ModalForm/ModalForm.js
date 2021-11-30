@@ -8,6 +8,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { formActions } from "../../store/modalForm";
 import { ordersActions } from "../../store/orders";
 import FormDropdown from "./FormDropdown";
+import StatusDropdown from "./StatusDropdown"
 
 const formatDate = (dateString) =>
   new Date(dateString).toLocaleString([], {
@@ -21,6 +22,7 @@ const formatDate = (dateString) =>
 const ModalForm = () => {
 
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+  const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
 
   const dispatch = useDispatch();
   const isFormVisible = useSelector((state) => state.form.isVisible);
@@ -38,6 +40,11 @@ const ModalForm = () => {
     setIsDropdownOpen(!isDropdownOpen);
   };
 
+  const handleDropdownStatusOpen = (event) => {
+    event.preventDefault();
+    setIsStatusDropdownOpen(!isStatusDropdownOpen);
+  };
+
   const handleFormClose = (event) => {
     event.preventDefault();
     setIsDropdownOpen(!isDropdownOpen);
@@ -49,13 +56,20 @@ const ModalForm = () => {
     dispatch(formActions.setVisible());
     dispatch(ordersActions.changeOrderStatus(order))
     dispatch(formActions.clearOrder())
+    setIsStatusDropdownOpen(false)
   };
 
   const handleInput = (event) => {
     event.preventDefault();
   };
 
-  console.log(order.status)
+  const handleDropdownStatus = (event) => {
+    const value = event.target.value
+    dispatch(formActions.setOrder({...order, status: value}))
+  }
+
+  const formValue = document.getElementById('status-dropdown')?.status.value
+  const finalStatus = !!formValue ? formValue : order.status
 
   const formMainClass = isFormVisible
     ? modalForm._
@@ -107,18 +121,23 @@ const ModalForm = () => {
           <FormInput
             title="Статус заказа"
             placeholder="Выберите статус заказа"
-            value={order.status}
+            value={finalStatus}
             onChange={handleInputStatus}
             icon="v_arrow"
-          />
+            buttonHandler={handleDropdownStatusOpen}
+          >
+          <StatusDropdown isVisible={isStatusDropdownOpen} onChange={handleDropdownStatus} />
+          </FormInput>
+
           <FormInput
             isIncorrect
             title="Код подтверждения"
             placeholder="Введите код подтверждения"
             value={order.confirmCode}
           />
-        </div>
 
+        </div>
+        
         <FormFooter buttonHandler={handleSaveButton} />
       </div>
     </div>

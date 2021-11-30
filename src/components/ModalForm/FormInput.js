@@ -11,6 +11,8 @@ const FormInput = ({
   isIncorrect = false,
   value,
   onChange,
+  children,
+  buttonHandler
 }) => {
   let areaClass;
 
@@ -39,7 +41,9 @@ const FormInput = ({
             className={modalForm.button}
             svgName={icon}
             iconClassName={modalForm.input_icon}
+            onClick={buttonHandler}
           />
+          {children}
         </div>
       </label>
     </div>
