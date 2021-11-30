@@ -1,49 +1,30 @@
-import OrderItem from '../Table/OrderItem'
+import { OrderRow } from "./OrderRow";
 
-
-const statusIconMapping = {
-    'Новый': 'dot',
-    'Расчет': 'dot',
-    'Выполнен': 'checkmark',
-    'Отменен': 'abort',
-    'Отложен': 'dot',
-}
-
-const statusClassMapping = {
-    'Новый': 'table__header-item',
-    'Расчет': 'table__header-item table__header-item_blue',
-    'Выполнен': 'table__header-item table__header-item_green',
-    'Отменен': 'table__header-item table__header-item_half-transparent',
-    'Отложен': 'table__header-item',
-}
-
-const TableOrdersList = ({
-  className = "table__body",
-  listClass = "table__body-list",
+export const TableOrdersList = ({
+  className,
+  listClass,
   orders,
-  onOrderClick,
-  onChangeCheckbox,
-  orderClick
+  onClick,
+  onChange,
 }) => {
-
+  const blockClass = className ? className : "table__body"
+  const listMainClass = listClass ? listClass : "table__body-list"
   const ordersRender = orders.map((order) => {
     return (
-        <OrderItem
-          {...order}
-          statusClass={statusClassMapping[order.status]}
-          iconClass={statusIconMapping[order.status]}
-          key={order.id}
-          onOrderClick={onOrderClick}
-          onChangeCheckbox={onChangeCheckbox}
-        />
+      <OrderRow
+        {...order}
+        key={order.id}
+        onClick={onClick}
+        onChange={onChange}
+      />
     );
   });
 
   return (
-    <div className={className}>
-      <ul className={listClass}>{ordersRender}</ul>
+    <div className={blockClass}>
+      <div className={listMainClass}>
+        {ordersRender}
+      </div>
     </div>
   );
 };
-
-export default TableOrdersList;

@@ -1,28 +1,27 @@
 import modalForm from "./css/ModalForm.module.css";
-import OrderFormItem from "./orderFormItem";
+import { OrderFormItem } from "./OrderFormItem";
+import { formatSum } from "../../helpers/FormatFunctions";
 
 const OrderTable = ({ orders, sum }) => {
   const ordersRender = orders ? orders.map((item) => {
     return <OrderFormItem {...item} key={item.article + Math.random()} />;
   }) : [];
 
-  const finalSum = sum ? `${sum.toLocaleString()} ₽` : ' - '
-
   return (
     <div className={modalForm.OrderTable}>
-      <ul className={modalForm.OrdersList}>
-        <li className={modalForm.ListHeader}>
+      <div className={modalForm.OrdersList}>
+        <div className={modalForm.ListHeader}>
           <div className={modalForm.ListItem}>Артикул</div>
           <div className={modalForm.ListItem}>Наименование</div>
           <div className={modalForm.ListItem}>Цена</div>
-        </li>
+        </div>
 
         {ordersRender}
 
-        <li className={modalForm.ListFooter}>
-          {`Итоговая сумма: ${finalSum}`}
-        </li>
-      </ul>
+        <div className={modalForm.ListFooter}>
+          {`Итоговая сумма: ${formatSum(sum)}`}
+        </div>
+      </div>
     </div>
   );
 };

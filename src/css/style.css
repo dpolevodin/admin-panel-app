@@ -951,7 +951,6 @@ body {
 .table__footer-text {
     display: flex;
     align-items: center;
-    width: 7.625rem;
     height: 1.5rem;
     margin-right: 1rem;
     line-height: 1rem;
@@ -1174,6 +1173,10 @@ body {
     height: 2.5rem;
     width: 100%;
     border-bottom: 0.0625rem solid var(--background-admin-panel-day-light);
+}
+
+.table__body-item_checked {
+    background-color: var(--background-admin-panel-light);
 }
 
 .table__body-item:hover {

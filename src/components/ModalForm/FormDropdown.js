@@ -9,7 +9,6 @@ const cancelButtonClass = Dropdown.button;
 
 const FooterDropdown = ({
   isOpen = true,
-  alertText = "Есть несохраненные изменения",
   handleResetButton,
   handleButton
 }) => {
@@ -19,7 +18,7 @@ const FooterDropdown = ({
 
   return (
     <form className={blockClass}>
-      <span className={Dropdown.title}>{alertText}</span>
+      <span className={Dropdown.title}>Есть несохраненные изменения</span>
       <Button
         className={submitButtonClass}
         buttonText={submitButtonText}

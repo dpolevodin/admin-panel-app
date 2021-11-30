@@ -9,15 +9,7 @@ import { formActions } from "../../store/modalForm";
 import { ordersActions } from "../../store/orders";
 import FormDropdown from "./FormDropdown";
 import StatusDropdown from "./StatusDropdown"
-
-const formatDate = (dateString) =>
-  new Date(dateString).toLocaleString([], {
-    year: "numeric",
-    month: "2-digit",
-    day: "2-digit",
-    hour: "2-digit",
-    minute: "2-digit",
-  });
+import { formatDate } from "../../helpers/FormatFunctions";
 
 const ModalForm = () => {
 

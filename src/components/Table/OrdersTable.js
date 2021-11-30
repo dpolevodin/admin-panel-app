@@ -1,23 +1,23 @@
 import TableHeader from "./TableHeader";
-import TableOrdersList from "./TableOrdersList";
-import TableFooter from "./TableFooter";
+import { TableOrdersList } from "./TableOrdersList";
+import { TableFooter } from "./TableFooter";
 import { useSelector, useDispatch } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import { formActions } from "../../store/modalForm";
 import { checkedOrdersActions } from "../../store/groupActions";
 import { useState } from "react";
 
-const filtersMapping = {
-  Дата: "creationDate",
-  Статус: "status",
-  Позиций: "positionsCount",
-  Сумма: "sum",
+const FILTERS_MAP = {
+  'Дата': "creationDate",
+  'Статус': "status",
+  'Позиций': "positionsCount",
+  'Сумма': "sum",
 };
 
-const OrdersTable = () => {
+export const OrdersTable = () => {
   const [isSorted, setIsSorted] = useState(false);
 
-  const { orders } = useSelector((state) => state);
+  const orders = useSelector((state) => state.orders);
   const ordersList = !!orders ? orders : [];
 
   const dispatch = useDispatch();
@@ -26,7 +26,7 @@ const OrdersTable = () => {
     const valueToSort = event.target.innerText;
     dispatch(
       ordersActions.sortOrders({
-        value: filtersMapping[valueToSort],
+        value: FILTERS_MAP[valueToSort],
         SortUp: isSorted,
       })
     );
@@ -79,12 +79,10 @@ const OrdersTable = () => {
       />
       <TableOrdersList
         orders={ordersList}
-        onOrderClick={handleRowClick}
-        onChangeCheckbox={handleCheckbox}
+        onClick={handleRowClick}
+        onChange={handleCheckbox}
       />
       <TableFooter />
     </div>
   );
 };
-
-export default OrdersTable;

@@ -7,54 +7,46 @@ const checkboxLabelClass =
   "table__checkbox-control table__checkbox-control_primary";
 const listClass = "table__header-list";
 
-const headerTitles = [
-  "",
-  "#",
-  "Дата",
-  "Статус",
-  "Позиций",
-  "Сумма",
-  "ФИО покупателя",
-];
-
-const statusWithFilterList = ["Дата", "Статус", "Позиций", "Сумма"];
+const HEADERS_FILTER_ICON = "v_arrow"
 
 const TableHeader = ({
-  className = "table__header",
-  headerList = headerTitles,
-  headerFiltersIcon = "v_arrow",
+  className,
   onClick,
-  svgRotate,
+  iconRotate,
   onChangeCheckbox
 }) => {
-  const headerTitlesRender = headerList.map((item) => {
-    if (item === "") {
-      return (
-        <li className={itemClassName} key={item}>
+  const blockClass = className ? className : "table__header";
+  return (
+    <div className={blockClass}>
+      <div className={listClass}>
+        <div className={itemClassName} >
           <label className={checkboxLabelClass}>
             <Checkbox onChange={onChangeCheckbox}/>
           </label>
-        </li>
-      );
-    } else if (statusWithFilterList.includes(item)) {
-      return (
-        <li className={itemClassName} key={item} onClick={onClick}>
-          <span className={itemTextClassName}>{item}</span>
-          <SvgElement svgName={headerFiltersIcon} isRotate={svgRotate} />
-        </li>
-      );
-    } else {
-      return (
-        <li className={itemClassName} key={item}>
-          <span className={itemTextClassName}>{item}</span>
-        </li>
-      );
-    }
-  });
-
-  return (
-    <div className={className}>
-      <ul className={listClass}>{headerTitlesRender}</ul>
+        </div>
+        <div className={itemClassName}>
+          <span className={itemTextClassName}>#</span>
+        </div>
+        <div className={itemClassName} onClick={onClick}>
+          <span className={itemTextClassName}>Дата</span>
+          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate} />
+        </div>
+        <div className={itemClassName} onClick={onClick}>
+          <span className={itemTextClassName}>Статус</span>
+          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate} />
+        </div>
+        <div className={itemClassName} onClick={onClick}>
+          <span className={itemTextClassName}>Позиций</span>
+          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate} />
+        </div>
+        <div className={itemClassName} onClick={onClick}>
+          <span className={itemTextClassName}>Сумма</span>
+          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate} />
+        </div>
+        <div className={itemClassName}>
+          <span className={itemTextClassName}>ФИО покупателя</span>
+        </div>
+      </div>
     </div>
   );
 };

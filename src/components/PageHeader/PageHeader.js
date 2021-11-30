@@ -1,22 +1,17 @@
 import Button from "../Common/Button";
 
+const wrapperClass = "page-header"
+const headerClass = "page-header__text"
+const buttonClass = "page-header__button page-header__button_transparent"
 
-const PageHeader = ({
-  wrapperClass = "page-header",
-  headerClass = "page-header__text",
-  headerText = "Список заказов",
-  buttonClass = "page-header__button page-header__button_transparent",
-  buttonText = "Cветлая тема",
-  buttonIcon = "sun",
-}) => {
-
+const PageHeader = () => {
   return (
     <div className={wrapperClass}>
-      <h1 className={headerClass}>{headerText}</h1>
+      <h1 className={headerClass}>Список заказов</h1>
       <Button
         className={buttonClass}
-        buttonText={buttonText}
-        svgName={buttonIcon}
+        buttonText="Cветлая тема"
+        svgName='sun'
       />
     </div>
   );

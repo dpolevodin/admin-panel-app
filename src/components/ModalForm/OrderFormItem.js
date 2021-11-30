@@ -1,13 +1,13 @@
 import modalForm from "./css/ModalForm.module.css";
+import { formatSum } from "../../helpers/FormatFunctions";
 
-const orderFormItem = ({ article, orderName, price }) => {
+export const OrderFormItem = ({ article, orderName, price }) => {
   return (
     <li className={modalForm.ListItemRow}>
       <div className={modalForm.ListItem}>{article}</div>
       <div className={modalForm.ListItem}>{orderName}</div>
-      <div className={modalForm.ListItem}>{`${price.toLocaleString()} ₽`}</div>
+      <div className={modalForm.ListItem}>{formatSum(price)}</div>
     </li>
   );
 };
 
-export default orderFormItem;

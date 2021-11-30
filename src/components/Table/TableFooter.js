@@ -1,16 +1,12 @@
-import FooterActions from '../Footer/FooterActions'
-import FooterPagination from '../Footer/FooterPagination'
+import FooterActions from "../Footer/FooterActions";
+import FooterPagination from "../Footer/FooterPagination";
 
-
-const TableFooter = ({
-    className = "table__footer"
-}) => {
-    return (
-        <div className={className}>
-            <FooterActions />
-            <FooterPagination />
-        </div>
-    )
-}
-
-export default TableFooter
+export const TableFooter = ({ className }) => {
+  const blockClass = className ? className : "table__footer";
+  return (
+    <div className={blockClass}>
+      <FooterActions />
+      <FooterPagination />
+    </div>
+  );
+};
