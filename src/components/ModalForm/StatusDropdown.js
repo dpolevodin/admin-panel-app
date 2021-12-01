@@ -5,15 +5,16 @@ const DROPDOWN_STATUSES = ["Новый", "Расчет", "Отложен", "Вы
 const StatusDropdown = ({
   className = dropdown._,
   isVisible,
-  DropdownStatuses = DROPDOWN_STATUSES,
   id = "status-dropdown",
   onChange,
+  onMouseLeave,
+  checkedValue,
 }) => {
   const dropdownClass = isVisible
     ? className
     : [className, dropdown.hidden].join(" ");
 
-  const dropdownStatusRender = DropdownStatuses.map((element) => {
+  const dropdownStatusRender = DROPDOWN_STATUSES.map((element) => {
     return (
       <label className={dropdown.control} key={element}>
         <li className={dropdown.item}>
@@ -22,6 +23,7 @@ const StatusDropdown = ({
             type="radio"
             name="status"
             value={element}
+            checked={checkedValue === element ? "checked" : false}
           />
           <span className={dropdown.title}>{element}</span>
         </li>
@@ -30,8 +32,8 @@ const StatusDropdown = ({
   });
 
   return (
-    <form className={dropdownClass} id={id} onChange={onChange}>
-      <ul className={dropdown.list}>{dropdownStatusRender}</ul>
+    <form className={dropdownClass} id={id} onChange={onChange} >
+      <ul className={dropdown.list} onMouseLeave={onMouseLeave}>{dropdownStatusRender}</ul>
     </form>
   );
 };

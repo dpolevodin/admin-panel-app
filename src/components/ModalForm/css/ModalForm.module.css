@@ -6,7 +6,6 @@
   --form-dark: #3375b6;
   --form-red: #F53152;
   --form-input-light: #BAD8F5;
-
 }
 
 ._ {
@@ -23,12 +22,33 @@
   display: none;
 }
 
+.hidden + .form {
+  display: none;
+}
+
+.moveRight {
+  animation: modalHide 0.4s linear 1;
+}
+
+.moveRight + .form {
+  animation: formRight 0.4s linear 1;
+}
+
 @keyframes modalWrapper {
   0% {
     opacity: 0;
   }
   100% {
     opacity: 1;
+  }
+}
+
+@keyframes modalHide {
+  0% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
   }
 }
 
@@ -43,6 +63,7 @@
   animation: formMove 0.4s linear 1;
   box-shadow: 0 0 4rem var(--form-shadow-main), 0 0 1rem var(--form-shadow-medium),
     0 0 0.25rem var(--form-shadow-light);
+  z-index: 100;
 }
 
 @keyframes formMove {
@@ -51,6 +72,15 @@
   }
   100% {
     transform: translate(0, 0);
+  }
+}
+
+@keyframes formRight {
+  0% {
+    transform: translate(0, 0);
+  }
+  100% {
+    transform: translate(30rem, 0);
   }
 }
 

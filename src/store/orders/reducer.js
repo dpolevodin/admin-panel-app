@@ -36,6 +36,11 @@ export const ordersReducer = (state = initialState, action) => {
         order.id === action.payload.id ? 
         {...order, status: action.payload.status}
         : order)
+    case ordersActionTypes.CHANGE_ORDER_NAME:
+      return state.map(order => 
+        order.id === action.payload.id ? 
+        {...order, name: action.payload.name}
+        : order)
     default:
       return state;
   }

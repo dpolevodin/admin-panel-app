@@ -8,11 +8,10 @@ import { useDispatch, useSelector } from "react-redux";
 import { formActions } from "../../store/modalForm";
 import { ordersActions } from "../../store/orders";
 import FormDropdown from "./FormDropdown";
-import StatusDropdown from "./StatusDropdown"
+import StatusDropdown from "./StatusDropdown";
 import { formatDate } from "../../helpers/FormatFunctions";
 
 const ModalForm = () => {
-
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
 
@@ -21,11 +20,6 @@ const ModalForm = () => {
   const formData = useSelector((state) => state.form.order);
 
   const order = { ...formData };
-  
-  const handleInputStatus = (event) => {
-    const value = event.target.value
-    dispatch(formActions.setOrder({...order, status: value}))
-  }
 
   const handleDropdownOpen = (event) => {
     event.preventDefault();
@@ -46,22 +40,29 @@ const ModalForm = () => {
   const handleSaveButton = (event) => {
     event.preventDefault();
     dispatch(formActions.setVisible());
-    dispatch(ordersActions.changeOrderStatus(order))
-    dispatch(formActions.clearOrder())
-    setIsStatusDropdownOpen(false)
+    dispatch(ordersActions.changeOrderStatus(order));
+    dispatch(ordersActions.changeOrderName(order));
+    dispatch(formActions.clearOrder());
+    setIsStatusDropdownOpen(false);
   };
 
-  const handleInput = (event) => {
-    event.preventDefault();
+  const handleDropdownSetName = (event) => {
+    const value = event.target.value;
+    dispatch(formActions.setOrder({ ...order, name: value }));
   };
 
-  const handleDropdownStatus = (event) => {
-    const value = event.target.value
-    dispatch(formActions.setOrder({...order, status: value}))
+  const handleDropdownSetStatus = (event) => {
+    const value = event.target.value;
+    dispatch(formActions.setOrder({ ...order, status: value }));
+  };
+
+  const handleFormVisible = (event) => {
+    const style = event.target.className
+    event.target.className = style + ' ' + modalForm.moveRight
+    setTimeout(() => dispatch(formActions.setVisible()), 400)
   }
 
-  const formValue = document.getElementById('status-dropdown')?.status.value
-  const finalStatus = !!formValue ? formValue : order.status
+  clearTimeout(handleFormVisible)
 
   const formMainClass = isFormVisible
     ? modalForm._
@@ -69,13 +70,13 @@ const ModalForm = () => {
 
   const goodsTable = order.goods ? (
     <OrderTable orders={order.goods} sum={order.sum} />
-  ) : (
-    null
-  );
+  ) : null;
 
   return (
-    <div className={formMainClass}>
-      <div className={modalForm.form}>
+    <>
+    <div className={formMainClass} onClick={handleFormVisible}>
+    </div>
+      <div className={modalForm.form} >
         <FormHeader
           orderNumber={order.id}
           buttonHandler={handleDropdownOpen}
@@ -98,7 +99,7 @@ const ModalForm = () => {
             title="ФИО покупателя"
             placeholder="Введите ФИО"
             value={order.name}
-            onChange={handleInput}
+            onChange={handleDropdownSetName}
           />
 
           {goodsTable}
@@ -113,12 +114,17 @@ const ModalForm = () => {
           <FormInput
             title="Статус заказа"
             placeholder="Выберите статус заказа"
-            value={finalStatus}
-            onChange={handleInputStatus}
+            value={order.status}
             icon="v_arrow"
             buttonHandler={handleDropdownStatusOpen}
+            onFocus={handleDropdownStatusOpen}
           >
-          <StatusDropdown isVisible={isStatusDropdownOpen} onChange={handleDropdownStatus} />
+            <StatusDropdown
+              isVisible={isStatusDropdownOpen}
+              onChange={handleDropdownSetStatus}
+              onMouseLeave={handleDropdownStatusOpen}
+              checkedValue={order.status}
+            />
           </FormInput>
 
           <FormInput
@@ -127,12 +133,11 @@ const ModalForm = () => {
             placeholder="Введите код подтверждения"
             value={order.confirmCode}
           />
-
         </div>
-        
+
         <FormFooter buttonHandler={handleSaveButton} />
       </div>
-    </div>
+      </>
   );
 };
 
