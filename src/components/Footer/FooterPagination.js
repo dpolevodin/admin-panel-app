@@ -8,8 +8,7 @@ const thirdClass =
 
 const FooterPagination = ({ onClick, page, maxPage, onClickLast, active}) => {
   let currentPage = Number(page);
-  const maxButtonsCount = maxPage;
-  const firstButtonValue = currentPage === maxPage ? currentPage -1 : currentPage;
+  const firstButtonValue = currentPage === maxPage && currentPage !== 1 ? currentPage -1 : currentPage;
   const secondButtonValue = currentPage + 1 <= maxPage ? currentPage + 1 : currentPage;
   const thirdButtonValue = currentPage + 2;
 
@@ -22,11 +21,11 @@ const FooterPagination = ({ onClick, page, maxPage, onClickLast, active}) => {
         {firstButtonValue}
       </Button>
 
-      <Button className={secondButtonClass} onClick={onClick}>
+      {maxPage !==1 && <Button className={secondButtonClass} onClick={onClick}>
         {secondButtonValue}
-      </Button>
+      </Button>}
 
-      {thirdButtonValue <= maxButtonsCount && (
+      {thirdButtonValue <= maxPage && (
         <Button className={secondaryClass} onClick={onClick}>
           {thirdButtonValue}
         </Button>

@@ -2,7 +2,7 @@ import { paginationActionTypes } from "./actions";
 
 const initialState = {
   currentPage: 1,
-  itemsCountPerPage: 5,
+  itemsCountPerPage: 10,
 };
 
 export const paginationReducer = (state = initialState, action) => {
