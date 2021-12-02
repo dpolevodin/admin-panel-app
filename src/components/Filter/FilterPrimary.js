@@ -18,6 +18,7 @@ const FilterPrimary = ({
   };
 
   showLoader();
+  clearTimeout(showLoader)
 
   return (
     <div className="filter__wrapper">

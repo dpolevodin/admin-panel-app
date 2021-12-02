@@ -28,7 +28,6 @@ export const OrdersTable = () => {
   const maxNumberOfPage = Math.ceil(
     ordersCounts / pagination.itemsCountPerPage
   );
-
   const dispatch = useDispatch();
 
   const handleFilterSort = (event) => {

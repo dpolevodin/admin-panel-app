@@ -6,7 +6,7 @@ const secondaryClass =
 const thirdClass =
   "table__footer-button table__footer-button_small table__footer-button_transparent";
 
-const FooterPagination = ({ onClick, page, maxPage, onClickLast, active}) => {
+const FooterPagination = ({ onClick, page, maxPage, onClickLast }) => {
   let currentPage = Number(page);
   const firstButtonValue = currentPage === maxPage && currentPage !== 1 ? currentPage -1 : currentPage;
   const secondButtonValue = currentPage + 1 <= maxPage ? currentPage + 1 : currentPage;
