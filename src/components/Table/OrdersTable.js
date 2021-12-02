@@ -1,7 +1,7 @@
 import TableHeader from "./TableHeader";
 import { TableOrdersList } from "./TableOrdersList";
 import { TableFooter } from "./TableFooter";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import { paginationActions } from "../../store/pagination";
 import { formActions } from "../../store/modalForm";
@@ -10,17 +10,24 @@ import { useState } from "react";
 import { GetOrdersList } from "../../store/selectors/getOrdersList";
 
 const FILTERS_MAP = {
-  'Дата': "creationDate",
-  'Статус': "status",
-  'Позиций': "positionsCount",
-  'Сумма': "sum",
+  Дата: "creationDate",
+  Статус: "status",
+  Позиций: "positionsCount",
+  Сумма: "sum",
 };
 
 export const OrdersTable = () => {
   const [isSorted, setIsSorted] = useState(false);
+  const pagination = useSelector((state) => state.pagination);
+  const ordersCounts = useSelector((state) => state.orders).length;
 
-  const orders = GetOrdersList()
+  const orders = GetOrdersList();
   const ordersList = !!orders ? orders : [];
+
+  const currentPage = pagination.currentPage;
+  const maxNumberOfPage = Math.ceil(
+    ordersCounts / pagination.itemsCountPerPage
+  );
 
   const dispatch = useDispatch();
 
@@ -37,7 +44,10 @@ export const OrdersTable = () => {
 
   const handleCheckbox = (event) => {
     const checkedId = Number(
-      event.target.parentNode.parentNode.parentNode.parentNode.innerText.slice(0,7)
+      event.target.parentNode.parentNode.parentNode.parentNode.innerText.slice(
+        0,
+        7
+      )
     );
     const CheckboxIsChecked = event.target.checked;
     if (CheckboxIsChecked) {
@@ -75,9 +85,9 @@ export const OrdersTable = () => {
 
   const handlePageChange = (event) => {
     event.preventDefault();
-    const page = 2
-    dispatch(paginationActions.setCurrentPage(page))
-  }
+    const page = event.target.innerText;
+    dispatch(paginationActions.setCurrentPage(page));
+  };
 
   return (
     <div className="table">
@@ -90,7 +100,11 @@ export const OrdersTable = () => {
         onClick={handleRowClick}
         onChange={handleCheckbox}
       />
-      <TableFooter onClick={handlePageChange}/>
+      <TableFooter
+        onClick={handlePageChange}
+        page={currentPage}
+        maxPage={maxNumberOfPage}
+      />
     </div>
   );
 };

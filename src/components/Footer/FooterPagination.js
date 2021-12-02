@@ -1,44 +1,39 @@
 import Button from "../Common/Button";
 
-const paginationElements = ["1", "2", "3", "…", "18"];
+const primaryClass = "table__footer-button table__footer-button_small";
+const secondaryClass =
+  "table__footer-button table__footer-button_small table__footer-button_transparent";
+const thirdClass =
+  "table__footer-button table__footer-button_small table__footer-button_transparent";
 
-const FooterPagination = ({ elementsToPagination = paginationElements, onClick}) => {
-  const paginatioRender = elementsToPagination.map((item) => {
-    if (item === "1") {
-      return (
-        <Button
-          className={"table__footer-button table__footer-button_small"} 
-          key={paginationElements.indexOf(item)}
-          onClick={onClick}
-        >{item}</Button>
-      );
-    } else if (Number(item)) {
-      return (
-        <Button
-          className={
-            "table__footer-button table__footer-button_small table__footer-button_transparent"
-          }
-          key={paginationElements.indexOf(item)}
-        >{item}</Button>
-      );
-    } else {
-      return (
-        <span
-          className="table__pagination-continue"
-          key={paginationElements.indexOf(item)}
-        >
-          …
-        </span>
-      );
-    }
-  });
+const FooterPagination = ({ onClick, page, maxPage, onClickLast, active}) => {
+  let currentPage = Number(page);
+  const maxButtonsCount = maxPage;
+  const firstButtonValue = currentPage === maxPage ? currentPage -1 : currentPage;
+  const secondButtonValue = currentPage + 1 <= maxPage ? currentPage + 1 : currentPage;
+  const thirdButtonValue = currentPage + 2;
+
+  const firstButtonClass = page < maxPage ? primaryClass : secondaryClass
+  const secondButtonClass = page >= maxPage ? primaryClass : secondaryClass
 
   return (
     <div className="table__footer-pagination">
-      <form className="table__footer-pagination-form">{paginatioRender}</form>
-      <Button
-        className="table__footer-button table__footer-button_small table__footer-button_transparent"
-      >#</Button>
+      <Button className={firstButtonClass} onClick={onClick}>
+        {firstButtonValue}
+      </Button>
+
+      <Button className={secondButtonClass} onClick={onClick}>
+        {secondButtonValue}
+      </Button>
+
+      {thirdButtonValue <= maxButtonsCount && (
+        <Button className={secondaryClass} onClick={onClick}>
+          {thirdButtonValue}
+        </Button>
+      )}
+
+      <span className="table__pagination-continue">…</span>
+      <Button className={thirdClass} onClick={onClickLast}>#</Button>
     </div>
   );
 };
