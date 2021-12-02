@@ -1,11 +1,13 @@
 import TableHeader from "./TableHeader";
 import { TableOrdersList } from "./TableOrdersList";
 import { TableFooter } from "./TableFooter";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { ordersActions } from "../../store/orders";
+import { paginationActions } from "../../store/pagination";
 import { formActions } from "../../store/modalForm";
 import { checkedOrdersActions } from "../../store/groupActions";
 import { useState } from "react";
+import { GetOrdersList } from "../../store/selectors/getOrdersList";
 
 const FILTERS_MAP = {
   'Дата': "creationDate",
@@ -17,7 +19,7 @@ const FILTERS_MAP = {
 export const OrdersTable = () => {
   const [isSorted, setIsSorted] = useState(false);
 
-  const orders = useSelector((state) => state.orders);
+  const orders = GetOrdersList()
   const ordersList = !!orders ? orders : [];
 
   const dispatch = useDispatch();
@@ -71,6 +73,12 @@ export const OrdersTable = () => {
       : dispatch(checkedOrdersActions.clearCheckedOrders());
   };
 
+  const handlePageChange = (event) => {
+    event.preventDefault();
+    const page = 2
+    dispatch(paginationActions.setCurrentPage(page))
+  }
+
   return (
     <div className="table">
       <TableHeader
@@ -82,7 +90,7 @@ export const OrdersTable = () => {
         onClick={handleRowClick}
         onChange={handleCheckbox}
       />
-      <TableFooter />
+      <TableFooter onClick={handlePageChange}/>
     </div>
   );
 };

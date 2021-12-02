@@ -1,4 +1,4 @@
-const SvgSprite = ({
+export const SvgSprite = ({
   viewBox = "0 0 16 16",
   className = "svg",
   xmlnsXlink = "http://www.w3.org/1999/xlink",
@@ -94,5 +94,3 @@ const SvgSprite = ({
     </svg>
   );
 };
-
-export default SvgSprite;

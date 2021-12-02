@@ -5,7 +5,7 @@ import { useDispatch } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import Mocks from "../../data/Orders.json";
 
-const OrdersFilter = ({ className = "filter" }) => {
+export const OrdersFilter = ({ className = "filter" }) => {
   const [optionsVision, setOptionsVision] = useState(false);
  
   const dispatch = useDispatch();
@@ -50,4 +50,3 @@ const OrdersFilter = ({ className = "filter" }) => {
   );
 };
 
-export default OrdersFilter;

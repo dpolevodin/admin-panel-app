@@ -2,13 +2,14 @@ import Button from "../Common/Button";
 
 const paginationElements = ["1", "2", "3", "…", "18"];
 
-const FooterPagination = ({ elementsToPagination = paginationElements }) => {
+const FooterPagination = ({ elementsToPagination = paginationElements, onClick}) => {
   const paginatioRender = elementsToPagination.map((item) => {
     if (item === "1") {
       return (
         <Button
-          className={"table__footer-button table__footer-button_small"}
+          className={"table__footer-button table__footer-button_small"} 
           key={paginationElements.indexOf(item)}
+          onClick={onClick}
         >{item}</Button>
       );
     } else if (Number(item)) {
