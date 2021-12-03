@@ -18,7 +18,7 @@ const Searchbar = ({
       <div className={wrapperClass}>
         <div className={inputAreaClass}>
           <SvgElement svgName={searchIconName} />
-          <Input className={inputClassName} placeholder={placeholder} />
+          <Input className={inputClassName} placeholder={placeholder} name="searchbar"/>
         </div>
         <Button className={buttonClass} svgName={buttonIcon} />
       </div>

@@ -1,4 +1,5 @@
 import Button from "../Common/Button";
+import { PageDropdown } from "./PageDropdown/PageDropdown";
 
 const primaryClass = "table__footer-button table__footer-button_small";
 const secondaryClass =
@@ -6,14 +7,25 @@ const secondaryClass =
 const thirdClass =
   "table__footer-button table__footer-button_small table__footer-button_transparent";
 
-const FooterPagination = ({ onClick, page, maxPage, onClickLast }) => {
+const FooterPagination = ({
+  onClick,
+  page,
+  maxPage,
+  onClickLast,
+  onSubmit,
+  isVisible,
+}) => {
   let currentPage = Number(page);
-  const firstButtonValue = currentPage === maxPage && currentPage !== 1 ? currentPage -1 : currentPage;
-  const secondButtonValue = currentPage + 1 <= maxPage ? currentPage + 1 : currentPage;
+  const firstButtonValue =
+    currentPage === maxPage && currentPage !== 1
+      ? currentPage - 1
+      : currentPage;
+  const secondButtonValue =
+    currentPage + 1 <= maxPage ? currentPage + 1 : currentPage;
   const thirdButtonValue = currentPage + 2;
 
-  const firstButtonClass = page < maxPage ? primaryClass : secondaryClass
-  const secondButtonClass = page >= maxPage ? primaryClass : secondaryClass
+  const firstButtonClass = page < maxPage ? primaryClass : secondaryClass;
+  const secondButtonClass = page >= maxPage ? primaryClass : secondaryClass;
 
   return (
     <div className="table__footer-pagination">
@@ -21,9 +33,11 @@ const FooterPagination = ({ onClick, page, maxPage, onClickLast }) => {
         {firstButtonValue}
       </Button>
 
-      {maxPage !==1 && <Button className={secondButtonClass} onClick={onClick}>
-        {secondButtonValue}
-      </Button>}
+      {maxPage !== 1 && (
+        <Button className={secondButtonClass} onClick={onClick}>
+          {secondButtonValue}
+        </Button>
+      )}
 
       {thirdButtonValue <= maxPage && (
         <Button className={secondaryClass} onClick={onClick}>
@@ -32,7 +46,10 @@ const FooterPagination = ({ onClick, page, maxPage, onClickLast }) => {
       )}
 
       <span className="table__pagination-continue">…</span>
-      <Button className={thirdClass} onClick={onClickLast}>#</Button>
+      <Button className={thirdClass} onClick={onClickLast}>
+        #
+      </Button>
+      <PageDropdown isVisible={isVisible} onSubmit={onSubmit} />
     </div>
   );
 };

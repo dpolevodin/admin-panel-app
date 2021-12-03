@@ -11,11 +11,9 @@ export const OrdersFilter = ({ className = "filter" }) => {
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
-    event.preventDefault();
+    event.preventDefault(); 
     dispatch(ordersActions.setOrders(Mocks));
-    const value = String(
-      document.querySelector(".filter__searchbar-area").value
-    ).toLowerCase();
+    const value = event.currentTarget.searchbar.value
     if (value === "") {
       dispatch(ordersActions.setOrders(Mocks));
     } else {

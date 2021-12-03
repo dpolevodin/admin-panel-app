@@ -18,6 +18,8 @@ const FILTERS_MAP = {
 
 export const OrdersTable = () => {
   const [isSorted, setIsSorted] = useState(false);
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const pagination = useSelector((state) => state.pagination);
   const ordersCounts = useSelector((state) => state.orders).length;
 
@@ -28,6 +30,7 @@ export const OrdersTable = () => {
   const maxNumberOfPage = Math.ceil(
     ordersCounts / pagination.itemsCountPerPage
   );
+  
   const dispatch = useDispatch();
 
   const handleFilterSort = (event) => {
@@ -88,6 +91,21 @@ export const OrdersTable = () => {
     dispatch(paginationActions.setCurrentPage(page));
   };
 
+  const handleClickLast = (event) => {
+    event.preventDefault();
+    setIsDropdownOpen(!isDropdownOpen);
+  };
+
+  const handlePageDropdownSubmit = (event) => {
+    event.preventDefault();
+    const targetPage = event.target.page.value;
+    if (isFinite(targetPage) && targetPage <= maxNumberOfPage && targetPage > 0) {
+      dispatch(paginationActions.setCurrentPage(targetPage))
+      setIsDropdownOpen(!isDropdownOpen)
+      event.target.page.value = ''
+    } else {alert(`Введите номер страницы от 1 до ${maxNumberOfPage}`)}
+  };
+
   return (
     <div className="table">
       <TableHeader
@@ -103,6 +121,9 @@ export const OrdersTable = () => {
         onClick={handlePageChange}
         page={currentPage}
         maxPage={maxNumberOfPage}
+        onClickLast={handleClickLast}
+        onSubmit={handlePageDropdownSubmit}
+        isVisible={isDropdownOpen}
       />
     </div>
   );

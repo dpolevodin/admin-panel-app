@@ -22,7 +22,7 @@ export const TableOrdersList = ({
 
   return (
     <div className={blockClass}>
-      <div className={listMainClass}>
+      <div className={listMainClass} >
         {ordersRender}
       </div>
     </div>
