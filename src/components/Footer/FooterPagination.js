@@ -27,6 +27,14 @@ const FooterPagination = ({
   const firstButtonClass = page < maxPage || page === maxPage? primaryClass : secondaryClass;
   const secondButtonClass = page >= maxPage ? primaryClass : secondaryClass;
 
+  const lastPageButton = 
+      <>
+        <span className="table__pagination-continue">…</span>
+        <Button className={secondaryClass} onClick={onClick}>
+          {maxPage}
+        </Button>
+      </>
+
   return (
     <div className="table__footer-pagination">
       <Button className={firstButtonClass} onClick={onClick}>
@@ -44,8 +52,8 @@ const FooterPagination = ({
           {thirdButtonValue}
         </Button>
       )}
+      {maxPage > 3 && page <= maxPage && lastPageButton}
 
-      <span className="table__pagination-continue">…</span>
       <Button className={thirdClass} onClick={onClickLast}>
         #
       </Button>

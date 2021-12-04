@@ -39,6 +39,10 @@ export const ordersReducer = (state = initialState, action) => {
       return state.filter(
         (order) => order.sum >= action.minSum && order.sum <= action.maxSum
       );
+    case ordersActionTypes.FILTER_ORDERS:
+      return state.filter(
+        (order) => order.id === action.payload || order.name === action.payload
+      );
     case ordersActionTypes.FILTER_ORDERS_BY_STATUS:
       const result =
         action.status === ""

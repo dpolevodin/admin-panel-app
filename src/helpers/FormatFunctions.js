@@ -19,3 +19,11 @@ export const formatDateFilterValue = (string) => {
   const formatString = string.split(".");
   return new Date(formatString[2], formatString[1] - 1, formatString[0]);
 };
+
+export const debounce = (func, timeout) => {
+  let timer;
+  return (...args) => {
+    clearTimeout(timer);
+    timer = setTimeout(() => { func.apply(this, args); }, timeout);
+  };
+}
