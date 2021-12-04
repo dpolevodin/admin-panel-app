@@ -24,7 +24,7 @@ const FooterPagination = ({
     currentPage + 1 <= maxPage ? currentPage + 1 : currentPage;
   const thirdButtonValue = currentPage + 2;
 
-  const firstButtonClass = page < maxPage ? primaryClass : secondaryClass;
+  const firstButtonClass = page < maxPage || page === maxPage? primaryClass : secondaryClass;
   const secondButtonClass = page >= maxPage ? primaryClass : secondaryClass;
 
   return (

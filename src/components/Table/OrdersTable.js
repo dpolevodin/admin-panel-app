@@ -20,18 +20,19 @@ export const OrdersTable = () => {
   const [isSorted, setIsSorted] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
+  const dispatch = useDispatch();
+
   const pagination = useSelector((state) => state.pagination);
   const ordersCounts = useSelector((state) => state.orders).length;
 
   const orders = GetOrdersList();
   const ordersList = !!orders ? orders : [];
 
-  const currentPage = pagination.currentPage;
   const maxNumberOfPage = Math.ceil(
     ordersCounts / pagination.itemsCountPerPage
   );
   
-  const dispatch = useDispatch();
+  const currentPage = pagination.currentPage;
 
   const handleFilterSort = (event) => {
     const valueToSort = event.target.innerText;
