@@ -8,6 +8,7 @@ export const ordersActionTypes = {
     FILTER_ORDERS_BY_DATE: "ORDERS.FILTER_ORDERS_BY_DATE",
     FILTER_ORDERS_BY_SUM: "ORDERS.FILTER_ORDERS_BY_SUM",
     FILTER_ORDERS_BY_STATUS: "ORDERS.FILTER_ORDERS_BY_STATUS",
+    CHANGE_GROUP_STATUS: "ORDERS.CHANGE_GROUP_STATUS",
   };
   
   export const ordersActions = {
@@ -47,6 +48,11 @@ export const ordersActionTypes = {
     }),
     filterOrdersByStatus: (status) => ({
       type: ordersActionTypes.FILTER_ORDERS_BY_STATUS,
+      status
+    }),
+    changeGroupStatus: (payload, status) => ({
+      type: ordersActionTypes.CHANGE_GROUP_STATUS,
+      payload,
       status
     }),
   };

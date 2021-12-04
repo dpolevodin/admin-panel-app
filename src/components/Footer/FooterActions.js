@@ -1,6 +1,7 @@
 import FooterOrdersSelected from "../Footer/FooterOrdersSelected";
 import Button from "../Common/Button";
 import FooterDropdown from "./FooterDropdown";
+import { StatusFooterDropdown } from "./statusFooterDropdown/StatusFooterDropdown";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ordersActions } from "../../store/orders";
@@ -8,6 +9,7 @@ import { checkedOrdersActions } from "../../store/groupActions";
 
 const FooterActions = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
+  const [statusDropdownVisible, setStatusDropdownVisible] = useState(false);
 
   const countsSelected = useSelector((state) => state.checkedOrders);
   const dispatch = useDispatch();
@@ -17,6 +19,11 @@ const FooterActions = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
+  const handleButtonStatusDropdown = (event) => {
+    event.preventDefault();
+    setStatusDropdownVisible(!statusDropdownVisible);
+  };
+
   const handleButtonDelete = (event) => {
     event.preventDefault();
     dispatch(ordersActions.deleteCheckedOrders([...countsSelected]));
@@ -24,16 +31,30 @@ const FooterActions = () => {
     setDropdownVisible(!dropdownVisible);
   };
 
+  const handleChangeOrdersStatus = (event) => {
+    const status = event.target.value
+    console.log(status)
+    console.log(countsSelected)
+    dispatch(ordersActions.changeGroupStatus(countsSelected, status))
+  }
+
   return (
     <form className="table__footer-action">
       <FooterOrdersSelected count={countsSelected.length} />
       <Button
         className="table__footer-button table__footer-button_blue"
         svgName="pencil"
-        onClick={(e)=> e.preventDefault()}
+        onClick={handleButtonStatusDropdown}
       >
         Изменить статус
       </Button>
+
+      <StatusFooterDropdown
+        isVisible={statusDropdownVisible}
+        onMouseLeave={handleButtonStatusDropdown}
+        onChange={handleChangeOrdersStatus}
+      />
+
       <Button
         className="table__footer-button table__footer-button_red"
         svgName="bin"
