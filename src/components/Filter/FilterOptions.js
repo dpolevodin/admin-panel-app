@@ -4,8 +4,10 @@ import StatusFilter from "../Filter/StatusFilter";
 import AirDatepicker from "air-datepicker";
 import "air-datepicker/air-datepicker.css";
 import { useState } from "react";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { ordersActions } from "../../store/orders";
+import { dropdownActions } from "../../store/statusDropdown";
+import { formatDateFilterValue } from "../../helpers/FormatFunctions";
 
 const wrapperMainClass = "filter__wrapper";
 const formClassName = "filter__form";
@@ -17,14 +19,12 @@ const FilterOptions = ({ isVisible }) => {
   const [dateEnd, setDateEnd] = useState("");
 
   const [sumStart, setSumStart] = useState(0);
-  const [sumEnd, setSumEnd] = useState(1000000);
+  const [sumEnd, setSumEnd] = useState(Infinity);
+
+  const statusData = useSelector(state => state.dropdown)
+  const statuses = statusData ? statusData.join(', ') : 'Любой'
 
   const dispatch = useDispatch();
-
-  const formattingDate = (string) => {
-    const formatString = string.split(".");
-    return new Date(formatString[2], formatString[1] - 1, formatString[0]);
-  };
 
   new AirDatepicker("#dateStart", {
     maxDate: Date.now(),
@@ -32,7 +32,7 @@ const FilterOptions = ({ isVisible }) => {
 
   new AirDatepicker("#dateEnd", {
     maxDate: Date.now(),
-    minDate: formattingDate(dateStart),
+    minDate: formatDateFilterValue(dateStart),
   });
 
   const wrapperClassName = isVisible
@@ -55,8 +55,10 @@ const FilterOptions = ({ isVisible }) => {
   };
 
   const setDateFilterOptions = (dateStart, dateEnd) => {
-    const minDate = dateStart ? formattingDate(dateStart) : new Date(1900);
-    const maxDate = dateEnd ? formattingDate(dateEnd) : Date.now();
+    const minDate = dateStart
+      ? formatDateFilterValue(dateStart)
+      : new Date(1900);
+    const maxDate = dateEnd ? formatDateFilterValue(dateEnd) : Date.now();
     dispatch(ordersActions.filterOrdersByDate(minDate, maxDate));
   };
 
@@ -66,15 +68,26 @@ const FilterOptions = ({ isVisible }) => {
     dispatch(ordersActions.filterOrdersBySum(minSum, maxSum));
   };
 
+  const setStatusFilterOptions = () => {
+    dispatch(ordersActions.filterOrdersByStatus(statuses));
+  };
+
   const handleButtonSubmit = (event) => {
     event.preventDefault();
     setDateFilterOptions(dateStart, dateEnd);
     setSumFilterOptions(sumStart, sumEnd);
+    setStatusFilterOptions()
   };
+
+  const handleStatusFilterChange = (event) => {
+    const value = event.target.name 
+    console.log(value)
+    dispatch(dropdownActions.setStatuses(value))
+  }
 
   return (
     <div className={wrapperClassName}>
-      <form className={formClassName}>
+      <form className={formClassName} name='options'>
         <RangeFilter
           filterTitle="Дата оформления"
           inputStartId="dateStart"
@@ -89,7 +102,7 @@ const FilterOptions = ({ isVisible }) => {
           onBlurInputEnd={(e) => handleInputDateValue(e)}
         />
 
-        <StatusFilter />
+        <StatusFilter statusValue={statuses} onChange={handleStatusFilterChange}/>
 
         <RangeFilter
           inputStartId="sumStart"

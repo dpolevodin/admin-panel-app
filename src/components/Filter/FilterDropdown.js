@@ -1,5 +1,6 @@
 import Checkbox from "../Common/Checkbox";
 import dropdown from "./css/filter-dropdown.module.css";
+import { capitalize } from "../../helpers/FormatFunctions";
 
 const DropdownStatusesList = [
   "новый",
@@ -10,13 +11,12 @@ const DropdownStatusesList = [
   "отменен",
 ];
 
-const capitalizeFirstLetter = (string) =>
-  string[0].toUpperCase() + string.slice(1);
-
 const FilterDropdown = ({
   className = dropdown._,
   isVisible,
   DropdownStatuses = DropdownStatusesList,
+  onChange,
+  onMouseLeave,
 }) => {
   const dropdownClass = isVisible
     ? className
@@ -25,19 +25,22 @@ const FilterDropdown = ({
   const dropdownStatusRender = DropdownStatuses.map((element) => {
     return (
       <label className={dropdown.control} key={element}>
-        <li className={dropdown.item}>
-          <Checkbox />
-          <span className={dropdown.title}>
-            {capitalizeFirstLetter(element)}
-          </span>
-        </li>
+        <div className={dropdown.item}>
+          <Checkbox onChange={onChange} name={capitalize(element)} />
+          <span className={dropdown.title}>{capitalize(element)}</span>
+        </div>
       </label>
     );
   });
 
-  return <ul className={dropdownClass}>{dropdownStatusRender}</ul>;
+  return (
+    <div
+      className={dropdownClass}
+      onMouseLeave={onMouseLeave}
+    >
+      {dropdownStatusRender}
+    </div>
+  );
 };
 
 export default FilterDropdown;
-
-

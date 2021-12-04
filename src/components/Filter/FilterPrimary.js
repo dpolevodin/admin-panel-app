@@ -8,6 +8,8 @@ const FilterPrimary = ({
   resetFiltersHandler,
   onSubmit,
   onChange,
+  onClick,
+  value
 }) => {
   const [loaderVisible, setLoaderVisible] = useState(true);
 
@@ -28,6 +30,8 @@ const FilterPrimary = ({
             labelClass="filter__searchbar-group"
             wrapperClass="filter__searchbar-field filter__searchbar-field_empty"
             inputAreaClass="filter__searchbar-search-area"
+            onClick={onClick}
+            value={value}
           />
           <Button
             className="filter-button"

@@ -7,17 +7,21 @@ import Mocks from "../../data/Orders.json";
 
 export const OrdersFilter = ({ className = "filter" }) => {
   const [optionsVision, setOptionsVision] = useState(false);
+  const [inputValue, setInputValue] = useState('')
  
   const dispatch = useDispatch();
 
   const handleChange = (event) => {
     event.preventDefault(); 
     dispatch(ordersActions.setOrders(Mocks));
+    setInputValue('')
     const value = event.currentTarget.searchbar.value
     if (value === "") {
       dispatch(ordersActions.setOrders(Mocks));
+      setInputValue('')
     } else {
       dispatch(ordersActions.searchOrders(value));
+      setInputValue(value)
     }
   };
 
@@ -27,13 +31,25 @@ export const OrdersFilter = ({ className = "filter" }) => {
 
   const handleOptionsVisible = (event) => {
     event.preventDefault();
-    optionsVision ? setOptionsVision(false) : setOptionsVision(true);
+    setOptionsVision(!optionsVision)
   };
 
   const resetFiltersHandler = (event) => {
     event.preventDefault();
     dispatch(ordersActions.setOrders(Mocks));
+    setInputValue('')
+    const fiterOptionsForm = document.forms['options']
+    const inputs = fiterOptionsForm.getElementsByTagName('input')
+    for (let item of inputs) {
+      item.value = ''
+    }
   };
+
+  const handleButtonReset = event => {
+    event.preventDefault()
+    setInputValue('')
+    dispatch(ordersActions.setOrders(Mocks));
+  }
 
   return (
     <div className={className}>
@@ -42,6 +58,8 @@ export const OrdersFilter = ({ className = "filter" }) => {
         onSubmit={handleSubmit}
         buttonFiltersHandler={handleOptionsVisible}
         resetFiltersHandler={resetFiltersHandler}
+        onClick={handleButtonReset}
+        value={inputValue}
       />
       <FilterOptions isVisible={optionsVision} />
     </div>

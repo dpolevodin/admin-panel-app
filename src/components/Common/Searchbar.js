@@ -12,15 +12,17 @@ const Searchbar = ({
   searchIconName = "search",
   buttonClass = "filter__searchbar-button",
   buttonIcon = "incorrect",
+  onClick,
+  value,
 }) => {
   return (
     <label className={labelClass}>
       <div className={wrapperClass}>
         <div className={inputAreaClass}>
           <SvgElement svgName={searchIconName} />
-          <Input className={inputClassName} placeholder={placeholder} name="searchbar"/>
+          <Input className={inputClassName} placeholder={placeholder} name="searchbar" value={value}/>
         </div>
-        <Button className={buttonClass} svgName={buttonIcon} />
+        <Button className={buttonClass} svgName={buttonIcon} onClick={onClick}/>
       </div>
     </label>
   );
