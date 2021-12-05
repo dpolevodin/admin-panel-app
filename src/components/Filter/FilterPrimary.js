@@ -18,9 +18,14 @@ const FilterPrimary = ({
             labelClass="filter__searchbar-group"
             wrapperClass="filter__searchbar-field filter__searchbar-field_empty"
             inputAreaClass="filter__searchbar-search-area"
-            onClick={onClick}
             value={value}
-          />
+          >
+            <Button
+              className="filter__searchbar-button"
+              svgName="incorrect"
+              onClick={onClick}
+            />
+          </Searchbar>
           <Button
             className="filter-button"
             svgName="filter"

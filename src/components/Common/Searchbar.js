@@ -1,5 +1,4 @@
 import SvgElement from "../Icons/SvgElement";
-import Button from "../Common/Button";
 import Input from "../Common/Input";
 
 const inputClassName = "filter__searchbar-area";
@@ -9,17 +8,14 @@ const Searchbar = ({
   wrapperClass,
   inputAreaClass,
   placeholder = "Номер заказа или ФИО",
-  searchIconName = "search",
-  buttonClass = "filter__searchbar-button",
-  buttonIcon = "incorrect",
-  onClick,
   value,
+  children,
 }) => {
   return (
     <label className={labelClass}>
       <div className={wrapperClass}>
         <div className={inputAreaClass}>
-          <SvgElement svgName={searchIconName} />
+          <SvgElement svgName="search" />
           <Input
             className={inputClassName}
             placeholder={placeholder}
@@ -27,11 +23,7 @@ const Searchbar = ({
             value={value}
           />
         </div>
-        <Button
-          className={buttonClass}
-          svgName={buttonIcon}
-          onClick={onClick}
-        />
+        {children}
       </div>
     </label>
   );
