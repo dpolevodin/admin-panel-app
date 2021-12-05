@@ -9,25 +9,22 @@ const inputWrapperClassDefault =
   "filter__input-field filter__input-field_empty";
 const inputShortClass = "filter__input-field_short";
 
-const DateFilter = ({
+export const RangeFilter = ({
   filterPlaceholder = "dd.mm.dddd",
   inputIconName = "incorrect",
-  filterTitle,
+  children,
   isShort = false,
   InputClass = "filter__input-area",
+  onChange,
+  onBlur,
+  onClick,
   inputStartId,
   InputEndId,
-  buttonHandlerStart,
-  buttonHandlerEnd,
-  onBlurInputStart,
-  onBlurInputEnd,
-  onChangeStart,
-  onChangeEnd
 }) => {
   return (
     <div className={mainComponentWrapperClass}>
       <label className={labelClassName}>
-        <span className={filterTitleClass}>{filterTitle}</span>
+        <span className={filterTitleClass}>{children}</span>
         <div
           className={
             isShort
@@ -38,15 +35,16 @@ const DateFilter = ({
           <Input
             className={InputClass}
             placeholder={filterPlaceholder}
+            onBlur={onBlur}
+            onChange={onChange}
+            name="start"
             id={inputStartId}
-            onBlur={onBlurInputStart}
-            onChange={onChangeStart}
           />
 
           <Button
             className={buttonClassName}
             svgName={inputIconName}
-            onClick={buttonHandlerStart}
+            onClick={onClick}
           />
         </div>
       </label>
@@ -62,21 +60,18 @@ const DateFilter = ({
           <Input
             className={InputClass}
             placeholder={filterPlaceholder}
+            onBlur={onBlur}
+            onChange={onChange}
+            name="end"
             id={InputEndId}
-            onBlur={onBlurInputEnd}
-            onChange={onChangeEnd}
           />
           <Button
             className={buttonClassName}
             svgName={inputIconName}
-            onClick={buttonHandlerEnd}
+            onClick={onClick}
           />
         </div>
       </label>
     </div>
   );
 };
-
-export default DateFilter;
-
-

@@ -20,9 +20,18 @@ const Searchbar = ({
       <div className={wrapperClass}>
         <div className={inputAreaClass}>
           <SvgElement svgName={searchIconName} />
-          <Input className={inputClassName} placeholder={placeholder} name="searchbar" value={value}/>
+          <Input
+            className={inputClassName}
+            placeholder={placeholder}
+            name="searchbar"
+            value={value}
+          />
         </div>
-        <Button className={buttonClass} svgName={buttonIcon} onClick={onClick}/>
+        <Button
+          className={buttonClass}
+          svgName={buttonIcon}
+          onClick={onClick}
+        />
       </div>
     </label>
   );

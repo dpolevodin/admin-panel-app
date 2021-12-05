@@ -2,7 +2,7 @@ import Checkbox from "../Common/Checkbox";
 import dropdown from "./css/filter-dropdown.module.css";
 import { capitalize } from "../../helpers/FormatFunctions";
 
-const DropdownStatusesList = [
+const DROPDOWN_STATUSES = [
   "новый",
   "расчет",
   "подтвержден",
@@ -11,10 +11,10 @@ const DropdownStatusesList = [
   "отменен",
 ];
 
-const FilterDropdown = ({
+export const FilterDropdown = ({
   className = dropdown._,
   isVisible,
-  DropdownStatuses = DropdownStatusesList,
+  DropdownStatuses = DROPDOWN_STATUSES,
   onChange,
   onMouseLeave,
 }) => {
@@ -34,13 +34,8 @@ const FilterDropdown = ({
   });
 
   return (
-    <div
-      className={dropdownClass}
-      onMouseLeave={onMouseLeave}
-    >
+    <div className={dropdownClass} onMouseLeave={onMouseLeave}>
       {dropdownStatusRender}
     </div>
   );
 };
-
-export default FilterDropdown;

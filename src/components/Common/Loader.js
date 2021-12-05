@@ -1,18 +1,25 @@
 import SvgElement from "../Icons/SvgElement";
+import { useState } from "react";
 
 const loaderMainClass = "filter__loader";
 const loaderTextClass = "filter__loader-text";
 
-const Loader = ({ isVisible, loaderIcon = "refresh" }) => {
-  const loaderClass = isVisible
-    ? loaderMainClass
-    : [loaderMainClass, loaderMainClass + "_hidden"].join(" ");
-  return (
-    <div className={loaderClass}>
-      <SvgElement svgName={loaderIcon} />
-      <span className={loaderTextClass}>Загрузка</span>
-    </div>
-  );
-};
+export const Loader = ({ loaderIcon = "refresh", isLoading }) => {
+  const [isLoad, setIsload] = useState(isLoading);
 
-export default Loader;
+  setTimeout(() => setIsload(false), 3000);
+  const loader = () => {
+    return (
+      <div className={loaderMainClass}>
+        <SvgElement svgName={loaderIcon} />
+        <span className={loaderTextClass}>Загрузка</span>
+      </div>
+    );
+  };
+
+  const showLoader = (isLoad) => {
+    return isLoad ? loader() : null;
+  };
+
+  return showLoader(isLoad);
+};

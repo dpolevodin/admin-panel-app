@@ -5,7 +5,7 @@ const DROPDOWN_STATUSES = ["Новый", "Расчет", "Отложен", "Вы
 export const StatusFooterDropdown = ({
   className = dropdown._,
   isVisible,
-  id = "status-dropdown",
+  id = "footer-dropdown",
   onChange,
   onMouseLeave,
   checkedValue,
@@ -32,9 +32,13 @@ export const StatusFooterDropdown = ({
   });
 
   return (
-    <form className={dropdownClass} id={id} onChange={onChange} onMouseLeave={onMouseLeave} >
-      <ul className={dropdown.list} >{dropdownStatusRender}</ul>
+    <form
+      className={dropdownClass}
+      id={id}
+      onChange={onChange}
+      onMouseLeave={onMouseLeave}
+    >
+      <ul className={dropdown.list}>{dropdownStatusRender}</ul>
     </form>
   );
 };
-

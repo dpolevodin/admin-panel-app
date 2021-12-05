@@ -57,12 +57,12 @@ const ModalForm = () => {
   };
 
   const handleFormVisible = (event) => {
-    const style = event.target.className
-    event.target.className = style + ' ' + modalForm.moveRight
-    setTimeout(() => dispatch(formActions.setVisible()), 400)
-  }
+    const style = event.target.className;
+    event.target.className = style + " " + modalForm.moveRight;
+    setTimeout(() => dispatch(formActions.setVisible()), 400);
+  };
 
-  clearTimeout(handleFormVisible)
+  clearTimeout(handleFormVisible);
 
   const formMainClass = isFormVisible
     ? modalForm._
@@ -74,9 +74,8 @@ const ModalForm = () => {
 
   return (
     <>
-    <div className={formMainClass} onClick={handleFormVisible}>
-    </div>
-      <div className={modalForm.form} >
+      <div className={formMainClass} onClick={handleFormVisible}></div>
+      <div className={modalForm.form}>
         <FormHeader
           orderNumber={order.id}
           buttonHandler={handleDropdownOpen}
@@ -137,7 +136,7 @@ const ModalForm = () => {
 
         <FormFooter buttonHandler={handleSaveButton} />
       </div>
-      </>
+    </>
   );
 };
 

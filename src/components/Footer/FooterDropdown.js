@@ -6,7 +6,11 @@ const deleteButtonClass =
   "table__dropdown-button table__dropdown-button_transparent";
 const cancelButtonClass = "table__dropdown-button";
 
-const FooterDropdown = ({ ordersCount, deleteHandler, cancelHandler }) => {
+export const FooterDropdown = ({
+  ordersCount,
+  deleteHandler,
+  cancelHandler,
+}) => {
   return (
     <form className={formClassname}>
       <span className={textClassName}>Удалить {ordersCount} записей?</span>
@@ -19,5 +23,3 @@ const FooterDropdown = ({ ordersCount, deleteHandler, cancelHandler }) => {
     </form>
   );
 };
-
-export default FooterDropdown;

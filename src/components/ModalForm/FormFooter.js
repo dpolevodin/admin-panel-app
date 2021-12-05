@@ -1,24 +1,23 @@
 import modalForm from "./css/ModalForm.module.css";
 import Button from "../Common/Button";
-import Loader from "../Common/Loader";
+import { Loader } from "../Common/Loader";
 import { useState } from "react";
 
-const FormFooter = ({
-  buttonHandler,
-}) => {
-  const [whatIsShow, setWhatIsShow] = useState(true);
-  const changeFooterContent = () => {
-    setTimeout(() => setWhatIsShow(false), 3000);
-  };
+const FormFooter = ({ buttonHandler }) => {
+  const [isLoaderShow, setIsloaderShow] = useState(true);
 
-  changeFooterContent();
+  setTimeout(() => {
+    setIsloaderShow(false);
+  }, 3000);
 
+  const footerContent = isLoaderShow ? (
+    <Loader isLoading />
+  ) : (
+    "Ошибка или индикатор загрузки"
+  );
   return (
     <footer className={modalForm.footer}>
-      <div className={modalForm.footer__text}>
-        {whatIsShow && <Loader isVisible />}
-        {!whatIsShow && 'Ошибка или индикатор загрузки'}
-      </div>
+      <div className={modalForm.footer__text}>{footerContent}</div>
 
       <Button
         className={modalForm.footer__button}

@@ -1,6 +1,6 @@
-import FooterOrdersSelected from "../Footer/FooterOrdersSelected";
+import { FooterOrdersSelected } from "../Footer/FooterOrdersSelected";
 import Button from "../Common/Button";
-import FooterDropdown from "./FooterDropdown";
+import { FooterDropdown } from "./FooterDropdown";
 import { StatusFooterDropdown } from "./statusFooterDropdown/StatusFooterDropdown";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
@@ -29,14 +29,14 @@ const FooterActions = () => {
     dispatch(ordersActions.deleteCheckedOrders([...countsSelected]));
     dispatch(checkedOrdersActions.clearCheckedOrders());
     setDropdownVisible(!dropdownVisible);
+    const headerCheckbox = document.getElementsByName("headerCheckbox")[0];
+    headerCheckbox.checked = false;
   };
 
   const handleChangeOrdersStatus = (event) => {
-    const status = event.target.value
-    console.log(status)
-    console.log(countsSelected)
-    dispatch(ordersActions.changeGroupStatus(countsSelected, status))
-  }
+    const status = event.target.value;
+    dispatch(ordersActions.changeGroupStatus(countsSelected, status));
+  };
 
   return (
     <form className="table__footer-action">

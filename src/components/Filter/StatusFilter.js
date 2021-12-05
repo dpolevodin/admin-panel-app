@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Button from "../Common/Button";
 import Input from "../Common/Input";
-import FilterDropdown from "../Filter/FilterDropdown";
+import { FilterDropdown } from "../Filter/FilterDropdown";
 
 const mainComponentWrapperClass = "filter__input";
 const statusFilterSvgName = "v_arrow";
@@ -12,19 +12,23 @@ const inputWrapperClassName =
   "filter__input-field filter__input-field_empty filter__input-field_long";
 const statusTitleClass = "filter__input-title";
 
-const StatusFilter = ({statusValue, onChange}) => {
+const StatusFilter = ({ statusValue, onChange, children }) => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
 
   const handleDropdownVisible = (event) => {
     event.preventDefault();
-    setDropdownVisible(!dropdownVisible)
+    setDropdownVisible(!dropdownVisible);
   };
 
   return (
     <div className={mainComponentWrapperClass}>
-      <FilterDropdown isVisible={dropdownVisible} onMouseLeave={handleDropdownVisible} onChange={onChange}/>
+      <FilterDropdown
+        isVisible={dropdownVisible}
+        onMouseLeave={handleDropdownVisible}
+        onChange={onChange}
+      />
       <label className={labelClassName}>
-        <span className={statusTitleClass}>Статус заказа</span>
+        <span className={statusTitleClass}>{children}</span>
         <div className={inputWrapperClassName}>
           <Input
             className={inputClassName}

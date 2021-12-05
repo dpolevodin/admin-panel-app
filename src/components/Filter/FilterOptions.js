@@ -1,13 +1,12 @@
 import Button from "../Common/Button";
-import RangeFilter from "./RangeFilter";
+import { RangeFilter } from "./RangeFilter";
 import StatusFilter from "../Filter/StatusFilter";
-import AirDatepicker from "air-datepicker";
-import "air-datepicker/air-datepicker.css";
 import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import { dropdownActions } from "../../store/statusDropdown";
 import { formatDateFilterValue } from "../../helpers/FormatFunctions";
+import { datePicker } from "../../helpers/datePicker";
 
 const wrapperMainClass = "filter__wrapper";
 const formClassName = "filter__form";
@@ -21,37 +20,39 @@ const FilterOptions = ({ isVisible }) => {
   const [sumStart, setSumStart] = useState(0);
   const [sumEnd, setSumEnd] = useState(Infinity);
 
-  const statusData = useSelector(state => state.dropdown)
-  const statuses = statusData ? statusData.join(', ') : 'Любой'
+  const statusData = useSelector((state) => state.dropdown);
+  const statuses = String(statusData) ? statusData.join(", ") : "Любой";
 
   const dispatch = useDispatch();
 
-  new AirDatepicker("#dateStart", {
-    maxDate: Date.now(),
-  });
-
-  new AirDatepicker("#dateEnd", {
-    maxDate: Date.now(),
-    minDate: formatDateFilterValue(dateStart),
-  });
+  datePicker("#dateStart");
+  datePicker("#dateEnd", formatDateFilterValue(dateStart));
 
   const wrapperClassName = isVisible
     ? wrapperMainClass
     : [wrapperMainClass, wrapperMainClass + "_hidden"].join(" ");
 
-  const handleInputClear = (id, event, isStart) => {
+  const handleInputClear = (event) => {
     event.preventDefault();
-    const cuurenInputValue = document.getElementById(id);
-    cuurenInputValue.value = "";
-    isStart ? setDateStart("") : setDateEnd("");
+    const currentInput = event.currentTarget.parentNode.children[0];
+    console.log(currentInput);
+    currentInput.value = "";
+    currentInput.name === "start" ? setDateStart("") : setDateEnd("");
   };
 
-  const handleInputDateValue = (event, isStart) => {
-    isStart ? setDateStart(event.target.value) : setDateEnd(event.target.value);
+  const handleInputDateValue = (event) => {
+    const InputName = event.target.name;
+    InputName === "start"
+      ? setDateStart(event.target.value)
+      : setDateEnd(event.target.value);
   };
 
-  const handleInputSumValue = (event, isStart) => {
-    isStart ? setSumStart(event.target.value) : setSumEnd(event.target.value);
+  const handleInputSumValue = (event) => {
+    const InputName = event.target.name;
+    console.log(InputName);
+    InputName === "start"
+      ? setSumStart(event.target.value)
+      : setSumEnd(event.target.value);
   };
 
   const setDateFilterOptions = (dateStart, dateEnd) => {
@@ -76,43 +77,46 @@ const FilterOptions = ({ isVisible }) => {
     event.preventDefault();
     setDateFilterOptions(dateStart, dateEnd);
     setSumFilterOptions(sumStart, sumEnd);
-    setStatusFilterOptions()
+    if (statuses !== "Любой") {
+      setStatusFilterOptions();
+    }
   };
 
   const handleStatusFilterChange = (event) => {
-    const value = event.target.name 
-    console.log(value)
-    dispatch(dropdownActions.setStatuses(value))
-  }
+    const value = event.target.name;
+    console.log(value);
+    dispatch(dropdownActions.setStatuses(value));
+  };
 
   return (
     <div className={wrapperClassName}>
-      <form className={formClassName} name='options'>
+      <form className={formClassName} name="options">
         <RangeFilter
           filterTitle="Дата оформления"
           inputStartId="dateStart"
           InputEndId="dateEnd"
-          buttonHandlerStart={(e) => {
-            handleInputClear("dateStart", e, true);
-          }}
-          buttonHandlerEnd={(e) => {
-            handleInputClear("dateEnd", e);
-          }}
-          onBlurInputStart={(e) => handleInputDateValue(e, true)}
-          onBlurInputEnd={(e) => handleInputDateValue(e)}
-        />
+          onClick={handleInputClear}
+          onBlur={handleInputDateValue}
+          onChange={handleInputDateValue}
+        >
+          Дата оформления
+        </RangeFilter>
 
-        <StatusFilter statusValue={statuses} onChange={handleStatusFilterChange}/>
+        <StatusFilter
+          statusValue={statuses}
+          onChange={handleStatusFilterChange}
+        >
+          Статус заказа
+        </StatusFilter>
 
         <RangeFilter
-          inputStartId="sumStart"
-          InputEndId="sumEnd"
           filterPlaceholder="₽"
-          filterTitle="Сумма заказа"
           isShort
-          onChangeStart={(e) => handleInputSumValue(e, true)}
-          onChangeEnd={(e) => handleInputSumValue(e)}
-        />
+          onChange={handleInputSumValue}
+          onClick={handleInputClear}
+        >
+          Сумма заказа
+        </RangeFilter>
 
         <Button className={buttonClassName} onClick={handleButtonSubmit}>
           Применить

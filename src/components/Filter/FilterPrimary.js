@@ -1,7 +1,6 @@
 import Button from "../Common/Button";
 import Searchbar from "../Common/Searchbar";
-import Loader from "../Common/Loader";
-import { useState } from "react";
+import { Loader } from "../Common/Loader";
 
 const FilterPrimary = ({
   buttonFiltersHandler,
@@ -9,19 +8,8 @@ const FilterPrimary = ({
   onSubmit,
   onChange,
   onClick,
-  value
+  value,
 }) => {
-  const [loaderVisible, setLoaderVisible] = useState(true);
-
-  const showLoader = () => {
-    return setTimeout(() => {
-      setLoaderVisible(false);
-    }, 3000);
-  };
-
-  showLoader();
-  clearTimeout(showLoader)
-
   return (
     <div className="filter__wrapper">
       <div className="filter__group">
@@ -49,7 +37,7 @@ const FilterPrimary = ({
             Сбросить фильтры
           </Button>
         </form>
-        {loaderVisible && <Loader isVisible />}
+        <Loader isLoading />
       </div>
     </div>
   );

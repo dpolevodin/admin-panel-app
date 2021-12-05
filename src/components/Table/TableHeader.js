@@ -7,21 +7,16 @@ const checkboxLabelClass =
   "table__checkbox-control table__checkbox-control_primary";
 const listClass = "table__header-list";
 
-const HEADERS_FILTER_ICON = "v_arrow"
+const HEADERS_FILTER_ICON = "v_arrow";
 
-const TableHeader = ({
-  className,
-  onClick,
-  iconRotate,
-  onChangeCheckbox
-}) => {
+const TableHeader = ({ className, onClick, iconRotate, onChangeCheckbox }) => {
   const blockClass = className ? className : "table__header";
   return (
     <div className={blockClass}>
       <div className={listClass}>
-        <div className={itemClassName} >
+        <div className={itemClassName}>
           <label className={checkboxLabelClass}>
-            <Checkbox onChange={onChangeCheckbox}/>
+            <Checkbox onChange={onChangeCheckbox} name="headerCheckbox" />
           </label>
         </div>
         <div className={itemClassName}>
