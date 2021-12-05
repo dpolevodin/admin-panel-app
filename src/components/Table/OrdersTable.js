@@ -48,12 +48,7 @@ export const OrdersTable = () => {
   };
 
   const handleCheckbox = (event) => {
-    const checkedId = Number(
-      event.target.parentNode.parentNode.parentNode.parentNode.innerText.slice(
-        0,
-        7
-      )
-    );
+    const checkedId = Number(event.target.name);
     const CheckboxIsChecked = event.target.checked;
     if (CheckboxIsChecked) {
       dispatch(checkedOrdersActions.setCheckedOrders([checkedId]));
@@ -63,9 +58,7 @@ export const OrdersTable = () => {
   };
 
   const handleRowClick = (event) => {
-    const orderId = Number(
-      event.target.parentNode.parentNode.innerText.slice(0, 7)
-    );
+    const orderId = Number(event.currentTarget.getAttribute("name"));
     const orderToSetFormData = orders.find((item) => item.id === orderId);
     dispatch(formActions.setOrder(orderToSetFormData));
     dispatch(formActions.setVisible());

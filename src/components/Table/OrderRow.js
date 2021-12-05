@@ -42,11 +42,11 @@ export const OrderRow = ({
     ? "table__body-item table__body-item_checked"
     : "table__body-item";
   return (
-    <div className={blockClass} onClick={onClick}>
-      <div className={orderRowClass}>
+    <div className={blockClass} onClick={onClick} name={id}>
+      <div className={orderRowClass} name={id}>
         <div className={itemClass}>
           <label className={orderLabelClass}>
-            <Checkbox onChange={onChange}/>
+            <Checkbox onChange={onChange} name={id} />
           </label>
         </div>
         <div className={itemClass}>

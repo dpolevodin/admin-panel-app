@@ -39,7 +39,7 @@ export const FooterActions = () => {
   };
 
   return (
-    <form className="table__footer-action">
+    <div className="table__footer-action">
       <FooterOrdersSelected count={countsSelected.length} />
       <Button
         className="table__footer-button table__footer-button_blue"
@@ -69,6 +69,6 @@ export const FooterActions = () => {
           ordersCount={countsSelected.length}
         />
       )}
-    </form>
+    </div>
   );
 };
