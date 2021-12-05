@@ -8,6 +8,8 @@ import { formActions } from "../../store/modalForm";
 import { checkedOrdersActions } from "../../store/groupActions";
 import { useState } from "react";
 import { GetOrdersList } from "../../store/selectors/getOrdersList";
+import { FooterActions } from "../Footer/FooterActions";
+import { FooterPagination } from "../Footer/FooterPagination";
 
 const FILTERS_MAP = {
   Дата: "creationDate",
@@ -31,7 +33,7 @@ export const OrdersTable = () => {
   const maxNumberOfPage = Math.ceil(
     ordersCounts / pagination.itemsCountPerPage
   );
-  
+
   const currentPage = pagination.currentPage;
 
   const handleFilterSort = (event) => {
@@ -100,11 +102,17 @@ export const OrdersTable = () => {
   const handlePageDropdownSubmit = (event) => {
     event.preventDefault();
     const targetPage = event.target.page.value;
-    if (isFinite(targetPage) && targetPage <= maxNumberOfPage && targetPage > 0) {
-      dispatch(paginationActions.setCurrentPage(targetPage))
-      setIsDropdownOpen(!isDropdownOpen)
-      event.target.page.value = ''
-    } else {alert(`Введите номер страницы от 1 до ${maxNumberOfPage}`)}
+    if (
+      isFinite(targetPage) &&
+      targetPage <= maxNumberOfPage &&
+      targetPage > 0
+    ) {
+      dispatch(paginationActions.setCurrentPage(targetPage));
+      setIsDropdownOpen(!isDropdownOpen);
+      event.target.page.value = "";
+    } else {
+      alert(`Введите номер страницы от 1 до ${maxNumberOfPage}`);
+    }
   };
 
   return (
@@ -118,14 +126,17 @@ export const OrdersTable = () => {
         onClick={handleRowClick}
         onChange={handleCheckbox}
       />
-      <TableFooter
-        onClick={handlePageChange}
-        page={currentPage}
-        maxPage={maxNumberOfPage}
-        onClickLast={handleClickLast}
-        onSubmit={handlePageDropdownSubmit}
-        isVisible={isDropdownOpen}
-      />
+      <TableFooter>
+        <FooterActions />
+        <FooterPagination
+          onClick={handlePageChange}
+          page={currentPage}
+          maxPage={maxNumberOfPage}
+          onClickLast={handleClickLast}
+          onSubmit={handlePageDropdownSubmit}
+          isVisible={isDropdownOpen}
+        />
+      </TableFooter>
     </div>
   );
 };

@@ -8,7 +8,7 @@ const FormInput = ({
   isDisabled = false,
   title,
   defaultValue,
-  isIncorrect = false,
+  isValid = true,
   value,
   onChange,
   children,
@@ -20,7 +20,7 @@ const FormInput = ({
 
   if (isDisabled) {
     areaClass = modalForm.input_field + " " + modalForm.input_disabled;
-  } else if (isIncorrect) {
+  } else if (!isValid) {
     areaClass = modalForm.input_field + " " + modalForm.input_incorrect;
   } else {
     areaClass = modalForm.input_field;

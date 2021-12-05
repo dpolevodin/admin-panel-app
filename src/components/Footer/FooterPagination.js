@@ -7,7 +7,7 @@ const secondaryClass =
 const thirdClass =
   "table__footer-button table__footer-button_small table__footer-button_transparent";
 
-const FooterPagination = ({
+export const FooterPagination = ({
   onClick,
   page,
   maxPage,
@@ -24,16 +24,18 @@ const FooterPagination = ({
     currentPage + 1 <= maxPage ? currentPage + 1 : currentPage;
   const thirdButtonValue = currentPage + 2;
 
-  const firstButtonClass = page < maxPage || page === maxPage? primaryClass : secondaryClass;
+  const firstButtonClass =
+    page < maxPage || page === maxPage ? primaryClass : secondaryClass;
   const secondButtonClass = page >= maxPage ? primaryClass : secondaryClass;
 
-  const lastPageButton = 
-      <>
-        <span className="table__pagination-continue">…</span>
-        <Button className={secondaryClass} onClick={onClick}>
-          {maxPage}
-        </Button>
-      </>
+  const lastPageButton = (
+    <>
+      <span className="table__pagination-continue">…</span>
+      <Button className={secondaryClass} onClick={onClick}>
+        {maxPage}
+      </Button>
+    </>
+  );
 
   return (
     <div className="table__footer-pagination">
@@ -61,5 +63,3 @@ const FooterPagination = ({
     </div>
   );
 };
-
-export default FooterPagination;

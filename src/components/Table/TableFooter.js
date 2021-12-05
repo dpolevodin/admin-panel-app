@@ -1,27 +1,4 @@
-import FooterActions from "../Footer/FooterActions";
-import FooterPagination from "../Footer/FooterPagination";
-
-export const TableFooter = ({
-  className,
-  onClick,
-  page,
-  maxPage,
-  onClickLast,
-  onSubmit,
-  isVisible,
-}) => {
+export const TableFooter = ({ className, children }) => {
   const blockClass = className ? className : "table__footer";
-  return (
-    <div className={blockClass}>
-      <FooterActions />
-      <FooterPagination
-        onClick={onClick}
-        page={page}
-        maxPage={maxPage}
-        onClickLast={onClickLast}
-        onSubmit={onSubmit}
-        isVisible={isVisible}
-      />
-    </div>
-  );
+  return <div className={blockClass}>{children}</div>;
 };

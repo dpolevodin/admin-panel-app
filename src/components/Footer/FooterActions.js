@@ -7,7 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import { checkedOrdersActions } from "../../store/groupActions";
 
-const FooterActions = () => {
+export const FooterActions = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [statusDropdownVisible, setStatusDropdownVisible] = useState(false);
 
@@ -72,5 +72,3 @@ const FooterActions = () => {
     </form>
   );
 };
-
-export default FooterActions;
