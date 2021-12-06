@@ -14,7 +14,7 @@ const buttonClassName =
   "filter-button filter-button_hidden-icon filter-button_short";
 
 const FilterOptions = ({ isVisible }) => {
-  const [dateStart, setDateStart] = useState("");
+  const [dateStart, setDateStart] = useState("01.01.1900");
   const [dateEnd, setDateEnd] = useState("");
 
   const [sumStart, setSumStart] = useState(0);
@@ -48,9 +48,12 @@ const FilterOptions = ({ isVisible }) => {
 
   const handleInputSumValue = (event) => {
     const InputName = event.target.name;
-    InputName === "start"
-      ? setSumStart(event.target.value)
-      : setSumEnd(event.target.value);
+    const value = event.target.value;
+    if (isFinite(value)) {
+      InputName === "start" ? setSumStart(value) : setSumEnd(value);
+    } else {
+      alert("Введите числовое значение!");
+    }
   };
 
   const setDateFilterOptions = (dateStart, dateEnd) => {

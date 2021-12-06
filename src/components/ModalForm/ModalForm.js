@@ -136,7 +136,10 @@ const ModalForm = () => {
           />
         </div>
 
-        <FormFooter buttonHandler={handleSaveButton} />
+        <FormFooter
+          buttonHandler={handleSaveButton}
+          error={"Ошибка или индикатор загрузки"}
+        />
       </div>
     </>
   );
