@@ -3,9 +3,11 @@ import { OrderFormItem } from "./OrderFormItem";
 import { formatSum } from "../../helpers/FormatFunctions";
 
 const OrderTable = ({ orders, sum }) => {
-  const ordersRender = orders ? orders.map((item) => {
-    return <OrderFormItem {...item} key={item.article + Math.random()} />;
-  }) : [];
+  const ordersRender = orders
+    ? orders.map((item) => {
+        return <OrderFormItem {...item} key={item.article + Math.random()} />;
+      })
+    : [];
 
   return (
     <div className={modalForm.OrderTable}>

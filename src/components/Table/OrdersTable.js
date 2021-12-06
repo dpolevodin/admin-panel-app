@@ -106,8 +106,6 @@ export const OrdersTable = () => {
     }
   };
 
-  console.log(checkedOrders);
-
   return (
     <div className="table">
       <TableHeader

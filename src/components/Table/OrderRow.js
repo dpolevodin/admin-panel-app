@@ -10,6 +10,8 @@ const orderLabelClass = "table__checkbox-control";
 const rowClass = "table__body-item-row";
 const itemClass = "table__header-item";
 const itemTextClass = "table__header-item-text";
+const blockClassPrimary = "table__body-item";
+const blockClassChecked = "table__body-item table__body-item_checked";
 
 const STATUS_ICON_MAP = {
   Новый: "dot",
@@ -38,16 +40,15 @@ export const OrderRow = ({
   onChange,
   CheckedId,
 }) => {
-  const blockClass = CheckedId.includes(id)
-    ? "table__body-item table__body-item_checked"
-    : "table__body-item";
+  const isOrderChecked = CheckedId.includes(id);
+  const blockClass = isOrderChecked ? blockClassChecked : blockClassPrimary;
 
   return (
     <div className={blockClass} onClick={onClick} name={id}>
       <div className={rowClass} name={id}>
         <div className={itemClass}>
           <label className={orderLabelClass}>
-            <Checkbox onChange={onChange} name={id} />
+            <Checkbox onChange={onChange} name={id} checked={isOrderChecked} />
           </label>
         </div>
         <div className={itemClass}>

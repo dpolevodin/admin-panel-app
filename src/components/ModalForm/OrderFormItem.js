@@ -10,4 +10,3 @@ export const OrderFormItem = ({ article, orderName, price }) => {
     </li>
   );
 };
-

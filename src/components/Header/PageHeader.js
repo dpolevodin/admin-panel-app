@@ -8,7 +8,9 @@ export const PageHeader = () => {
   return (
     <div className={wrapperClass}>
       <h1 className={headerClass}>Список заказов</h1>
-      <Button className={buttonClass} svgName="sun" >Cветлая тема</Button>
+      <Button className={buttonClass} svgName="sun">
+        Cветлая тема
+      </Button>
     </div>
   );
 };
