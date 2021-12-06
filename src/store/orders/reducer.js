@@ -18,6 +18,7 @@ export const ordersReducer = (state = initialState, action) => {
     case ordersActionTypes.SET_ORDERS:
       return (state = [...action.payload]);
     case ordersActionTypes.SEARCH_ORDERS:
+      state = [...Mocks];
       return state.filter(
         (order) =>
           String(order.id).includes(action.payload) ||

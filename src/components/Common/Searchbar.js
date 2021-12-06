@@ -10,6 +10,7 @@ const Searchbar = ({
   placeholder = "Номер заказа или ФИО",
   value,
   children,
+  onChange,
 }) => {
   return (
     <label className={labelClass}>
@@ -20,7 +21,8 @@ const Searchbar = ({
             className={inputClassName}
             placeholder={placeholder}
             name="searchbar"
-            defaultValue={value}
+            value={value}
+            onChange={onChange}
           />
         </div>
         {children}

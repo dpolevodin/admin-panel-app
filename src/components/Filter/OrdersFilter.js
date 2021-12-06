@@ -5,6 +5,7 @@ import { useDispatch } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import Mocks from "../../data/Orders.json";
 import { iconsActions } from "../../store/icons";
+import { debounce } from "../../helpers/debounce";
 
 export const OrdersFilter = ({ className = "filter" }) => {
   const [optionsVision, setOptionsVision] = useState(false);
@@ -14,16 +15,13 @@ export const OrdersFilter = ({ className = "filter" }) => {
 
   const handleChange = (event) => {
     event.preventDefault();
-    dispatch(ordersActions.setOrders(Mocks));
-    setInputValue("");
     const value = event.target.value;
-    if (value === "") {
-      dispatch(ordersActions.setOrders(Mocks));
-      setInputValue("");
-    } else {
-      setInputValue(value);
-      dispatch(ordersActions.searchOrders(value));
-    }
+    setInputValue(value);
+    const debouncedAction = debounce(() => {
+      const currentValue = event.target.value;
+      dispatch(ordersActions.searchOrders(currentValue.toLowerCase()));
+    }, 750);
+    debouncedAction();
   };
 
   const handleSubmit = (event) => {
