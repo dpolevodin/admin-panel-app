@@ -15,13 +15,13 @@ export const OrdersFilter = ({ className = "filter" }) => {
     event.preventDefault();
     dispatch(ordersActions.setOrders(Mocks));
     setInputValue("");
-    const value = event.currentTarget.searchbar.value;
+    const value = event.target.value;
     if (value === "") {
       dispatch(ordersActions.setOrders(Mocks));
       setInputValue("");
     } else {
-      dispatch(ordersActions.searchOrders(value));
       setInputValue(value);
+      dispatch(ordersActions.searchOrders(value));
     }
   };
 
