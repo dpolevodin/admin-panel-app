@@ -77,7 +77,7 @@ const ModalForm = () => {
       <div className={formMainClass} onClick={handleFormVisible}></div>
       <div className={modalForm.form}>
         <FormHeader
-          orderNumber={order.id}
+          orderNumber={order.id || ""}
           buttonHandler={handleDropdownOpen}
           isDropdownOpen={isDropdownOpen}
         />
@@ -91,13 +91,14 @@ const ModalForm = () => {
           <FormInput
             isDisabled
             title="Дата и время заказа"
-            value={formatDate(order.creationDate)}
+            value={formatDate(order.creationDate) || ""}
             icon="locked"
+            onChange={() => {}}
           />
           <FormInput
             title="ФИО покупателя"
             placeholder="Введите ФИО"
-            value={order.name}
+            value={order.name || ""}
             onChange={handleDropdownSetName}
           />
 
@@ -107,13 +108,14 @@ const ModalForm = () => {
             isDisabled
             title="Уровень лояльности"
             placeholder="Введите ФИО"
-            value={order.loyalty}
+            value={order.loyalty || ""}
             icon="locked"
+            onChange={() => {}}
           />
           <FormInput
             title="Статус заказа"
             placeholder="Выберите статус заказа"
-            value={order.status}
+            value={order.status || ""}
             icon="v_arrow"
             buttonHandler={handleDropdownStatusOpen}
             onFocus={handleDropdownStatusOpen}
@@ -124,7 +126,7 @@ const ModalForm = () => {
               isVisible={isStatusDropdownOpen}
               onChange={handleDropdownSetStatus}
               onMouseLeave={handleDropdownStatusOpen}
-              checkedValue={order.status}
+              checkedValue={order.status || ""}
             />
           </FormInput>
 
@@ -132,7 +134,8 @@ const ModalForm = () => {
             isValid={false}
             title="Код подтверждения"
             placeholder="Введите код подтверждения"
-            value={order.confirmCode}
+            value={order.confirmCode || ""}
+            onChange={() => {}}
           />
         </div>
 
