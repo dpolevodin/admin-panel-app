@@ -7,6 +7,7 @@ import { ordersActions } from "../../store/orders";
 import { dropdownActions } from "../../store/statusDropdown";
 import { formatDateFilterValue } from "../../helpers/FormatFunctions";
 import { datePicker } from "../../helpers/datePicker";
+import { selectors } from "../../store/selectors/selectors";
 
 const wrapperMainClass = "filter__wrapper";
 const formClassName = "filter__form";
@@ -20,7 +21,7 @@ const FilterOptions = ({ isVisible }) => {
   const [sumStart, setSumStart] = useState(0);
   const [sumEnd, setSumEnd] = useState(Infinity);
 
-  const statusData = useSelector((state) => state.dropdown);
+  const statusData = useSelector(selectors.getCheckedStatuses);
   const statuses = String(statusData) ? statusData.join(", ") : "Любой";
 
   const dispatch = useDispatch();

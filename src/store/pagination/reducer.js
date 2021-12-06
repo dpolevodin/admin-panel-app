@@ -8,10 +8,11 @@ const initialState = {
 export const paginationReducer = (state = initialState, action) => {
   switch (action.type) {
     case paginationActionTypes.SET_CURRENT_PAGE:
-      const result = action.page === state.currentPage && action.page > 1 ?
-      {...state, currentPage: (action.page - 1)} :
-      {...state, currentPage: action.page}
-      return result
+      const result =
+        action.page === state.currentPage && action.page > 1
+          ? { ...state, currentPage: action.page - 1 }
+          : { ...state, currentPage: action.page };
+      return result;
     default:
       return state;
   }

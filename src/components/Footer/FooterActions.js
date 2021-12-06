@@ -6,12 +6,13 @@ import { useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import { checkedOrdersActions } from "../../store/groupActions";
+import { selectors } from "../../store/selectors/selectors";
 
 export const FooterActions = () => {
   const [dropdownVisible, setDropdownVisible] = useState(false);
   const [statusDropdownVisible, setStatusDropdownVisible] = useState(false);
 
-  const countsSelected = useSelector((state) => state.checkedOrders);
+  const countsSelected = useSelector(selectors.getCheckedOrders);
   const dispatch = useDispatch();
 
   const handleDropdownVisible = (event) => {

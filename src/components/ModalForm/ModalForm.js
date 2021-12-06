@@ -10,14 +10,15 @@ import { ordersActions } from "../../store/orders";
 import FormDropdown from "./FormDropdown";
 import StatusDropdown from "./StatusDropdown";
 import { formatDate } from "../../helpers/FormatFunctions";
+import { selectors } from "../../store/selectors/selectors";
 
 const ModalForm = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isStatusDropdownOpen, setIsStatusDropdownOpen] = useState(false);
 
   const dispatch = useDispatch();
-  const isFormVisible = useSelector((state) => state.form.isVisible);
-  const formData = useSelector((state) => state.form.order);
+  const isFormVisible = useSelector(selectors.getFormVisible);
+  const formData = useSelector(selectors.getFormOrder);
 
   const order = { ...formData };
 

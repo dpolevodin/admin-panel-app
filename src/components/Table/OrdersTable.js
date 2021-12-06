@@ -7,10 +7,10 @@ import { paginationActions } from "../../store/pagination";
 import { formActions } from "../../store/modalForm";
 import { checkedOrdersActions } from "../../store/groupActions";
 import { useState } from "react";
-import { GetOrdersList } from "../../store/selectors/getOrdersList";
 import { FooterActions } from "../Footer/FooterActions";
 import { FooterPagination } from "../Footer/FooterPagination";
 import { iconsActions } from "../../store/icons";
+import { selectors } from "../../store/selectors/selectors";
 
 const FILTERS_MAP = {
   Дата: "creationDate",
@@ -25,17 +25,12 @@ export const OrdersTable = () => {
 
   const dispatch = useDispatch();
 
-  const pagination = useSelector((state) => state.pagination);
-  const iconsPosition = useSelector((state) => state.icons);
-  const ordersCounts = useSelector((state) => state.orders).length;
+  const iconsPosition = useSelector(selectors.getIconsPositions);
+  const maxNumberOfPage = useSelector(selectors.getMaxPage);
+  const currentPage = useSelector(selectors.getCurrentPage);
+  const orders = useSelector(selectors.getOrdersList);
 
-  const orders = GetOrdersList();
   const ordersList = !!orders ? orders : [];
-
-  const maxNumberOfPage = Math.ceil(
-    ordersCounts / pagination.itemsCountPerPage
-  );
-  const currentPage = pagination.currentPage;
 
   const handleFilterSort = (event) => {
     const valueToSort = event.target.innerText;
