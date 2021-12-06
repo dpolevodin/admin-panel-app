@@ -36,6 +36,7 @@ const StatusFilter = ({ statusValue, onChange, children }) => {
             value={statusValue}
             name="statuses"
             onFocus={handleDropdownVisible}
+            onChange={handleDropdownVisible}
           />
           <Button
             className={buttonClassName}

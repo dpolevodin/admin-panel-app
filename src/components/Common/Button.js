@@ -6,14 +6,13 @@ const Button = ({
   textClassName = "button__text",
   onClick,
   iconClassName,
-  children
+  children,
+  type,
 }) => {
   return (
-    <button className={className} onClick={onClick}>
+    <button className={className} onClick={onClick} type={type}>
       <SvgElement svgName={svgName} className={iconClassName} />
-      <span className={textClassName}>
-        {children}
-      </span>
+      <span className={textClassName}>{children}</span>
     </button>
   );
 };

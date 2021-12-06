@@ -10,7 +10,7 @@ const Input = ({
   autoComplete = "off",
   value,
   onFocus,
-  name
+  name,
 }) => {
   return (
     <input

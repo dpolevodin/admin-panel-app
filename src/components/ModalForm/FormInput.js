@@ -15,6 +15,7 @@ const FormInput = ({
   buttonHandler,
   type,
   onFocus,
+  onClick,
 }) => {
   let areaClass;
 
@@ -40,6 +41,7 @@ const FormInput = ({
             onChange={onChange}
             type={type}
             onFocus={onFocus}
+            onClick={onClick}
           />
           <Button
             className={modalForm.button}

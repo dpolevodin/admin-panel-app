@@ -20,7 +20,7 @@ const Searchbar = ({
             className={inputClassName}
             placeholder={placeholder}
             name="searchbar"
-            value={value}
+            defaultValue={value}
           />
         </div>
         {children}

@@ -23,7 +23,6 @@ export const StatusFooterDropdown = ({
             type="radio"
             name="status"
             value={element}
-            checked={checkedValue === element ? "checked" : false}
           />
           <span className={dropdown.title}>{element}</span>
         </li>

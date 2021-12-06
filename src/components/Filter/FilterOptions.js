@@ -1,7 +1,7 @@
 import Button from "../Common/Button";
 import { RangeFilter } from "./RangeFilter";
 import StatusFilter from "../Filter/StatusFilter";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import { dropdownActions } from "../../store/statusDropdown";
@@ -35,7 +35,6 @@ const FilterOptions = ({ isVisible }) => {
   const handleInputClear = (event) => {
     event.preventDefault();
     const currentInput = event.currentTarget.parentNode.children[0];
-    console.log(currentInput);
     currentInput.value = "";
     currentInput.name === "start" ? setDateStart("") : setDateEnd("");
   };
@@ -49,7 +48,6 @@ const FilterOptions = ({ isVisible }) => {
 
   const handleInputSumValue = (event) => {
     const InputName = event.target.name;
-    console.log(InputName);
     InputName === "start"
       ? setSumStart(event.target.value)
       : setSumEnd(event.target.value);
@@ -73,8 +71,7 @@ const FilterOptions = ({ isVisible }) => {
     dispatch(ordersActions.filterOrdersByStatus(statuses));
   };
 
-  const handleButtonSubmit = (event) => {
-    event.preventDefault();
+  const formSubmit = () => {
     setDateFilterOptions(dateStart, dateEnd);
     setSumFilterOptions(sumStart, sumEnd);
     if (statuses !== "Любой") {
@@ -82,15 +79,35 @@ const FilterOptions = ({ isVisible }) => {
     }
   };
 
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    formSubmit();
+  };
+
   const handleStatusFilterChange = (event) => {
     const value = event.target.name;
-    console.log(value);
     dispatch(dropdownActions.setStatuses(value));
   };
 
+  useEffect(() => {
+    const listener = (event) => {
+      if (event.code === "Enter") {
+        formSubmit();
+      }
+    };
+    document.addEventListener("keydown", listener);
+    return () => {
+      document.removeEventListener("keydown", listener);
+    };
+  });
+
   return (
     <div className={wrapperClassName}>
-      <form className={formClassName} name="options">
+      <form
+        className={formClassName}
+        name="options"
+        onSubmit={handleFormSubmit}
+      >
         <RangeFilter
           filterTitle="Дата оформления"
           inputStartId="dateStart"
@@ -118,7 +135,7 @@ const FilterOptions = ({ isVisible }) => {
           Сумма заказа
         </RangeFilter>
 
-        <Button className={buttonClassName} onClick={handleButtonSubmit}>
+        <Button className={buttonClassName} type="submit">
           Применить
         </Button>
       </form>

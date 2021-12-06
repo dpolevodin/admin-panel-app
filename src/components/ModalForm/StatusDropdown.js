@@ -23,7 +23,7 @@ const StatusDropdown = ({
             type="radio"
             name="status"
             value={element}
-            checked={checkedValue === element ? "checked" : false}
+            defaultChecked={checkedValue === element ? "checked" : false}
           />
           <span className={dropdown.title}>{element}</span>
         </li>
@@ -32,8 +32,10 @@ const StatusDropdown = ({
   });
 
   return (
-    <form className={dropdownClass} id={id} onChange={onChange} >
-      <ul className={dropdown.list} onMouseLeave={onMouseLeave}>{dropdownStatusRender}</ul>
+    <form className={dropdownClass} id={id} onChange={onChange}>
+      <ul className={dropdown.list} onMouseLeave={onMouseLeave}>
+        {dropdownStatusRender}
+      </ul>
     </form>
   );
 };

@@ -35,7 +35,6 @@ export const OrdersTable = () => {
   const maxNumberOfPage = Math.ceil(
     ordersCounts / pagination.itemsCountPerPage
   );
-  console.log(iconsPosition);
   const currentPage = pagination.currentPage;
 
   const handleFilterSort = (event) => {

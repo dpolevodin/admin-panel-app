@@ -117,6 +117,8 @@ const ModalForm = () => {
             icon="v_arrow"
             buttonHandler={handleDropdownStatusOpen}
             onFocus={handleDropdownStatusOpen}
+            onChange={handleDropdownStatusOpen}
+            onClick={handleDropdownStatusOpen}
           >
             <StatusDropdown
               isVisible={isStatusDropdownOpen}

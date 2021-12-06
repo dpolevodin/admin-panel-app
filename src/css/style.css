@@ -154,7 +154,17 @@ body {
   margin: 0;
   padding: 0.5rem 1rem;
   border-radius: 0.5rem;
+  animation: showFilter 0.2s ease-out 1;
   margin-bottom: 2rem;
+}
+
+@keyframes showFilter {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .filter__wrapper_hidden:last-child {
@@ -266,6 +276,10 @@ body {
 
 .table__header .svg-icon {
   pointer-events: none;
+}
+
+.table__header .table__header-item:nth-child(1) .svg-icon {
+  pointer-events: all;
 }
 
 .svg-icon_rotate {
@@ -1069,10 +1083,20 @@ body {
   height: 7rem;
   padding: 1rem;
   border-radius: 0.5rem;
+  animation: showDropdown 0.4s ease-out 1;
   background-color: var(--background-admin-panel-white);
   box-shadow: 0 0.5rem 2rem var(--background-admin-panel-shadow),
     0 0.25rem 0.5rem var(--background-admin-panel-shadow),
     0 0.125rem 0.125rem var(--background-admin-panel-shadow);
+}
+
+@keyframes showDropdown {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
 }
 
 .table__footer-dropdown_hidden {
