@@ -10,6 +10,7 @@ import { useState } from "react";
 import { GetOrdersList } from "../../store/selectors/getOrdersList";
 import { FooterActions } from "../Footer/FooterActions";
 import { FooterPagination } from "../Footer/FooterPagination";
+import { iconsActions } from "../../store/icons";
 
 const FILTERS_MAP = {
   Дата: "creationDate",
@@ -19,12 +20,13 @@ const FILTERS_MAP = {
 };
 
 export const OrdersTable = () => {
-  const [isSorted, setIsSorted] = useState(false);
+  const [isAscending, setIsAscending] = useState(false);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
 
   const dispatch = useDispatch();
 
   const pagination = useSelector((state) => state.pagination);
+  const iconsPosition = useSelector((state) => state.icons);
   const ordersCounts = useSelector((state) => state.orders).length;
 
   const orders = GetOrdersList();
@@ -41,10 +43,12 @@ export const OrdersTable = () => {
     dispatch(
       ordersActions.sortOrders({
         value: FILTERS_MAP[valueToSort],
-        SortUp: isSorted,
+        SortUp: isAscending,
       })
     );
-    setIsSorted(!isSorted);
+    setIsAscending(!isAscending);
+    // dispatch(iconsActions.refreshIcon());
+    dispatch(iconsActions.rotateIcon(FILTERS_MAP[valueToSort]));
   };
 
   const handleCheckbox = (event) => {
@@ -113,6 +117,7 @@ export const OrdersTable = () => {
       <TableHeader
         onClick={handleFilterSort}
         onChangeCheckbox={handleCheckboxHeader}
+        iconRotate={iconsPosition}
       />
       <TableOrdersList
         orders={ordersList}

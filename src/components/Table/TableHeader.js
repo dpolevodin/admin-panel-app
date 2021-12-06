@@ -9,8 +9,9 @@ const listClass = "table__header-list";
 
 const HEADERS_FILTER_ICON = "v_arrow";
 
-const TableHeader = ({ className, onClick, iconRotate, onChangeCheckbox }) => {
+const TableHeader = ({ className, onClick, onChangeCheckbox, iconRotate }) => {
   const blockClass = className ? className : "table__header";
+
   return (
     <div className={blockClass}>
       <div className={listClass}>
@@ -24,19 +25,28 @@ const TableHeader = ({ className, onClick, iconRotate, onChangeCheckbox }) => {
         </div>
         <div className={itemClassName} onClick={onClick}>
           <span className={itemTextClassName}>Дата</span>
-          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate} />
+          <SvgElement
+            svgName={HEADERS_FILTER_ICON}
+            isRotate={iconRotate.creationDate}
+          />
         </div>
         <div className={itemClassName} onClick={onClick}>
           <span className={itemTextClassName}>Статус</span>
-          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate} />
+          <SvgElement
+            svgName={HEADERS_FILTER_ICON}
+            isRotate={iconRotate.status}
+          />
         </div>
         <div className={itemClassName} onClick={onClick}>
           <span className={itemTextClassName}>Позиций</span>
-          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate} />
+          <SvgElement
+            svgName={HEADERS_FILTER_ICON}
+            isRotate={iconRotate.positionsCount}
+          />
         </div>
         <div className={itemClassName} onClick={onClick}>
           <span className={itemTextClassName}>Сумма</span>
-          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate} />
+          <SvgElement svgName={HEADERS_FILTER_ICON} isRotate={iconRotate.sum} />
         </div>
         <div className={itemClassName}>
           <span className={itemTextClassName}>ФИО покупателя</span>
