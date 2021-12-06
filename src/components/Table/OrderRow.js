@@ -7,7 +7,7 @@ import {
 } from "../../helpers/FormatFunctions";
 
 const orderLabelClass = "table__checkbox-control";
-const orderRowClass = "table__body-item-row";
+const rowClass = "table__body-item-row";
 const itemClass = "table__header-item";
 const itemTextClass = "table__header-item-text";
 
@@ -36,14 +36,15 @@ export const OrderRow = ({
   name,
   onClick,
   onChange,
-  isChecked,
+  CheckedId,
 }) => {
-  const blockClass = isChecked
+  const blockClass = CheckedId.includes(id)
     ? "table__body-item table__body-item_checked"
     : "table__body-item";
+
   return (
     <div className={blockClass} onClick={onClick} name={id}>
-      <div className={orderRowClass} name={id}>
+      <div className={rowClass} name={id}>
         <div className={itemClass}>
           <label className={orderLabelClass}>
             <Checkbox onChange={onChange} name={id} />

@@ -16,7 +16,6 @@
   --background-admin-panel-green: #0fb864;
   --without-table-height: 7rem;
   --background-admin-panel-item-shade: rgba(0, 0, 0, 0.15);
-  --adp-day-name-color: deeppink;
 }
 
 ::-webkit-scrollbar {
@@ -1213,7 +1212,7 @@ body {
 }
 
 .table__body-item_checked {
-  background-color: var(--background-admin-panel-light);
+  background-color: var(--background-admin-panel-day-light);
 }
 
 .table__body-item:hover {

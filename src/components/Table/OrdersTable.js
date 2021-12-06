@@ -29,6 +29,7 @@ export const OrdersTable = () => {
   const maxNumberOfPage = useSelector(selectors.getMaxPage);
   const currentPage = useSelector(selectors.getCurrentPage);
   const orders = useSelector(selectors.getOrdersList);
+  const checkedOrders = useSelector(selectors.getCheckedOrders);
 
   const ordersList = !!orders ? orders : [];
 
@@ -105,6 +106,8 @@ export const OrdersTable = () => {
     }
   };
 
+  console.log(checkedOrders);
+
   return (
     <div className="table">
       <TableHeader
@@ -116,6 +119,7 @@ export const OrdersTable = () => {
         orders={ordersList}
         onClick={handleRowClick}
         onChange={handleCheckbox}
+        CheckedId={checkedOrders}
       />
       <TableFooter>
         <FooterActions />

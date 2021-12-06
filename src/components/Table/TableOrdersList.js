@@ -6,9 +6,10 @@ export const TableOrdersList = ({
   orders,
   onClick,
   onChange,
+  CheckedId,
 }) => {
-  const blockClass = className ? className : "table__body"
-  const listMainClass = listClass ? listClass : "table__body-list"
+  const blockClass = className ? className : "table__body";
+  const listMainClass = listClass ? listClass : "table__body-list";
   const ordersRender = orders.map((order) => {
     return (
       <OrderRow
@@ -16,15 +17,14 @@ export const TableOrdersList = ({
         key={order.id}
         onClick={onClick}
         onChange={onChange}
+        CheckedId={CheckedId}
       />
     );
   });
 
   return (
     <div className={blockClass}>
-      <div className={listMainClass} >
-        {ordersRender}
-      </div>
+      <div className={listMainClass}>{ordersRender}</div>
     </div>
   );
 };
