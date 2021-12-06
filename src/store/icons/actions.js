@@ -8,7 +8,7 @@ export const iconsActions = {
     type: iconsActionTypes.ROTATE_ICON,
     payload,
   }),
-  // refreshIcon: () => ({
-  //   type: iconsActionTypes.ROTATE_ICON,
-  // }),
+  refreshIcon: () => ({
+    type: iconsActionTypes.REFRESH_ICON,
+  }),
 };

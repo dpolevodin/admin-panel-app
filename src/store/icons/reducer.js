@@ -12,8 +12,14 @@ export const iconsReducer = (state = initialState, action) => {
     case iconsActionTypes.ROTATE_ICON:
       const value = action.payload;
       return { ...state, [value]: !state[value] };
-    // case iconsActionTypes.REFRESH_ICON:
-    //   return initialState;
+    case iconsActionTypes.REFRESH_ICON:
+      return {
+        ...state,
+        creationDate: false,
+        status: false,
+        positionsCount: false,
+        sum: false,
+      };
     default:
       return state;
   }

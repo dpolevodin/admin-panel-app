@@ -35,7 +35,7 @@ export const OrdersTable = () => {
   const maxNumberOfPage = Math.ceil(
     ordersCounts / pagination.itemsCountPerPage
   );
-
+  console.log(iconsPosition);
   const currentPage = pagination.currentPage;
 
   const handleFilterSort = (event) => {
@@ -47,7 +47,6 @@ export const OrdersTable = () => {
       })
     );
     setIsAscending(!isAscending);
-    // dispatch(iconsActions.refreshIcon());
     dispatch(iconsActions.rotateIcon(FILTERS_MAP[valueToSort]));
   };
 

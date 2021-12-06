@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { ordersActions } from "../../store/orders";
 import Mocks from "../../data/Orders.json";
+import { iconsActions } from "../../store/icons";
 
 export const OrdersFilter = ({ className = "filter" }) => {
   const [optionsVision, setOptionsVision] = useState(false);
@@ -43,6 +44,7 @@ export const OrdersFilter = ({ className = "filter" }) => {
     for (let item of inputs) {
       item.value = "";
     }
+    dispatch(iconsActions.refreshIcon());
   };
 
   const handleButtonReset = (event) => {
