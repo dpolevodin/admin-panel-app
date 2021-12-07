@@ -44,7 +44,7 @@ const FormInput = ({
             onClick={onClick}
           />
           <Button
-            className={modalForm.button}
+            modalform
             svgName={icon}
             iconClassName={modalForm.input_icon}
             onClick={buttonHandler}

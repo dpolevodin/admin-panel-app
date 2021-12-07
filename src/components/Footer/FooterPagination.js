@@ -1,12 +1,6 @@
 import Button from "../Common/Button";
 import { PageDropdown } from "./PageDropdown/PageDropdown";
 
-const primaryClass = "table__footer-button table__footer-button_small";
-const secondaryClass =
-  "table__footer-button table__footer-button_small table__footer-button_transparent";
-const thirdClass =
-  "table__footer-button table__footer-button_small table__footer-button_transparent";
-
 export const FooterPagination = ({
   onClick,
   page,
@@ -15,7 +9,7 @@ export const FooterPagination = ({
   onSubmit,
   isVisible,
 }) => {
-  let currentPage = Number(page);
+  const currentPage = Number(page);
   const firstButtonValue =
     currentPage === maxPage && currentPage !== 1
       ? currentPage - 1
@@ -24,14 +18,19 @@ export const FooterPagination = ({
     currentPage + 1 <= maxPage ? currentPage + 1 : currentPage;
   const thirdButtonValue = currentPage + 2;
 
-  const firstButtonClass =
-    page < maxPage || page === maxPage ? primaryClass : secondaryClass;
-  const secondButtonClass = page >= maxPage ? primaryClass : secondaryClass;
+  const isActiveFirst = +firstButtonValue === currentPage ? true : false;
+  const isActiveSecond = +secondButtonValue === currentPage ? true : false;
+  const isActiveThird = +thirdButtonValue === currentPage ? true : false;
+  const isLastActive = +maxPage === +currentPage ? true : false;
 
   const lastPageButton = (
     <>
       <span className="table__pagination-continue">…</span>
-      <Button className={secondaryClass} onClick={onClick}>
+      <Button
+        paging={!isLastActive}
+        pagingActive={isLastActive}
+        onClick={onClick}
+      >
         {maxPage}
       </Button>
     </>
@@ -39,24 +38,36 @@ export const FooterPagination = ({
 
   return (
     <div className="table__footer-pagination">
-      <Button className={firstButtonClass} onClick={onClick}>
+      <Button
+        paging={!isActiveFirst}
+        pagingActive={isActiveFirst}
+        onClick={onClick}
+      >
         {firstButtonValue}
       </Button>
 
-      {maxPage !== 1 && (
-        <Button className={secondButtonClass} onClick={onClick}>
+      {maxPage !== 1 && maxPage !== 0 && (
+        <Button
+          paging={!isActiveSecond}
+          pagingActive={isActiveSecond}
+          onClick={onClick}
+        >
           {secondButtonValue}
         </Button>
       )}
 
       {thirdButtonValue <= maxPage && (
-        <Button className={secondaryClass} onClick={onClick}>
+        <Button
+          paging={!isActiveThird}
+          pagingActive={isActiveThird}
+          onClick={onClick}
+        >
           {thirdButtonValue}
         </Button>
       )}
-      {maxPage > 3 && page <= maxPage && lastPageButton}
+      {maxPage > 3 && page <= maxPage && page !== 0 && lastPageButton}
 
-      <Button className={thirdClass} onClick={onClickLast}>
+      <Button paging onClick={onClickLast}>
         #
       </Button>
       <PageDropdown isVisible={isVisible} onSubmit={onSubmit} />

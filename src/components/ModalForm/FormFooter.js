@@ -11,7 +11,7 @@ const FormFooter = ({ buttonHandler, error }) => {
       </div>
 
       <Button
-        className={modalForm.footer__button}
+        modalformFooter
         svgName="checkmark"
         iconClassName={modalForm.footer__icon}
         onClick={buttonHandler}

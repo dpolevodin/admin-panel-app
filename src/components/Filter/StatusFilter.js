@@ -6,7 +6,6 @@ import { FilterDropdown } from "../Filter/FilterDropdown";
 const mainComponentWrapperClass = "filter__input";
 const statusFilterSvgName = "v_arrow";
 const labelClassName = "filter__input-control";
-const buttonClassName = "filter__input-button";
 const inputClassName = "filter__input-area";
 const inputWrapperClassName =
   "filter__input-field filter__input-field_empty filter__input-field_long";
@@ -39,7 +38,7 @@ const StatusFilter = ({ statusValue, onChange, children }) => {
             onChange={handleDropdownVisible}
           />
           <Button
-            className={buttonClassName}
+            innerInput
             svgName={statusFilterSvgName}
             onClick={handleDropdownVisible}
           />

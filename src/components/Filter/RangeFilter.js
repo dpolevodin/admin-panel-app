@@ -3,7 +3,6 @@ import Input from "../Common/Input";
 
 const mainComponentWrapperClass = "filter__input";
 const labelClassName = "filter__input-control";
-const buttonClassName = "filter__input-button";
 const filterTitleClass = "filter__input-title";
 const inputWrapperClassDefault =
   "filter__input-field filter__input-field_empty";
@@ -41,11 +40,7 @@ export const RangeFilter = ({
             id={inputStartId}
           />
 
-          <Button
-            className={buttonClassName}
-            svgName={inputIconName}
-            onClick={onClick}
-          />
+          <Button innerInput svgName={inputIconName} onClick={onClick} />
         </div>
       </label>
 
@@ -65,11 +60,7 @@ export const RangeFilter = ({
             name="end"
             id={InputEndId}
           />
-          <Button
-            className={buttonClassName}
-            svgName={inputIconName}
-            onClick={onClick}
-          />
+          <Button innerInput svgName={inputIconName} onClick={onClick} />
         </div>
       </label>
     </div>
