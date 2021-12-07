@@ -5,6 +5,7 @@ import { formReducer as form } from "./modalForm";
 import { paginationReducer as pagination } from "./pagination";
 import { dropdownReducer as dropdown } from "./statusDropdown";
 import { iconsReducer as icons } from "./icons/reducer";
+import { themeReducer as theme } from "./theme/reducer";
 
 export const reducers = combineReducers({
   orders,
@@ -13,4 +14,5 @@ export const reducers = combineReducers({
   pagination,
   dropdown,
   icons,
+  theme,
 });

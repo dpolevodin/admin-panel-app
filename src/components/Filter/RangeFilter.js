@@ -3,7 +3,6 @@ import Input from "../Common/Input";
 
 const mainComponentWrapperClass = "filter__input";
 const labelClassName = "filter__input-control";
-const buttonClassName = "filter__input-button";
 const filterTitleClass = "filter__input-title";
 const inputWrapperClassDefault =
   "filter__input-field filter__input-field_empty";

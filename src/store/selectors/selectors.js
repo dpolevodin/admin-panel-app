@@ -1,3 +1,4 @@
+export const getIsDarkTheme = (state) => state.theme;
 export const getOrders = (state) => state.orders;
 export const getCheckedOrders = (state) => state.checkedOrders;
 export const getOrdersLength = (state) => state.orders.length;

@@ -8,7 +8,7 @@ const Button = ({
   iconClassName,
   children,
   type,
-  theme,
+  themeChange,
   filter,
   resetFilter,
   innerInput,
@@ -25,8 +25,8 @@ const Button = ({
   formDropdownSubmit,
 }) => {
   const buttonClass = cc({
-    "page-header__button": theme,
-    "page-header__button_transparent": theme,
+    "page-header__button": themeChange,
+    "page-header__button_transparent": themeChange,
     "filter-button": filter || resetFilter || filterApply,
     "filter-button_hidden-icon": resetFilter || filterApply,
     "filter-button_short": filterApply,

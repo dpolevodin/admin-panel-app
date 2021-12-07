@@ -1,4 +1,5 @@
 :root {
+  --main-background: #fff;
   --background-menu-light: rgba(255, 255, 153, 1);
   --background-menu-dark: rgba(0, 0, 0, 0.8);
   --background-menu-bright: rgb(245, 110, 32);
@@ -35,6 +36,7 @@
 
 body {
   font-family: "Ubuntu", sans-serif;
+  background-color: var(--main-background);
 }
 
 .svg {
@@ -364,7 +366,7 @@ body {
   padding: 0 0 0 0.5rem;
   width: 100%;
   line-height: 1rem;
-  background-color: inherit;
+  background-color: var(--background-admin-panel-white);
   outline: 0;
   color: var(--background-admin-panel-black);
 }
@@ -642,7 +644,7 @@ body {
   font-size: 0.8125rem;
   background-color: inherit;
   outline: 0;
-  color: inherit;
+  color: var(--background-admin-panel-black);
 }
 
 .filter__input-area::placeholder {
@@ -1107,6 +1109,7 @@ body {
   line-height: 1rem;
   font-size: 0.8125rem;
   margin-bottom: 0.75rem;
+  color: var(--background-admin-panel-black);
 }
 
 .table__dropdown-button {

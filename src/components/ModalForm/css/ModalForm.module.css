@@ -5,7 +5,6 @@
   --form-white: #fff;
   --form-dark: #3375b6;
   --form-red: #f53152;
-  --form-input-light: #bad8f5;
 }
 
 ._ {
@@ -214,6 +213,7 @@
   align-items: center;
   width: 100%;
   height: 2rem;
+  color: var(--background-admin-panel-black);
   background-color: var(--background-admin-panel-white);
   border: 0.0625rem solid;
   border-radius: 0.25rem;
@@ -238,7 +238,7 @@
 }
 
 .input_disabled {
-  background-color: var(--form-input-light);
+  background-color: var(--background-admin-panel-day-light);
   pointer-events: none;
 }
 .input_disabled .input_icon {
@@ -298,11 +298,12 @@
   display: none;
   width: 1rem;
   height: 1rem;
-  stroke: var(--form-input-light);
+  stroke: var(--background-admin-panel-black);
+  fill: var(--background-admin-panel-black);
 }
 
 .input_wrapper:nth-child(5) .input_icon {
-  fill: var(--form-input-light);
+  fill: var(--background-admin-panel-day-light);
 }
 
 .input_wrapper:nth-child(5) .button:active .input_icon {
@@ -351,6 +352,7 @@
   width: 100%;
   min-height: 2rem;
   padding: 0.5rem 1rem;
+  color: var(--background-admin-panel-black);
   border-bottom: 1px solid #ebf0f5;
 }
 
@@ -367,6 +369,7 @@
   align-items: center;
   justify-content: flex-end;
   background-color: var(--background-admin-panel-day-light);
+  color: var(--background-admin-panel-black);
   width: 100%;
   height: 2rem;
   padding: 0.5rem 1rem;
@@ -376,7 +379,7 @@
   display: flex;
   margin-right: 1rem;
   width: 5rem;
-  color: var(--background-admin-panel-day-light);
+  color: var(--background-admin-panel-white);
 }
 
 .ListItem:nth-child(2) {

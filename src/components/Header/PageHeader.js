@@ -2,14 +2,16 @@ import Button from "../Common/Button";
 
 const wrapperClass = "page-header";
 const headerClass = "page-header__text";
-const buttonClass = "page-header__button page-header__button_transparent";
 
-export const PageHeader = () => {
+export const PageHeader = ({ isDarkTheme, onClick }) => {
+  const icon = isDarkTheme ? "moon" : "sun";
+  const buttonText = isDarkTheme ? "Темная тема" : "Светлая тема";
+
   return (
     <div className={wrapperClass}>
       <h1 className={headerClass}>Список заказов</h1>
-      <Button theme svgName="sun">
-        Cветлая тема
+      <Button themeChange svgName={icon} onClick={onClick}>
+        {buttonText}
       </Button>
     </div>
   );

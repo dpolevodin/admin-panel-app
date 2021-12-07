@@ -9,6 +9,7 @@
   width: 10rem;
   padding: 0.5rem 0;
   border-radius: 0.5rem;
+  color: var(--background-admin-panel-black);
   animation: showDropdown 0.4s ease-out 1;
   background-color: var(--background-admin-panel-white);
   box-shadow: 0 0.5rem 2rem var(--background-admin-panel-shadow),
