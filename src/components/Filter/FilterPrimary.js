@@ -21,21 +21,13 @@ const FilterPrimary = ({
             value={value}
             onChange={onChange}
           >
-            <Button
-              className="filter__searchbar-button"
-              svgName="incorrect"
-              onClick={onClick}
-            />
+            <Button innerInput svgName="incorrect" onClick={onClick} />
           </Searchbar>
-          <Button
-            className="filter-button"
-            svgName="filter"
-            onClick={buttonFiltersHandler}
-          >
+          <Button filter svgName="filter" onClick={buttonFiltersHandler}>
             Фильтры
           </Button>
           <Button
-            className="filter-button filter-button_hidden-icon"
+            resetFilter
             svgName="filter"
             buttonText="Сбросить фильтры"
             onClick={resetFiltersHandler}

@@ -1,9 +1,6 @@
 import Dropdown from "./css/Dropdown.module.css";
 import Button from "../Common/Button";
 
-const submitButtonClass = Dropdown.button + " " + Dropdown.transparent;
-const cancelButtonClass = Dropdown.button;
-
 const FooterDropdown = ({ isOpen = true, handleResetButton, handleButton }) => {
   const blockClass = isOpen
     ? Dropdown._
@@ -13,7 +10,7 @@ const FooterDropdown = ({ isOpen = true, handleResetButton, handleButton }) => {
     <form className={blockClass}>
       <span className={Dropdown.title}>Есть несохраненные изменения</span>
       <Button
-        className={submitButtonClass}
+        formDropdownSubmit
         textClassName={Dropdown.text}
         iconClassName={Dropdown.icon}
         onClick={handleResetButton}
@@ -21,7 +18,7 @@ const FooterDropdown = ({ isOpen = true, handleResetButton, handleButton }) => {
         Сбросить
       </Button>
       <Button
-        className={cancelButtonClass}
+        formDropdownReset
         textClassName={Dropdown.text}
         iconClassName={Dropdown.icon}
         onClick={handleButton}

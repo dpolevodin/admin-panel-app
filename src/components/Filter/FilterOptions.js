@@ -11,8 +11,6 @@ import { selectors } from "../../store/selectors/selectors";
 
 const wrapperMainClass = "filter__wrapper";
 const formClassName = "filter__form";
-const buttonClassName =
-  "filter-button filter-button_hidden-icon filter-button_short";
 
 const FilterOptions = ({ isVisible }) => {
   const [dateStart, setDateStart] = useState("01.01.1900");
@@ -48,12 +46,14 @@ const FilterOptions = ({ isVisible }) => {
   };
 
   const handleInputSumValue = (event) => {
-    const InputName = event.target.name;
-    const value = event.target.value;
-    if (isFinite(value)) {
-      InputName === "start" ? setSumStart(value) : setSumEnd(value);
+    const input = event.target;
+    if (isFinite(input.value)) {
+      input.name === "start"
+        ? setSumStart(input.value)
+        : setSumEnd(input.value);
     } else {
       alert("Введите числовое значение!");
+      input.value = "";
     }
   };
 
@@ -139,7 +139,7 @@ const FilterOptions = ({ isVisible }) => {
           Сумма заказа
         </RangeFilter>
 
-        <Button className={buttonClassName} type="submit">
+        <Button filterApply type="submit">
           Применить
         </Button>
       </form>

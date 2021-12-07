@@ -7,7 +7,7 @@ const FormHeader = ({ buttonHandler, orderNumber = "" }) => {
     <header className={modalForm.header}>
       <div className={modalForm.header__title}>{`Заявка #${orderNumber}`}</div>
       <Button
-        className={modalForm.button}
+        modalform
         svgName={headerIconName}
         iconClassName={modalForm.header__icon}
         onClick={buttonHandler}

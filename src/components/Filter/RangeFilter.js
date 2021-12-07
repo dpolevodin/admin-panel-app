@@ -41,11 +41,7 @@ export const RangeFilter = ({
             id={inputStartId}
           />
 
-          <Button
-            className={buttonClassName}
-            svgName={inputIconName}
-            onClick={onClick}
-          />
+          <Button innerInput svgName={inputIconName} onClick={onClick} />
         </div>
       </label>
 
@@ -65,11 +61,7 @@ export const RangeFilter = ({
             name="end"
             id={InputEndId}
           />
-          <Button
-            className={buttonClassName}
-            svgName={inputIconName}
-            onClick={onClick}
-          />
+          <Button innerInput svgName={inputIconName} onClick={onClick} />
         </div>
       </label>
     </div>

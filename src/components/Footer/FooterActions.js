@@ -43,7 +43,7 @@ export const FooterActions = () => {
     <div className="table__footer-action">
       <FooterOrdersSelected count={countsSelected.length} />
       <Button
-        className="table__footer-button table__footer-button_blue"
+        footerStatus
         svgName="pencil"
         onClick={handleButtonStatusDropdown}
       >
@@ -56,11 +56,7 @@ export const FooterActions = () => {
         onChange={handleChangeOrdersStatus}
       />
 
-      <Button
-        className="table__footer-button table__footer-button_red"
-        svgName="bin"
-        onClick={handleDropdownVisible}
-      >
+      <Button danger svgName="bin" onClick={handleDropdownVisible}>
         Удалить
       </Button>
       {dropdownVisible && (

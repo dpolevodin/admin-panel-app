@@ -2,9 +2,6 @@ import Button from "../Common/Button";
 
 const formClassname = "table__footer-dropdown";
 const textClassName = "table__dropdown-title";
-const deleteButtonClass =
-  "table__dropdown-button table__dropdown-button_transparent";
-const cancelButtonClass = "table__dropdown-button";
 
 export const FooterDropdown = ({
   ordersCount,
@@ -14,10 +11,10 @@ export const FooterDropdown = ({
   return (
     <form className={formClassname}>
       <span className={textClassName}>Удалить {ordersCount} записей?</span>
-      <Button className={deleteButtonClass} onClick={deleteHandler}>
+      <Button dangerDelete onClick={deleteHandler}>
         Удалить
       </Button>
-      <Button className={cancelButtonClass} onClick={cancelHandler}>
+      <Button dangerCancel onClick={cancelHandler}>
         Отмена
       </Button>
     </form>
